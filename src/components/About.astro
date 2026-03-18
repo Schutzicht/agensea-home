@@ -1,0 +1,77 @@
+---
+import LogoCarousel from './LogoCarousel.astro';
+---
+
+<section id="over-ons" class="relative pt-32 md:pt-48 pb-12 md:pb-16 bg-dark overflow-hidden">
+  <!-- Subtle background accent -->
+  <div class="absolute top-0 right-0 w-1/2 h-full bg-indigo/5 blur-[120px] pointer-events-none"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+    <div class="max-w-4xl">
+      <span class="inline-flex items-center gap-3 text-xs font-bold text-indigo uppercase tracking-[0.3em] mb-12 reveal">
+        <span class="w-12 h-[1px] bg-indigo/30"></span>
+        Ons Manifesto
+      </span>
+      
+      <h2 class="font-display text-[clamp(2rem,7vw,4.5rem)] font-bold leading-[1.05] tracking-tight text-white mb-16 reveal">
+        Strategische oplossingen voor <span class="text-white/30 italic" style="text-decoration: underline; text-decoration-color: rgba(45, 63, 224, 0.5); text-underline-offset: 8px;">ambitieuze</span> bedrijven.<br/>
+        Geen loze beloftes, maar <span class="text-indigo">tastbaar resultaat.</span>
+      </h2>
+      
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div class="reveal" style="transition-delay: 200ms;">
+          <p class="text-xl md:text-2xl text-white/70 leading-relaxed font-light mb-12">
+            Digitale groei vereist meer dan alleen een mooie website. Het vraagt om een doordachte strategie waarbij technologie en marketing elkaar versterken. Dat is de langetermijnvisie van <span class="text-white font-medium italic">Agensea</span>.
+          </p>
+          
+          <div class="reveal space-y-8" style="transition-delay: 400ms;">
+            <p class="text-lg text-white/50 leading-relaxed max-w-md">
+              Wij bouwen duurzame oplossingen — van bedrijfsspecifieke software tot data-gedreven campagnes. Geen standaard templates, maar solide digitale platformen die specifiek zijn ontworpen om uw gehele organisatie vooruit te helpen.
+            </p>
+            
+            <div class="pt-4">
+               <a href="#diensten" class="inline-flex items-center gap-4 text-white group interactive">
+                 <span class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 group-hover:border-indigo group-hover:bg-indigo">
+                   <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                     <path d="M5 12h14M12 5l7 7-7 7" />
+                   </svg>
+                 </span>
+                 <span class="text-xs font-bold uppercase tracking-widest group-hover:text-indigo transition-colors duration-500">Ontdek onze werkwijze</span>
+               </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Visual (New) -->
+        <div class="reveal relative" style="transition-delay: 600ms;">
+          <div class="relative group">
+            <div class="absolute -inset-4 bg-indigo/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div class="aspect-[4/5] bg-dark-lighter rounded-[40px] overflow-hidden border border-white/10 relative z-10">
+              <img 
+                src="/images/team-manifesto.png" 
+                alt="Team Agensea founders" 
+                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent"></div>
+              <div class="absolute bottom-10 left-10">
+                <div class="flex items-center gap-3">
+                  <div class="flex -space-x-2">
+                    <div class="w-8 h-8 rounded-full border-2 border-white bg-cover" style="background-image: url('/team/ruben.webp')"></div>
+                    <div class="w-8 h-8 rounded-full border-2 border-white bg-cover" style="background-image: url('/team/jorian.webp')"></div>
+                    <div class="w-8 h-8 rounded-full border-2 border-white bg-cover" style="background-image: url('/team/jorik.webp')"></div>
+                  </div>
+                  <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">Direct contact</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client Logo Carousel (v8.0) -->
+  <div class="reveal mt-16 md:mt-24" style="transition-delay: 800ms;">
+    <LogoCarousel />
+  </div>
+</section>

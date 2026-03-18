@@ -1,0 +1,52 @@
+---
+const logos = [
+  { name: 'Arieke van Liere', src: '/Kopie van Unlocked  Logo Partner/Arieke van liere.svg' },
+  { name: 'Bouwgroep R&D', src: '/Kopie van Unlocked  Logo Partner/Bouwgroep R&D.svg' },
+  { name: 'Buurtteams', src: '/Kopie van Unlocked  Logo Partner/Buurtteams.svg' },
+  { name: 'Contemplas', src: '/Kopie van Unlocked  Logo Partner/Contemplas.svg' },
+  { name: 'Dockwize', src: '/Kopie van Unlocked  Logo Partner/Dockwize wit.svg' },
+  { name: 'Fractal', src: '/Kopie van Unlocked  Logo Partner/Fractal.svg' },
+  { name: 'HZ', src: '/Kopie van Unlocked  Logo Partner/HZ.svg' },
+  { name: 'Innovatiepunt KAAP', src: '/Kopie van Unlocked  Logo Partner/Innovatiepunt KAAP.svg' },
+  { name: 'ADRZ', src: '/Kopie van Unlocked  Logo Partner/Logo_Adrz_RGB.png' },
+  { name: 'MIM', src: '/Kopie van Unlocked  Logo Partner/MIM.svg' },
+  { name: 'Widea', src: '/Kopie van Unlocked  Logo Partner/Widea.svg' },
+  { name: 'Zeeland Podcasts', src: '/Kopie van Unlocked  Logo Partner/Zeeland podcasts.svg' }
+];
+
+// Duplicate for infinite scroll
+const displayLogos = [...logos, ...logos, ...logos];
+---
+
+<div class="relative w-full overflow-hidden py-6 bg-dark/20 border-t border-white/5">
+  <div class="flex items-center gap-4 mb-4 px-10">
+    <div class="w-1.5 h-1.5 rounded-full bg-indigo animate-pulse"></div>
+    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Vertrouwd door</span>
+  </div>
+
+  <div class="flex overflow-hidden group">
+    <div class="flex animate-marquee hover:[animation-play-state:paused] gap-20 items-center whitespace-nowrap px-10">
+      {displayLogos.map((logo) => (
+        <div class="flex-shrink-0 opacity-40 hover:opacity-100 transition-opacity duration-500 cursor-pointer">
+          <img 
+            src={logo.src} 
+            alt={logo.name} 
+            class="h-8 md:h-10 w-auto object-contain brightness-0 invert"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    display: flex;
+    animation: marquee 30s linear infinite;
+    width: max-content;
+  }
+</style>

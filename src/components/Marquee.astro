@@ -1,0 +1,15 @@
+---
+const capabilities = ["Websites", "AI Oplossingen", "Maatwerk Software", "Online Marketing", "Branding", "Strategie", "Webshops", "Automatisering"];
+const doubled = [...capabilities, ...capabilities];
+---
+
+<div class="py-6 border-y border-warm-grey overflow-hidden">
+  <div class="animate-marquee flex whitespace-nowrap">
+    {doubled.map((item) => (
+      <span class="flex items-center gap-6 text-sm font-medium text-muted uppercase tracking-[0.15em] mx-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-indigo shrink-0"></span>
+        {item}
+      </span>
+    ))}
+  </div>
+</div>

@@ -1,0 +1,62 @@
+---
+---
+
+<div id="cookie-banner" class="fixed bottom-10 left-10 z-[1000] max-w-sm w-full opacity-0 translate-y-10 pointer-events-none transition-all duration-700">
+  <div class="bg-white/80 backdrop-blur-2xl border border-white/20 rounded-[32px] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative overflow-hidden group">
+    <!-- Decorative background -->
+    <div class="absolute -top-10 -right-10 w-32 h-32 bg-indigo/5 rounded-full blur-3xl group-hover:bg-indigo/10 transition-colors duration-700"></div>
+
+    <div class="relative z-10 flex flex-col gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-indigo flex items-center justify-center text-white shadow-lg shadow-indigo/20">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </div>
+        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo">Agensea Cookies</span>
+      </div>
+
+      <p class="text-xs text-text-secondary leading-relaxed">
+        Wij gebruiken cookies om je ervaring op ons platform te personaliseren en te verbeteren. Geen zorgen, we vissen niet naar je geheimen.
+      </p>
+
+      <div class="flex items-center gap-4 pt-2">
+        <button id="accept-cookies" class="flex-1 px-6 py-3 bg-dark text-cream rounded-full text-xs font-bold uppercase tracking-widest hover:bg-indigo transition-all duration-300 interactive shadow-lg shadow-dark/5">
+          Accepteer
+        </button>
+        <button id="cookie-settings" class="px-3 py-3 text-dark/40 hover:text-dark transition-colors interactive">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('accept-cookies');
+
+  function showBanner() {
+    const hasAccepted = localStorage.getItem('cookies-accepted');
+    if (!hasAccepted) {
+      setTimeout(() => {
+        banner?.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+        banner?.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }, 2000);
+    }
+  }
+
+  function hideBanner() {
+    banner?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+    banner?.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+  }
+
+  acceptBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookies-accepted', 'true');
+    hideBanner();
+  });
+
+  document.addEventListener('DOMContentLoaded', showBanner);
+</script>

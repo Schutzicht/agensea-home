@@ -1,0 +1,206 @@
+---
+---
+
+<div id="ai-search-modal" class="fixed inset-0 z-[2000] opacity-0 pointer-events-none transition-all duration-500 overflow-hidden">
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-dark/40 backdrop-blur-xl" id="ai-modal-backdrop"></div>
+  
+  <!-- Content Area -->
+  <div class="relative h-full flex items-center justify-center p-6 md:p-20">
+    <div class="w-full max-w-4xl h-full max-h-[800px] bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col md:flex-row translate-y-20 transition-all duration-700">
+      
+      <!-- Left: Sidebar / Personality -->
+      <div class="w-full md:w-80 bg-indigo p-10 flex flex-col justify-between text-white relative">
+        <div class="relative z-10">
+          <div class="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-8 border border-white/30">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+          </div>
+          <h3 class="font-display text-3xl font-bold leading-tight mb-4">Agensea AI<br/>Assistant</h3>
+          <p class="text-white/60 text-sm leading-relaxed">
+            Stel je vraag of zoek naar specifieke informatie. Ik help je direct verder.
+          </p>
+        </div>
+        
+        <div class="relative z-10 space-y-4">
+          <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Suggesties</div>
+          <div class="flex flex-wrap gap-2">
+            <button class="suggestion-btn px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs transition-colors interactive">Over Agensea</button>
+            <button class="suggestion-btn px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs transition-colors interactive">Gerealiseerde projecten</button>
+            <button class="suggestion-btn px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs transition-colors interactive">Onze diensten</button>
+          </div>
+        </div>
+
+        <!-- Decorative "A" -->
+        <span class="absolute bottom-[-40px] right-[-20px] font-display text-[12rem] font-bold text-white/5 pointer-events-none">A</span>
+      </div>
+
+      <!-- Right: Search/Chat Area -->
+      <div class="flex-1 flex flex-col bg-white">
+        <!-- Close Button -->
+        <div class="flex justify-end p-6">
+          <button id="close-ai-search" class="w-12 h-12 rounded-full bg-cream hover:bg-warm-grey flex items-center justify-center transition-all interactive">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Messages Area -->
+        <div id="ai-chat-history" class="flex-1 overflow-y-auto px-8 md:px-12 py-4 space-y-8 scroll-smooth">
+          <!-- Welcome Message -->
+          <div class="flex gap-4">
+            <div class="w-8 h-8 rounded-lg bg-indigo flex-shrink-0 flex items-center justify-center text-white">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+              </svg>
+            </div>
+            <div class="max-w-[80%]">
+              <div class="bg-cream rounded-2xl rounded-tl-none p-5 text-dark leading-relaxed">
+                Welkom. Ik ben de AI-assistent van Agensea. Hoe kan ik u vandaag verder helpen? Vraag mij gerust naar onze diensten, strategische aanpak of eerdere projecten.
+              </div>
+              <span class="text-[10px] text-text-secondary/50 mt-2 block font-bold uppercase tracking-widest">Agensea AI • Nu</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-8 md:p-12 border-t border-warm-grey bg-cream/30">
+          <div class="relative group">
+            <input 
+              type="text" 
+              id="ai-search-input"
+              placeholder="Stel uw vraag..."
+              class="w-full bg-white border-2 border-warm-grey rounded-2xl px-8 py-5 pr-16 focus:border-indigo outline-none transition-all text-lg shadow-sm group-hover:shadow-md"
+            />
+            <button id="ai-send-btn" class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-xl bg-indigo text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg interactive">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex items-center gap-2 text-[10px] text-text-secondary/40 font-bold uppercase tracking-widest">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+            AI staat paraat
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('ai-search-modal');
+  const input = (document.getElementById('ai-search-input') as HTMLInputElement);
+  const sendBtn = document.getElementById('ai-send-btn');
+  const chatHistory = document.getElementById('ai-chat-history');
+  const closeBtn = document.getElementById('close-ai-search');
+  const backdrop = document.getElementById('ai-modal-backdrop');
+  const suggestionBtns = document.querySelectorAll('.suggestion-btn');
+
+  function openModal() {
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.querySelector('.relative > div').classList.remove('translate-y-20');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => input.focus(), 500);
+  }
+
+  function closeModal() {
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.querySelector('.relative > div').classList.add('translate-y-20');
+    document.body.style.overflow = '';
+  }
+
+  function addMessage(text, isUser = false) {
+    const msg = document.createElement('div');
+    msg.className = `flex gap-4 ${isUser ? 'flex-row-reverse' : ''}`;
+    
+    msg.innerHTML = `
+      <div class="w-8 h-8 rounded-lg ${isUser ? 'bg-indigo text-white' : 'bg-indigo text-white'} flex-shrink-0 flex items-center justify-center">
+        ${isUser ? 
+          `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>` : 
+          `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>`
+        }
+      </div>
+      <div class="max-w-[80%] ${isUser ? 'text-right' : ''}">
+        <div class="${isUser ? 'bg-indigo text-white rounded-tr-none' : 'bg-cream text-dark rounded-tl-none'} rounded-2xl p-5 shadow-sm leading-relaxed">
+          ${text}
+        </div>
+        <span class="text-[10px] text-text-secondary/50 mt-2 block font-bold uppercase tracking-widest">
+          ${isUser ? 'Jij' : 'Agensea AI'} • Nu
+        </span>
+      </div>
+    `;
+    
+    chatHistory.appendChild(msg);
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+  }
+
+  function simulateResponse(query) {
+    const thinking = document.createElement('div');
+    thinking.className = "flex gap-4 thinking-msg";
+    thinking.innerHTML = `
+      <div class="w-8 h-8 rounded-lg bg-indigo text-white flex-shrink-0 flex items-center justify-center">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+      </div>
+      <div>
+        <div class="bg-cream rounded-2xl rounded-tl-none p-5 flex gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo/40 animate-bounce"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo/40 animate-bounce [animation-delay:0.2s]"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo/40 animate-bounce [animation-delay:0.4s]"></span>
+        </div>
+      </div>
+    `;
+    chatHistory.appendChild(thinking);
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+
+    setTimeout(() => {
+      thinking.remove();
+      let response = "Dank voor uw vraag. Bij Agensea focussen we op de integratie van strategie, software, marketing en AI om organisatiegroei te realiseren. Wenst u specifieke informatie over onze diensten of projecten?";
+      
+      const lowQuery = query.toLowerCase();
+      if (lowQuery.includes('wat') || lowQuery.includes('wie') || lowQuery.includes('over agensea')) {
+        response = "Agensea is een modern, strategisch digitaal bureau. Wij begeleiden ambitieuze organisaties bij hun digitale transformatie door middel van maatwerk software, data-gedreven marketing en AI-oplossingen, gericht op meetbaar resultaat.";
+      } else if (lowQuery.includes('case') || lowQuery.includes('project')) {
+        response = "We hebben succesvolle trajecten afgerond voor uiteenlopende opdrachtgevers, waaronder ADRZ, Dockwise en De Kaap. Deze cases illustreren onze geïntegreerde aanpak. U kunt de specifieke cases bekijken via de referentielogo's op de overzichtspagina.";
+      } else if (lowQuery.includes('ai') || lowQuery.includes('dienst')) {
+        response = "Artificiële intelligentie vormt een cruciaal onderdeel van onze oplossingen. We implementeren AI om bedrijfsprocessen te automatiseren, efficiëntie te verhogen en toekomstbestendige systemen te ontwikkelen. Daarnaast bieden we robuust development en strategische marketing.";
+      }
+
+      addMessage(response);
+    }, 1500);
+  }
+
+  function handleSend() {
+    const val = input.value.trim();
+    if (!val) return;
+    
+    addMessage(val, true);
+    input.value = '';
+    simulateResponse(val);
+  }
+
+  // Listeners
+  window.addEventListener('open-ai-search', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  backdrop?.addEventListener('click', closeModal);
+  
+  sendBtn?.addEventListener('click', handleSend);
+  input?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') handleSend();
+  });
+
+  suggestionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const text = btn.textContent;
+      addMessage(text, true);
+      simulateResponse(text);
+    });
+  });
+
+  // Global trigger for testing
+  (window as any).triggerAI = openModal;
+</script>

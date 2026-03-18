@@ -1,0 +1,84 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="relative bg-dark pt-32 pb-20 overflow-hidden">
+  <!-- Decorative "A." on background -->
+  <div class="absolute top-0 right-0 p-20 opacity-5 pointer-events-none select-none">
+    <span class="font-display text-[40rem] font-bold text-white leading-none">A.</span>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+      
+      <!-- Brand & Ambition -->
+      <div class="lg:col-span-6 space-y-12">
+        <div>
+          <a href="/" class="font-display text-4xl font-bold tracking-tight text-white block mb-8 interactive">
+            agensea<span class="text-indigo">.</span>
+          </a>
+          <h3 class="text-3xl md:text-5xl font-display font-medium text-white/90 leading-tight max-w-xl">
+            Laten we jouw ambities <span class="text-indigo italic">echt</span> waarmaken.
+          </h3>
+        </div>
+
+        <div class="flex flex-wrap gap-12">
+          <div>
+            <p class="text-[10px] font-bold text-white/30 uppercase tracking-[0.3em] mb-4">Direct contact</p>
+            <a href="mailto:hallo@agensea.agency" class="text-xl font-bold text-white hover:text-indigo transition-colors interactive">hallo@agensea.agency</a>
+          </div>
+          <div>
+            <p class="text-[10px] font-bold text-white/30 uppercase tracking-[0.3em] mb-4">Bel ons</p>
+            <a href="tel:+31118123456" class="text-xl font-bold text-white hover:text-indigo transition-colors interactive">+31 (0)118 123 456</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links & Navigation -->
+      <div class="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-12">
+        <div>
+          <p class="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-6">Expertise</p>
+          <ul class="space-y-4">
+            <li><a href="#diensten" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Websites</a></li>
+            <li><a href="#diensten" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">AI Oplossingen</a></li>
+            <li><a href="#diensten" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Marketing</a></li>
+            <li><a href="#diensten" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Software</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <p class="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-6">Navigatie</p>
+          <ul class="space-y-4">
+            <li><a href="#over-ons" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Over ons</a></li>
+            <li><a href="#cases" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Cases</a></li>
+            <li><a href="#contact" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-6">Socials</p>
+          <ul class="space-y-4">
+            <li><a href="#" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">LinkedIn</a></li>
+            <li><a href="#" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-32 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+        <span class="text-[10px] font-bold text-white/20 uppercase tracking-widest">Always Online</span>
+      </div>
+      
+      <div class="flex items-center gap-8 text-[10px] font-bold text-white/20 uppercase tracking-widest">
+        <span>© {year} Agensea. All ambitious reserved.</span>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white transition-colors">Privacy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

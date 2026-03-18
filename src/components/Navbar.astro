@@ -1,0 +1,185 @@
+---
+---
+
+<!-- Top Bar: Logo & Navigation Container -->
+<div class="fixed top-10 left-0 right-0 z-[900] pointer-events-none" id="nav-header">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="font-display text-2xl font-bold tracking-tight text-dark interactive pointer-events-auto" id="logo-main">
+      agensea<span class="text-indigo">.</span>
+    </a>
+
+    <!-- Navigation Pill (v9.1: Right Aligned & Scaled Up) -->
+    <div class="pointer-events-none" id="nav-wrapper">
+      <nav 
+        class="px-6 md:px-8 py-3 bg-white/60 backdrop-blur-3xl border border-white/20 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 pointer-events-auto flex items-center gap-6 md:gap-8" 
+        id="main-nav"
+      >
+        <!-- Primary Core Links -->
+        <div class="flex items-center gap-6 md:gap-10">
+          <a href="#diensten" class="text-xs font-bold uppercase tracking-widest text-dark/60 hover:text-indigo transition-colors interactive">Diensten</a>
+          <a href="#cases" class="text-xs font-bold uppercase tracking-widest text-dark/60 hover:text-indigo transition-colors interactive">Cases</a>
+          
+          <button id="nav-search-btn" class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-dark/60 hover:text-indigo transition-colors interactive">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+            </svg>
+            <span class="hidden lg:inline">AI Zoeken</span>
+          </button>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-[1px] h-5 bg-dark/10"></div>
+
+        <!-- Menu Toggle Button -->
+        <button id="menu-toggle" class="relative group flex items-center gap-3 interactive hover:text-indigo transition-colors">
+          <div class="relative w-5 h-4 flex flex-col justify-between items-center py-0.5">
+            <span class="block w-5 h-[2px] bg-current transition-all duration-300 origin-center" id="menu-line-1"></span>
+            <span class="block w-5 h-[2px] bg-current transition-all duration-300 origin-center" id="menu-line-2"></span>
+          </div>
+          <span id="menu-text" class="text-xs font-bold uppercase tracking-[0.2em] text-inherit transition-colors">Menu</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- Mega Menu Overlay -->
+<div id="mega-menu" class="fixed inset-0 z-[899] bg-cream/95 backdrop-blur-3xl flex flex-col justify-center opacity-0 pointer-events-none transition-all duration-700 ease-out-expo scale-110">
+  <!-- Decorative Background Blobs -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="mesh-blob w-[800px] h-[800px] bg-indigo/10 top-[-20%] right-[-10%] blur-[120px]"></div>
+    <div class="mesh-blob w-[600px] h-[600px] bg-violet/10 bottom-[-20%] left-[-10%] blur-[120px]"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-2 gap-16 lg:gap-32">
+      <!-- Diensten (Key Activities) -->
+      <div>
+        <span class="inline-flex items-center gap-2 text-xs font-bold text-indigo uppercase tracking-[0.3em] mb-12">
+          <span class="w-10 h-[2px] bg-indigo"></span>
+          Wat we doen
+        </span>
+        <ul class="space-y-4 md:space-y-8">
+          <li>
+            <a href="#diensten" class="mega-link group flex items-center text-4xl md:text-7xl font-display font-bold text-dark/20 hover:text-dark transition-all duration-500 hover:tracking-tight interactive">
+              Websites
+              <span class="text-indigo opacity-0 -translate-x-8 group-hover:opacity-100 group-hover:translate-x-4 transition-all duration-500">.</span>
+            </a>
+          </li>
+          <li>
+            <a href="#diensten" class="mega-link group flex items-center text-4xl md:text-7xl font-display font-bold text-dark/20 hover:text-dark transition-all duration-500 hover:tracking-tight interactive">
+              Software
+              <span class="text-indigo opacity-0 -translate-x-8 group-hover:opacity-100 group-hover:translate-x-4 transition-all duration-500">.</span>
+            </a>
+          </li>
+          <li>
+            <a href="#diensten" class="mega-link group flex items-center text-4xl md:text-7xl font-display font-bold text-dark/20 hover:text-dark transition-all duration-500 hover:tracking-tight interactive">
+              Marketing
+              <span class="text-indigo opacity-0 -translate-x-8 group-hover:opacity-100 group-hover:translate-x-4 transition-all duration-500">.</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bureau Info -->
+      <div class="flex flex-col justify-between py-4">
+        <div class="space-y-12">
+          <div>
+            <span class="block text-[10px] font-bold text-text-secondary uppercase tracking-[0.3em] mb-6">Navigatie</span>
+            <ul class="grid grid-cols-2 gap-6">
+              <li><a href="#over-ons" class="mega-link text-xl font-bold text-dark hover:text-indigo transition-colors">Over ons</a></li>
+              <li><a href="#cases" class="mega-link text-xl font-bold text-dark hover:text-indigo transition-colors">Ons werk</a></li>
+              <li><a href="#contact" class="mega-link text-xl font-bold text-dark hover:text-indigo transition-colors">Contact</a></li>
+              <li><a href="/" class="mega-link text-xl font-bold text-dark hover:text-indigo transition-colors">Home</a></li>
+            </ul>
+          </div>
+          
+          <div class="p-8 bg-white/50 rounded-3xl border border-white">
+            <p class="text-[10px] font-bold text-text-secondary uppercase tracking-[0.3em] mb-4">Direct contact</p>
+            <a href="tel:+31118123456" class="text-2xl font-display font-bold text-dark hover:text-indigo transition-colors">+31 (0)118 123 456</a>
+            <p class="mt-2 text-sm text-text-secondary">Vragen? We helpen je graag verder.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const megaMenu = document.getElementById('mega-menu');
+  const menuText = document.getElementById('menu-text');
+  const line1 = document.getElementById('menu-line-1');
+  const line2 = document.getElementById('menu-line-2');
+  const mainNav = document.getElementById('main-nav');
+  const navWrapper = document.getElementById('nav-wrapper');
+  const links = document.querySelectorAll('.mega-link');
+  let isOpen = false;
+  let lastScroll = 0;
+
+  // ── Menu Toggle Logic ────────────────────
+  function toggleMenu() {
+    isOpen = !isOpen;
+
+    if (isOpen) {
+      megaMenu?.classList.remove('opacity-0', 'pointer-events-none', 'scale-110');
+      megaMenu?.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
+      
+      line1?.classList.add('translate-y-[6px]', 'rotate-45');
+      line2?.classList.add('-translate-y-[6px]', '-rotate-45');
+
+      if(menuText) menuText.textContent = 'Dicht';
+      document.body.style.overflow = 'hidden';
+    } else {
+      megaMenu?.classList.add('opacity-0', 'pointer-events-none', 'scale-110');
+      megaMenu?.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
+
+      line1?.classList.remove('translate-y-[6px]', 'rotate-45');
+      line2?.classList.remove('-translate-y-[6px]', '-rotate-45');
+
+      if(menuText) menuText.textContent = 'Menu';
+      document.body.style.overflow = '';
+    }
+  }
+
+  toggleBtn?.addEventListener('click', toggleMenu);
+  links.forEach(link => link.addEventListener('click', () => isOpen && toggleMenu()));
+
+  // AI Search Trigger
+  document.getElementById('nav-search-btn')?.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('open-ai-search'));
+  });
+
+  // ── Smart Scroll Logic ────────────────────
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    const navHeader = document.getElementById('nav-header');
+    
+    // 1. Hide/Show on Scroll Up/Down
+    if (currentScroll > lastScroll && currentScroll > 200 && !isOpen) {
+      // Scrolling down
+      if (navHeader) navHeader.style.transform = 'translateY(-200%)';
+    } else {
+      // Scrolling up
+      if (navHeader) navHeader.style.transform = 'translateY(0)';
+    }
+
+    // 2. Shrink/Aesthetic Change on Scroll
+    if (currentScroll > 50) {
+      mainNav?.classList.add('bg-white/80', 'py-2', 'px-5');
+      mainNav?.classList.remove('bg-white/60', 'py-3', 'px-6');
+    } else {
+      mainNav?.classList.remove('bg-white/80', 'py-2', 'px-5');
+      mainNav?.classList.add('bg-white/60', 'py-3', 'px-6');
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>
+
+<style>
+  .ease-out-expo {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>

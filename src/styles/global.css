@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@theme {
+    /* ── Colors ──────────────────────────────── */
+    --color-cream: #FAF9F6;
+    --color-cream-dark: #F0EDE8;
+    --color-warm-grey: #E8E6E1;
+    --color-muted: #B5B0A8;
+    --color-text: #2A2A2A;
+    --color-text-secondary: #6B6B6B;
+    --color-dark: #0D0D0D;
+    --color-indigo: #2D3FE0;
+    --color-indigo-light: #4F5EF7;
+    --color-violet: #6C63FF;
+
+    /* ── Typography ──────────────────────────── */
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "Inter", sans-serif;
+}
+
+/* ── Base ──────────────────────────────────── */
+@layer base {
+    html {
+        font-family: var(--font-body);
+        scroll-behavior: smooth;
+        background-color: #FAF9F6;
+        color: #2A2A2A;
+    }
+
+    ::selection {
+        background: #2D3FE0;
+        color: #FAF9F6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: var(--font-display);
+        letter-spacing: -0.03em;
+    }
+
+}
+
+/* ── Grain Texture Overlay ─────────────────── */
+.grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px;
+}
+
+
+
+/* ── Scroll reveal ─────────────────────────── */
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+}
+
+.reveal.visible {
+    animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Kinetic text (word stagger) ───────────── */
+.kinetic-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px) rotate(2deg);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kinetic-word.visible {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+}
+
+/* ── Marquee ───────────────────────────────── */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 25s linear infinite;
+}
+
+/* ── Magnetic button ───────────────────────── */
+.magnetic-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Horizontal scroll ─────────────────────── */
+.horizontal-scroll {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2rem;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-scroll>* {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+/* ── Service row hover ─────────────────────── */
+.service-row {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-row:hover {
+    background-color: #0D0D0D;
+    color: #FAF9F6;
+    padding-left: 3rem;
+}
+
+.service-row:hover .service-num {
+    color: #2D3FE0;
+}
+
+.service-row:hover .service-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.service-arrow {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+/* ── Counter animation ─────────────────────── */
+.counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ── Gradient mesh (hero bg) ───────────────── */
+@keyframes meshMove {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(30px, -20px) scale(1.05);
+    }
+
+    50% {
+        transform: translate(-20px, 20px) scale(0.98);
+    }
+
+    75% {
+        transform: translate(10px, 10px) scale(1.02);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-6deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(-4deg);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.mesh-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: meshMove 15s ease-in-out infinite;
+    pointer-events: none;
+}

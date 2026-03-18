@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Cases from '../components/Cases.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+import CasePopup from '../components/CasePopup.astro';
+import AISearch from '../components/AISearch.astro';
+---
+
+<Layout title="Home">
+  <Navbar />
+  <main>
+    <Hero />
+    <About />
+    <Services />
+    <Cases />
+    <CTA />
+  </main>
+  <Footer />
+  <CasePopup />
+  <AISearch />
+  
+  <!-- Floating AI Button (Humanized) -->
+  <button 
+    id="ai-fab"
+    class="fixed bottom-10 right-10 z-[100] h-14 bg-white/80 backdrop-blur-xl text-dark shadow-2xl flex items-center gap-0 px-1 pr-6 rounded-full hover:gap-3 transition-all duration-500 interactive pointer-events-auto group overflow-hidden border border-warm-grey"
+    title="Hulp nodig?"
+  >
+    <!-- Avatar Trigger -->
+    <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-indigo bg-indigo overflow-hidden relative">
+      <div 
+        class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" 
+        style="background-image: url('/team/ruben.webp');"
+      ></div>
+      <!-- Sparkle/AI badge -->
+      <div class="absolute bottom-0 right-0 w-4 h-4 bg-indigo rounded-full flex items-center justify-center border border-white">
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Label -->
+    <div class="flex flex-col items-start pl-3">
+      <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo leading-none mb-1">Agensea AI</span>
+      <span class="text-xs font-bold text-dark whitespace-nowrap">Hulp nodig?</span>
+    </div>
+
+    <!-- Active Indicator -->
+    <span class="absolute top-2 right-2 w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+  </button>
+
+  <script>
+    document.getElementById('ai-fab')?.addEventListener('click', () => {
+      window.dispatchEvent(new CustomEvent('open-ai-search'));
+    });
+  </script>
+</Layout>

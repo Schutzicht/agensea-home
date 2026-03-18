@@ -1,0 +1,279 @@
+---
+// The Hero segment data aligned with BMC & UVP
+const segments = [
+  {
+    id: "website",
+    label: "een schaalbaar digitaal platform",
+    subtitle: "Wij ontwikkelen robuuste websites die meegroeien met uw ambities. Gefocust op performance, gebruiksvriendelijkheid en conversie.",
+    solutions: [
+      { title: "Maatwerk Websites", desc: "Prestatiegericht & betrouwbaar." },
+      { title: "UX/UI Design", desc: "Focus op gebruiksgemak." }
+    ]
+  },
+  {
+    id: "groeien",
+    label: "meetbare groei en rendement",
+    subtitle: "Kies voor een strategische aanpak. Wij combineren data en marketing om uw bereik te vergroten en bedrijfsdoelen te realiseren.",
+    solutions: [
+      { title: "Online Marketing", desc: "Data-gedreven campagnes." },
+      { title: "Strategie & Branding", desc: "Bouwen aan autoriteit." }
+    ]
+  },
+  {
+    id: "versnellen",
+    label: "efficiëntere bedrijfsprocessen",
+    subtitle: "Optimaliseer uw operatie. Wij ontwikkelen maatwerk software en AI-oplossingen die complexe processen structureel stroomlijnen.",
+    solutions: [
+      { title: "Maatwerk Software", desc: "Systemen voor uw workflow." },
+      { title: "AI Integraties", desc: "Slimme procesoptimalisatie." }
+    ]
+  },
+  {
+    id: "ontdekken",
+    label: "een strategische partner",
+    subtitle: "Op zoek naar een bureau dat meedenkt over uw digitale langetermijnvisie? Wij maken graag kennis.",
+    solutions: [
+      { title: "Bekijk Cases", desc: "Gerealiseerde projecten." },
+      { title: "Plan een Kennismaking", desc: "Boek een vrijblijvend gesprek." }
+    ]
+  }
+];
+---
+
+<section class="relative min-h-screen flex items-center justify-center px-6 pt-40 pb-32 overflow-hidden">
+  <!-- Gradient Mesh Background -->
+  <div class="mesh-blob w-[600px] h-[600px] bg-indigo/10 top-[-10%] left-[-10%]" style="animation-delay: 0s;"></div>
+  <div class="mesh-blob w-[500px] h-[500px] bg-violet/10 bottom-[-10%] right-[-5%]" style="animation-delay: -5s;"></div>
+  
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+      
+      <!-- Left Column: Headline & UVP -->
+      <div class="lg:col-span-7 text-left relative">
+        <h1 class="font-display font-bold text-[clamp(2.5rem,6vw,5rem)] leading-[0.95] tracking-tight text-dark reveal">
+          Klaar voor de volgende stap in <span class="text-indigo">digitale groei.</span>
+        </h1>
+        <p class="mt-8 text-lg md:text-xl text-text-secondary max-w-xl reveal leading-relaxed" style="transition-delay: 200ms;">
+          Welkom bij <strong>Agensea</strong>. Wij zijn de strategische partner voor ambitieuze organisaties. We combineren maatwerk development, marketing en AI tot doeltreffende digitale oplossingen.
+        </p>
+        
+        <!-- Trust Badge & Team Flavor -->
+        <div class="mt-12 flex flex-wrap items-center gap-8 reveal" style="transition-delay: 400ms;">
+          <!-- Avatars -->
+          <div class="flex items-center gap-4">
+          <div class="flex -space-x-3">
+             <div 
+               data-case="adrz"
+               class="w-10 h-10 rounded-full border-2 border-white bg-white bg-contain bg-center bg-no-repeat overflow-hidden cursor-pointer hover:scale-110 hover:z-10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo/20 interactive" 
+               style="background-image: url('/logos-hero/Logo_Adrz_RGB.png');"
+               title="Bekijk ADRZ Case"
+             ></div>
+             <div 
+               data-case="dockwise"
+               class="w-10 h-10 rounded-full border-2 border-white bg-white bg-no-repeat overflow-hidden cursor-pointer hover:scale-110 hover:z-10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo/20 interactive" 
+               style="background-image: url('/logos-hero/Dockwizelogo_wit1-2b3d6e10 (1).jpg'); background-size: 140%; background-position: center;"
+               title="Bekijk Dockwise Case"
+             ></div>
+             <div 
+               data-case="kaap"
+               class="w-10 h-10 rounded-full border-2 border-white bg-white bg-contain bg-center bg-no-repeat overflow-hidden cursor-pointer hover:scale-110 hover:z-10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo/20 interactive" 
+               style="background-image: url('/logos-hero/Kaap_RGB_Logo_rond_fc.svg');"
+               title="Bekijk De Kaap Case"
+             ></div>
+          </div>
+            <p class="text-[10px] font-bold uppercase tracking-widest text-text-secondary/60 italic">Vertrouwd door</p>
+          </div>
+
+          <!-- Divider -->
+          <div class="hidden sm:block w-[1px] h-8 bg-dark/10"></div>
+
+          <!-- Team Badge -->
+          <div class="flex items-center gap-4 group">
+            <div class="flex -space-x-4">
+              <div class="w-12 h-12 rounded-full border-2 border-indigo p-0.5 overflow-hidden bg-white transition-transform duration-500 hover:z-10 hover:scale-110">
+                <div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('/team/ruben.webp');"></div>
+              </div>
+              <div class="w-12 h-12 rounded-full border-2 border-indigo p-0.5 overflow-hidden bg-white transition-transform duration-500 hover:z-10 hover:scale-110">
+                <div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('/team/jorian.webp');"></div>
+              </div>
+              <div class="w-12 h-12 rounded-full border-2 border-indigo p-0.5 overflow-hidden bg-white transition-transform duration-500 hover:z-10 hover:scale-110">
+                <div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('/team/jorik.webp');"></div>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo leading-tight">Ons Team</span>
+              <span class="text-[11px] text-text-secondary leading-tight mt-0.5 font-medium italic">Always online.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Dropdown -->
+      <div class="lg:col-span-5 relative">
+        <div class="bg-white/40 backdrop-blur-[40px] border border-white p-6 md:p-10 rounded-[2.5rem] shadow-2xl relative z-20 reveal" style="transition-delay: 300ms;">
+          <div class="mb-10">
+            <span class="block font-display font-medium text-2xl text-text-secondary mb-4">Ik wil</span>
+            
+            <!-- Custom Dropdown -->
+            <div class="relative w-full text-left" id="hero-dropdown-container">
+              <button id="hero-dropdown-btn" class="w-full flex items-center justify-between gap-4 font-display font-bold text-xl md:text-2xl text-indigo/60 hover:text-indigo leading-tight pb-3 border-b-2 border-indigo/20 hover:border-indigo transition-all interactive outline-none">
+                <span id="selected-label" class="break-words text-left flex-1 italic">...kies je behoefte</span>
+                <svg class="w-6 h-6 shrink-0 transition-transform duration-300" id="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+
+              <div id="hero-dropdown-list" class="absolute top-full left-0 right-0 mt-4 bg-white rounded-2xl shadow-2xl border border-warm-grey/50 overflow-hidden opacity-0 pointer-events-none translate-y-4 transition-all duration-300 z-50">
+                {segments.map((seg) => (
+                  <button 
+                    class="segment-option w-full text-left px-6 py-4 hover:bg-cream-dark transition-colors border-b border-warm-grey/20 last:border-b-0 font-display text-lg font-medium text-dark flex items-center justify-between group"
+                    data-id={seg.id}
+                  >
+                    {seg.label}
+                    <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-indigo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Results Area -->
+          <div class="relative min-h-[220px]" id="content-wrapper">
+            <!-- Empty State -->
+            <div id="content-empty" class="w-full h-full flex items-center justify-center opacity-100 transition-opacity duration-300 py-10">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-4 border border-warm-grey/50">
+                   <svg class="w-8 h-8 text-indigo/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l5 5M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+                </div>
+                <p class="text-text-secondary/40 text-xs tracking-widest uppercase font-medium">Selecteer een ambitie</p>
+              </div>
+            </div>
+
+            {segments.map((seg) => (
+              <div 
+                id={`content-${seg.id}`} 
+                class="segment-content absolute inset-0 w-full transition-all duration-500 ease-out-expo opacity-0 translate-y-8 pointer-events-none"
+              >
+                <div class="flex flex-col gap-6">
+                  <p class="text-lg text-dark leading-snug font-medium">
+                    {seg.subtitle}
+                  </p>
+                  <div class="grid gap-3">
+                    {seg.solutions.map(sol => (
+                      <a href="#contact" class="group flex items-center justify-between gap-4 p-4 rounded-xl bg-white/50 border border-warm-grey/30 hover:border-indigo hover:shadow-lg transition-all interactive">
+                        <div>
+                          <h4 class="font-display font-bold text-dark text-sm">{sol.title}</h4>
+                          <p class="text-[10px] text-text-secondary">{sol.desc}</p>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-cream flex items-center justify-center group-hover:bg-indigo group-hover:text-white transition-colors">
+                          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Decorative Floating Element -->
+        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-indigo/5 rounded-full blur-2xl z-10"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .ease-out-expo {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>
+
+<script>
+  // Hero Logic
+  const btn = document.getElementById('hero-dropdown-btn');
+  const list = document.getElementById('hero-dropdown-list');
+  const icon = document.getElementById('dropdown-icon');
+  const selectedLabel = document.getElementById('selected-label');
+  const options = document.querySelectorAll('.segment-option');
+  const contents = document.querySelectorAll('.segment-content');
+  const emptyState = document.getElementById('content-empty');
+
+  let activeId = null;
+  let isOpen = false;
+
+  btn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    isOpen = !isOpen;
+    if (isOpen) {
+      list?.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+      icon?.classList.add('rotate-180');
+    } else {
+      list?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+      icon?.classList.remove('rotate-180');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (isOpen && btn && list && !btn.contains(e.target as Node) && !list.contains(e.target as Node)) {
+      isOpen = false;
+      list?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+      icon?.classList.remove('rotate-180');
+    }
+  });
+
+  options.forEach(opt => {
+    opt.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const newId = (opt as HTMLElement).dataset.id;
+      const newLabel = opt.textContent?.trim();
+
+      if (!newId || newId === activeId) {
+        isOpen = false;
+        list?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        icon?.classList.remove('rotate-180');
+        return;
+      }
+
+      if (!activeId && emptyState) {
+        emptyState.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => (emptyState as HTMLElement).style.display = 'none', 300);
+        btn?.classList.remove('text-indigo/60');
+        btn?.classList.add('text-indigo');
+      }
+
+      if (selectedLabel && newLabel) {
+         selectedLabel.style.opacity = '0';
+         setTimeout(() => {
+           selectedLabel.textContent = newLabel;
+           selectedLabel.style.opacity = '1';
+           selectedLabel.classList.remove('italic');
+         }, 200);
+      }
+
+      contents.forEach(content => {
+        if (content.id === `content-${newId}`) {
+          content.classList.remove('opacity-0', 'translate-y-8', 'pointer-events-none');
+          content.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        } else {
+          content.classList.add('opacity-0', 'translate-y-8', 'pointer-events-none');
+          content.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        }
+      });
+
+      activeId = newId;
+      isOpen = false;
+      list?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+      icon?.classList.remove('rotate-180');
+    });
+  });
+
+  if(selectedLabel) selectedLabel.style.transition = 'opacity 0.2s ease-out';
+  // Handle Case Logo Clicks
+  document.querySelectorAll('[data-case]').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = el.getAttribute('data-case');
+      window.dispatchEvent(new CustomEvent('open-case', { detail: { id } }));
+    });
+  });
+</script>

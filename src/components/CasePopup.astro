@@ -1,0 +1,111 @@
+---
+---
+
+<div 
+  id="case-modal" 
+  class="fixed inset-0 z-[1000] flex items-center justify-center p-6 md:p-12 opacity-0 pointer-events-none transition-all duration-500"
+>
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-dark/20 backdrop-blur-md" id="case-modal-close"></div>
+  
+  <!-- Modal Container -->
+  <div class="relative bg-white rounded-3xl w-full max-w-5xl max-h-[85vh] overflow-hidden shadow-2xl translate-y-8 transition-all duration-500 flex flex-col md:flex-row">
+    
+    <!-- Left: Image/Visual -->
+    <div class="w-full md:w-1/2 h-64 md:h-auto bg-warm-grey relative overflow-hidden">
+      <img id="case-image" src="" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent md:bg-gradient-to-r"></div>
+    </div>
+    
+    <!-- Right: Content -->
+    <div class="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto">
+      <button 
+        id="case-modal-close-btn"
+        class="absolute top-6 right-6 w-10 h-10 rounded-full bg-cream hover:bg-warm-grey flex items-center justify-center transition-colors interactive"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="mt-4">
+        <span id="case-category" class="text-xs font-bold uppercase tracking-widest text-indigo mb-4 block"></span>
+        <h2 id="case-title" class="font-display text-3xl md:text-5xl font-bold leading-tight mb-6"></h2>
+        <div id="case-description" class="text-text-secondary text-lg leading-relaxed space-y-4"></div>
+        
+        <div class="mt-12">
+          <a id="case-link" href="#" class="inline-flex items-center gap-2 group text-dark font-bold interactive">
+            Bekijk volledige case
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const cases = {
+    adrz: {
+      category: "Marketing Campagne",
+      title: "Impact voor de ADRZ Kniepode",
+      description: `
+        <p>Voor het ADRZ hebben wij een gerichte marketingcampagne opgezet om de vindbaarheid en het bewustzijn rondom de 'Kniepode' te vergroten.</p>
+        <p>Door de inzet van slimme targeting en heldere communicatie hebben we gezorgd voor een aanzienlijke stijging in relevante aanvragen en een sterkere positionering van de afdeling.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000",
+    },
+    dockwise: {
+      category: "Marketing & Groei",
+      title: "Wereldwijde zichtbaarheid voor Dockwise",
+      description: `
+        <p>Voor de maritieme reus Dockwise hebben wij diverse marketingcampagnes uitgevoerd gericht op zowel hun zakelijke propositie als employer branding.</p>
+        <p>Onze aanpak combineert data-gedreven advertenties met creatieve content die de indrukwekkende schaal van hun operaties recht doet.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?q=80&w=2000",
+    },
+    kaap: {
+      category: "Web Development",
+      title: "Een digitaal fundament voor De Kaap",
+      description: `
+        <p>Wij zijn trotse partners van De Kaap en hebben hun volledige website ontwikkeld. Het doel was om de unieke sfeer van de innovatiehub online te vertalen.</p>
+        <p>Met een focus op hoogwaardige techniek en een interactieve ervaring dient de site nu als de centrale plek voor hun groeiende community.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000",
+    }
+  };
+
+  const modal = document.getElementById('case-modal');
+  const closeTriggers = [
+    document.getElementById('case-modal-close'),
+    document.getElementById('case-modal-close-btn')
+  ];
+
+  function openCase(id) {
+    const caseData = cases[id];
+    if (!caseData) return;
+
+    // Update content
+    document.getElementById('case-title').textContent = caseData.title;
+    document.getElementById('case-category').textContent = caseData.category;
+    document.getElementById('case-description').innerHTML = caseData.description;
+    document.getElementById('case-image').src = caseData.image;
+
+    // Show modal
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.querySelector('.relative').classList.remove('translate-y-8');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCase() {
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.querySelector('.relative').classList.add('translate-y-8');
+    document.body.style.overflow = '';
+  }
+
+  // Event Listeners
+  window.addEventListener('open-case', (e: any) => openCase(e.detail.id));
+  closeTriggers.forEach(t => t?.addEventListener('click', closeCase));
+</script>

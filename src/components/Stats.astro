@@ -1,0 +1,23 @@
+---
+const stats = [
+  { value: "50", suffix: "+", label: "Projecten opgeleverd" },
+  { value: "98", suffix: "%", label: "Tevreden klanten" },
+  { value: "24", suffix: "/7", label: "Support beschikbaar" },
+  { value: "3", suffix: "x", label: "Sneller dan gemiddeld" },
+];
+---
+
+<section class="py-24 md:py-32 px-6 lg:px-10 bg-dark text-cream">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+      {stats.map((stat, i) => (
+        <div class="reveal text-center" style={`animation-delay: ${i * 0.1}s;`}>
+          <div class="font-display text-5xl md:text-7xl font-bold mb-3">
+            <span class="counter" data-target={stat.value} data-suffix={stat.suffix}>0{stat.suffix}</span>
+          </div>
+          <div class="text-sm text-muted uppercase tracking-[0.15em]">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

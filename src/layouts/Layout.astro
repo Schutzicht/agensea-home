@@ -1,0 +1,141 @@
+---
+import '../styles/global.css';
+import AISearch from '../components/AISearch.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Agensea — Voor ambitieuze ondernemers bouwen wij moderne websites, AI-oplossingen en online marketingcampagnes. Slim, snel en zonder poespas." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Agensea</title>
+    <meta name="description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="grain bg-cream min-h-screen overflow-x-hidden">
+    <slot />
+    <AISearch />
+    <CookieBanner />
+    <script>
+
+
+      // ── Scroll Reveal ──────────────────────────
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+      document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+      // ── Kinetic Text ──────────────────────────
+      const kineticObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const words = entry.target.querySelectorAll('.kinetic-word');
+            words.forEach((word, i) => {
+              setTimeout(() => word.classList.add('visible'), i * 80);
+            });
+          }
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll('.kinetic-container').forEach((el) => kineticObserver.observe(el));
+
+      // ── Magnetic Buttons ──────────────────────
+      document.querySelectorAll('.magnetic-btn').forEach((btn) => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = 'translate(0, 0)';
+        });
+      });
+
+      // ── Animated Counters ────────────────────
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.target || '0');
+            const suffix = el.dataset.suffix || '';
+            let current = 0;
+            const duration = 2000;
+            const step = target / (duration / 16);
+            const timer = setInterval(() => {
+              current += step;
+              if (current >= target) {
+                current = target;
+                clearInterval(timer);
+              }
+              el.textContent = Math.round(current) + suffix;
+            }, 16);
+            counterObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.counter').forEach((el) => counterObserver.observe(el));
+      // ── Animated Z Favicon (180° Smooth Rotatie) ──────
+      (function() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 32;
+        canvas.height = 32;
+        const ctx = canvas.getContext('2d');
+        const favicon = document.querySelector('link[rel="icon"]');
+        
+        // No rotation, just a static 'A'
+        function draw() {
+          if (!ctx || !favicon) return;
+          
+          ctx.clearRect(0, 0, 32, 32);
+
+          // Background — Brand Indigo rounded square
+          ctx.fillStyle = '#2D3FE0';
+          ctx.beginPath();
+          ctx.roundRect(1, 1, 30, 30, 7);
+          ctx.fill();
+
+          // Draw the "A" — bold, clean
+          ctx.save();
+          ctx.translate(16, 16);
+          ctx.fillStyle = '#FFFFFF';
+          ctx.font = 'bold 22px "Space Grotesk", "Inter", sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('A', 0, 1);
+
+          ctx.restore();
+
+          // The "." accent
+          ctx.fillStyle = '#FAF9F6';
+          ctx.beginPath();
+          ctx.arc(24, 25, 2, 0, Math.PI * 2);
+          ctx.fill();
+
+          favicon.setAttribute('href', canvas.toDataURL('image/png'));
+        }
+
+        requestAnimationFrame(draw);
+      })();
+    </script>
+  </body>
+</html>
