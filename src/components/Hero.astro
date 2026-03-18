@@ -40,7 +40,7 @@ const segments = [
 ];
 ---
 
-<section class="relative min-h-screen flex items-center justify-center px-6 pt-24 lg:pt-40 pb-20 lg:pb-32 overflow-hidden">
+<section class="relative min-h-screen flex items-center justify-center pt-24 lg:pt-40 pb-20 lg:pb-32 overflow-hidden">
   <!-- Gradient Mesh Background -->
   <div class="mesh-blob w-[600px] h-[600px] bg-indigo/10 top-[-10%] left-[-10%]" style="animation-delay: 0s;"></div>
   <div class="mesh-blob w-[500px] h-[500px] bg-violet/10 bottom-[-10%] right-[-5%]" style="animation-delay: -5s;"></div>
@@ -111,8 +111,8 @@ const segments = [
 
       <!-- Right Column: Interactive Dropdown -->
       <div class="lg:col-span-5 relative mt-6 lg:mt-0">
-        <div class="bg-white/40 backdrop-blur-[40px] border border-white p-6 md:p-10 rounded-[2.5rem] shadow-2xl relative z-20 reveal" style="transition-delay: 300ms;">
-          <div class="mb-10">
+        <div class="bg-white/50 backdrop-blur-[40px] border border-white p-5 sm:p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] shadow-2xl relative z-20 reveal" style="transition-delay: 300ms;">
+          <div class="mb-8 md:mb-10">
             <span class="block font-display font-medium text-2xl text-text-secondary mb-4">Ik wil</span>
             
             <!-- Custom Dropdown -->
@@ -125,7 +125,7 @@ const segments = [
               <div id="hero-dropdown-list" class="absolute top-full left-0 right-0 mt-4 bg-white rounded-2xl shadow-2xl border border-warm-grey/50 overflow-hidden opacity-0 pointer-events-none translate-y-4 transition-all duration-300 z-50">
                 {segments.map((seg) => (
                   <button 
-                    class="segment-option w-full text-left px-6 py-4 hover:bg-cream-dark transition-colors border-b border-warm-grey/20 last:border-b-0 font-display text-lg font-medium text-dark flex items-center justify-between group"
+                    class="segment-option w-full text-left px-5 md:px-6 py-3 md:py-4 hover:bg-cream-dark transition-colors border-b border-warm-grey/20 last:border-b-0 font-display text-lg md:text-xl font-medium text-dark flex items-center justify-between group"
                     data-id={seg.id}
                   >
                     {seg.label}
@@ -157,14 +157,14 @@ const segments = [
                   <p class="text-lg text-dark leading-snug font-medium">
                     {seg.subtitle}
                   </p>
-                  <div class="grid gap-3">
+                  <div class="grid gap-2 sm:gap-3">
                     {seg.solutions.map(sol => (
-                      <a href="#contact" class="group flex items-center justify-between gap-4 p-4 rounded-xl bg-white/50 border border-warm-grey/30 hover:border-indigo hover:shadow-lg transition-all interactive">
+                      <a href="#contact" class="group flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white/50 border border-warm-grey/30 hover:border-indigo hover:shadow-lg transition-all interactive">
                         <div>
-                          <h4 class="font-display font-bold text-dark text-sm">{sol.title}</h4>
-                          <p class="text-[10px] text-text-secondary">{sol.desc}</p>
+                          <h4 class="font-display font-bold text-dark text-sm sm:text-base">{sol.title}</h4>
+                          <p class="text-[10px] sm:text-xs text-text-secondary mt-0.5">{sol.desc}</p>
                         </div>
-                        <div class="w-8 h-8 rounded-full bg-cream flex items-center justify-center group-hover:bg-indigo group-hover:text-white transition-colors">
+                        <div class="w-8 h-8 rounded-full bg-white flex shrink-0 items-center justify-center border border-warm-grey/50 group-hover:bg-indigo group-hover:border-indigo group-hover:text-white transition-colors">
                           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </div>
                       </a>
