@@ -43,62 +43,150 @@ import CTA from '../../components/CTA.astro';
 
           </div>
         </div>
-        <!-- Right Graphic area: Bar Chart -->
+        <!-- Right: Ad Platform Cycler -->
         <div class="lg:col-span-5 reveal" style="transition-delay: 200ms;">
-          <div class="w-full bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-white relative flex flex-col p-6">
-             <span class="text-xs font-bold uppercase tracking-widest text-text-secondary/50">Jouw kanalen, onze expertise</span>
-             
-             <div class="mt-4 space-y-3 flex-1">
-               <div class="flex items-center gap-4 p-4 rounded-2xl bg-cream border border-warm-grey/20">
-                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
-                   <svg class="w-5 h-5" viewBox="0 0 24 24">
-                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
-                     <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                     <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                     <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                   </svg>
-                 </div>
-                 <div class="flex-1">
-                   <p class="text-sm font-bold text-dark">Google Ads</p>
-                   <p class="text-xs text-text-secondary">Search, Display & Shopping</p>
-                 </div>
-               </div>
-               <div class="flex items-center gap-4 p-4 rounded-2xl bg-cream border border-warm-grey/20">
-                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
-                   <svg class="w-5 h-5" viewBox="0 0 24 24">
-                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2"/>
-                   </svg>
-                 </div>
-                 <div class="flex-1">
-                   <p class="text-sm font-bold text-dark">Meta Ads</p>
-                   <p class="text-xs text-text-secondary">Facebook & Instagram</p>
-                 </div>
-               </div>
-               <div class="flex items-center gap-4 p-4 rounded-2xl bg-cream border border-warm-grey/20">
-                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
-                   <svg class="w-5 h-5" viewBox="0 0 24 24">
-                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#0A66C2"/>
-                   </svg>
-                 </div>
-                 <div class="flex-1">
-                   <p class="text-sm font-bold text-dark">LinkedIn Ads</p>
-                   <p class="text-xs text-text-secondary">B2B targeting & leads</p>
-                 </div>
-               </div>
-               <div class="flex items-center gap-4 p-4 rounded-2xl bg-cream border border-warm-grey/20">
-                 <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
-                   <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
-                     <rect x="3" y="14" width="4" height="7" rx="1" fill="#F9AB00"/>
-                     <rect x="10" y="9" width="4" height="12" rx="1" fill="#E37400"/>
-                     <rect x="17" y="3" width="4" height="18" rx="1" fill="#F9AB00"/>
-                   </svg>
-                 </div>
-                 <div class="flex-1">
-                   <p class="text-sm font-bold text-dark">Conversie tracking</p>
-                   <p class="text-xs text-text-secondary">GA4, Tag Manager & pixels</p>
-                 </div>
-               </div>
-             </div>
+          <div class="w-full bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-white relative">
+            <div class="h-9 bg-[#f5f3ef] flex items-center px-4 gap-3 border-b border-warm-grey/15">
+              <div class="flex gap-1.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+              </div>
+              <span id="adPlatformLabel" class="ml-2 text-[9px] font-bold uppercase tracking-wider text-text-secondary/50 transition-opacity duration-300">Google Search</span>
+              <div class="ml-auto flex gap-1.5">
+                <div class="ad-dot w-1.5 h-1.5 rounded-full bg-dark/40" data-index="0"></div>
+                <div class="ad-dot w-1.5 h-1.5 rounded-full bg-dark/15" data-index="1"></div>
+                <div class="ad-dot w-1.5 h-1.5 rounded-full bg-dark/15" data-index="2"></div>
+                <div class="ad-dot w-1.5 h-1.5 rounded-full bg-dark/15" data-index="3"></div>
+              </div>
+            </div>
+
+            <div id="adContainer" class="h-[290px] relative overflow-hidden">
+
+              <!-- Google Search Ad -->
+              <div class="ad-layout active" data-platform="Google Search" id="ad1">
+                <div class="p-5 space-y-3">
+                  <div class="ad-el">
+                    <div class="flex items-center gap-2 mb-2">
+                      <div class="w-5 h-5 rounded-full bg-indigo/10 flex items-center justify-center">
+                        <svg class="w-3 h-3" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/></svg>
+                      </div>
+                      <div class="w-20 h-2 bg-warm-grey/20 rounded-sm"></div>
+                    </div>
+                    <div class="ml-7 bg-cream rounded-xl p-3 border border-warm-grey/15">
+                      <span class="text-[8px] font-bold text-dark/30 uppercase tracking-wider">Gesponsord</span>
+                    </div>
+                  </div>
+                  <div class="ad-el ml-7 bg-cream rounded-xl p-4 border border-warm-grey/15">
+                    <div class="text-[10px] text-emerald-600 font-mono mb-1">www.jouwbedrijf.nl</div>
+                    <div class="w-4/5 h-3 bg-[#1a0dab]/70 rounded-sm mb-2"></div>
+                    <div class="w-full h-1.5 bg-warm-grey/20 rounded-sm mb-1"></div>
+                    <div class="w-3/4 h-1.5 bg-warm-grey/15 rounded-sm mb-3"></div>
+                    <div class="flex gap-2">
+                      <div class="text-[8px] font-bold text-indigo bg-indigo/10 px-2 py-1 rounded">Bel nu</div>
+                      <div class="text-[8px] font-bold text-indigo bg-indigo/10 px-2 py-1 rounded">Locatie</div>
+                    </div>
+                  </div>
+                  <div class="ad-el ml-7 space-y-2 opacity-40">
+                    <div class="w-2/3 h-2.5 bg-[#1a0dab]/30 rounded-sm"></div>
+                    <div class="w-full h-1.5 bg-warm-grey/15 rounded-sm"></div>
+                  </div>
+                  <div class="ad-el ml-7 space-y-2 opacity-25">
+                    <div class="w-1/2 h-2.5 bg-[#1a0dab]/25 rounded-sm"></div>
+                    <div class="w-3/4 h-1.5 bg-warm-grey/10 rounded-sm"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Instagram Feed Ad -->
+              <div class="ad-layout" data-platform="Instagram" id="ad2">
+                <div class="p-5 space-y-3">
+                  <div class="ad-el flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-400 via-pink-500 to-violet-600"></div>
+                      <div>
+                        <div class="w-20 h-2 bg-dark/70 rounded-sm mb-1"></div>
+                        <div class="text-[8px] text-text-secondary/50">Gesponsord</div>
+                      </div>
+                    </div>
+                    <div class="flex gap-0.5"><div class="w-1 h-1 rounded-full bg-dark/30"></div><div class="w-1 h-1 rounded-full bg-dark/30"></div><div class="w-1 h-1 rounded-full bg-dark/30"></div></div>
+                  </div>
+                  <div class="ad-el w-full h-32 bg-gradient-to-br from-indigo/10 via-violet/15 to-pink-100 rounded-xl"></div>
+                  <div class="ad-el flex items-center gap-4">
+                    <svg class="w-5 h-5 text-dark/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <svg class="w-5 h-5 text-dark/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <svg class="w-5 h-5 text-dark/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                  </div>
+                  <div class="ad-el">
+                    <div class="w-16 h-2 bg-dark/50 rounded-sm mb-1.5"></div>
+                    <div class="w-full h-1.5 bg-warm-grey/20 rounded-sm mb-1"></div>
+                    <div class="w-2/3 h-1.5 bg-warm-grey/15 rounded-sm"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- LinkedIn Sponsored Post -->
+              <div class="ad-layout" data-platform="LinkedIn" id="ad3">
+                <div class="p-5 space-y-3">
+                  <div class="ad-el flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-[#0A66C2]/10 flex items-center justify-center shrink-0">
+                      <div class="w-6 h-6 rounded bg-[#0A66C2]/30"></div>
+                    </div>
+                    <div class="flex-1">
+                      <div class="w-24 h-2.5 bg-dark/60 rounded-sm mb-1"></div>
+                      <div class="text-[8px] text-text-secondary/50">12.340 volgers · Gesponsord</div>
+                    </div>
+                  </div>
+                  <div class="ad-el space-y-1.5">
+                    <div class="w-full h-2 bg-warm-grey/25 rounded-sm"></div>
+                    <div class="w-full h-2 bg-warm-grey/20 rounded-sm"></div>
+                    <div class="w-2/3 h-2 bg-warm-grey/15 rounded-sm"></div>
+                  </div>
+                  <div class="ad-el w-full h-24 bg-gradient-to-r from-[#0A66C2]/10 to-[#0A66C2]/5 rounded-xl border border-[#0A66C2]/10 flex items-end p-3">
+                    <div class="flex items-center justify-between w-full">
+                      <div>
+                        <div class="w-20 h-2 bg-dark/40 rounded-sm mb-1"></div>
+                        <div class="w-14 h-1.5 bg-warm-grey/20 rounded-sm"></div>
+                      </div>
+                      <div class="px-3 py-1.5 border border-[#0A66C2]/40 rounded-full">
+                        <div class="w-12 h-2 bg-[#0A66C2]/40 rounded-sm"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ad-el flex items-center gap-6">
+                    <div class="flex items-center gap-1"><div class="w-3 h-3 rounded-full bg-[#0A66C2]/20"></div><div class="w-6 h-1.5 bg-warm-grey/20 rounded-sm"></div></div>
+                    <div class="w-8 h-1.5 bg-warm-grey/15 rounded-sm"></div>
+                    <div class="w-10 h-1.5 bg-warm-grey/15 rounded-sm"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Google Display Banner -->
+              <div class="ad-layout" data-platform="Display Banner" id="ad4">
+                <div class="p-5 space-y-4">
+                  <div class="ad-el text-center">
+                    <span class="text-[8px] font-bold text-text-secondary/30 uppercase tracking-widest">Advertentie</span>
+                  </div>
+                  <div class="ad-el w-full h-40 bg-gradient-to-br from-dark via-dark/95 to-indigo/80 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-indigo/20 rounded-full blur-2xl"></div>
+                    <div>
+                      <div class="w-20 h-3 bg-white/80 rounded-sm mb-2"></div>
+                      <div class="w-32 h-2.5 bg-white/50 rounded-sm mb-1"></div>
+                      <div class="w-24 h-2 bg-white/30 rounded-sm"></div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <div class="w-8 h-8 bg-white/10 rounded-lg"></div>
+                      <div class="px-4 py-2 bg-indigo rounded-lg"><div class="w-12 h-2 bg-white/80 rounded-sm"></div></div>
+                    </div>
+                  </div>
+                  <div class="ad-el flex items-center justify-between px-1">
+                    <div class="text-[8px] text-text-secondary/30">320 x 250</div>
+                    <div class="flex gap-1"><div class="w-3 h-3 rounded bg-warm-grey/15"></div><div class="w-3 h-3 rounded bg-warm-grey/15"></div></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
@@ -208,6 +296,48 @@ import CTA from '../../components/CTA.astro';
   <Footer />
 </Layout>
 
+<style>
+  .ad-layout {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  .ad-layout.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .ad-layout .ad-el {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .ad-layout.active .ad-el {
+    animation: adBuild 0.5s ease-out forwards;
+  }
+  .ad-layout.active .space-y-3 > .ad-el:nth-child(1),
+  .ad-layout.active .space-y-4 > .ad-el:nth-child(1) { animation-delay: 0.1s; }
+  .ad-layout.active .space-y-3 > .ad-el:nth-child(2),
+  .ad-layout.active .space-y-4 > .ad-el:nth-child(2) { animation-delay: 0.35s; }
+  .ad-layout.active .space-y-3 > .ad-el:nth-child(3),
+  .ad-layout.active .space-y-4 > .ad-el:nth-child(3) { animation-delay: 0.6s; }
+  .ad-layout.active .space-y-3 > .ad-el:nth-child(4),
+  .ad-layout.active .space-y-4 > .ad-el:nth-child(4) { animation-delay: 0.85s; }
+  .ad-layout.active .space-y-3 > .ad-el:nth-child(5),
+  .ad-layout.active .space-y-4 > .ad-el:nth-child(5) { animation-delay: 1.05s; }
+  .ad-layout.fading .ad-el {
+    animation: adFade 0.35s ease-in forwards !important;
+  }
+  @keyframes adBuild {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes adFade {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-4px); }
+  }
+</style>
+
 <script>
   const observeElements = () => {
     const observer = new IntersectionObserver((entries) => {
@@ -225,4 +355,60 @@ import CTA from '../../components/CTA.astro';
   } else {
     observeElements();
   }
+
+  // Ad platform cycler
+  const adLayouts = document.querySelectorAll('.ad-layout');
+  const adLabel = document.getElementById('adPlatformLabel');
+  const adDots = document.querySelectorAll('.ad-dot');
+  let adCurrent = 0;
+  const AD_DISPLAY = 4000;
+  const AD_FADE = 450;
+
+  function updateDots(index) {
+    adDots.forEach((dot, i) => {
+      if (i === index) {
+        dot.className = 'ad-dot w-1.5 h-1.5 rounded-full bg-dark/40 transition-all duration-300';
+      } else {
+        dot.className = 'ad-dot w-1.5 h-1.5 rounded-full bg-dark/15 transition-all duration-300';
+      }
+    });
+  }
+
+  function showAd(index) {
+    const layout = adLayouts[index];
+    if (adLabel && layout.dataset.platform) {
+      adLabel.style.opacity = '0';
+      setTimeout(() => {
+        adLabel.textContent = layout.dataset.platform;
+        adLabel.style.opacity = '1';
+      }, 180);
+    }
+    updateDots(index);
+    layout.querySelectorAll('.ad-el').forEach(el => {
+      el.style.animation = 'none';
+      el.offsetHeight;
+      el.style.animation = '';
+    });
+    layout.classList.remove('fading');
+    layout.classList.add('active');
+  }
+
+  function hideAd(index) {
+    const layout = adLayouts[index];
+    layout.classList.add('fading');
+    setTimeout(() => {
+      layout.classList.remove('active', 'fading');
+    }, AD_FADE);
+  }
+
+  function cycleAd() {
+    hideAd(adCurrent);
+    setTimeout(() => {
+      adCurrent = (adCurrent + 1) % adLayouts.length;
+      showAd(adCurrent);
+    }, AD_FADE);
+  }
+
+  showAd(0);
+  setInterval(cycleAd, AD_DISPLAY + AD_FADE);
 </script>
