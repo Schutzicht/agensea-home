@@ -51,7 +51,7 @@ const segments = [
       <!-- Left Column: Headline & UVP -->
       <div class="lg:col-span-7 text-left relative">
         <h1 class="font-display font-bold text-[clamp(2.5rem,8vw,5.5rem)] leading-[0.95] tracking-tight text-dark reveal">
-          De strategische partner voor <span class="text-indigo">websites, software & marketing.</span>
+          Jouw partner voor <span class="text-indigo">websites, software & marketing.</span>
         </h1>
         <p class="mt-6 lg:mt-8 text-lg md:text-xl text-text-secondary max-w-xl reveal leading-relaxed" style="transition-delay: 200ms;">
           <span class="md:hidden">Welkom bij <strong>Agensea</strong>. Strategisch partner in resultaatgerichte oplossingen rondom development, marketing en AI.</span>
@@ -103,7 +103,7 @@ const segments = [
             </div>
             <div class="flex flex-col">
               <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo leading-tight">Ons Team</span>
-              <span class="text-[11px] text-text-secondary leading-tight mt-0.5 font-medium italic">Always online.</span>
+              <span class="text-[11px] text-text-secondary leading-tight mt-0.5 font-medium italic">Jouw digitale experts.</span>
             </div>
           </div>
         </div>
@@ -137,9 +137,9 @@ const segments = [
           </div>
 
           <!-- Dynamic Results Area -->
-          <div class="relative min-h-[260px] md:min-h-[220px]" id="content-wrapper">
+          <div class="relative grid items-start" id="content-wrapper">
             <!-- Empty State -->
-            <div id="content-empty" class="w-full h-full flex items-center justify-center opacity-100 transition-opacity duration-300 py-10">
+            <div id="content-empty" class="col-start-1 row-start-1 w-full flex flex-col items-center justify-center opacity-100 transition-opacity duration-300 py-10 min-h-[220px]">
               <div class="text-center">
                 <div class="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-4 border border-warm-grey/50">
                    <svg class="w-8 h-8 text-indigo/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l5 5M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
@@ -151,7 +151,7 @@ const segments = [
             {segments.map((seg) => (
               <div 
                 id={`content-${seg.id}`} 
-                class="segment-content absolute inset-0 w-full transition-all duration-500 ease-out-expo opacity-0 translate-y-8 pointer-events-none"
+                class="segment-content col-start-1 row-start-1 w-full transition-all duration-500 ease-out-expo opacity-0 translate-y-8 pointer-events-none"
               >
                 <div class="flex flex-col gap-6">
                   <p class="text-lg text-dark leading-snug font-medium">
