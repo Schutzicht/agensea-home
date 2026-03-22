@@ -6,8 +6,8 @@ const segments = [
     label: "een professionele website",
     subtitle: "Je zoekt een website die er strak uitziet én doet wat hij moet doen: overtuigen. Wij bouwen snelle, betrouwbare websites en webshops op maat.",
     solutions: [
-      { title: "Maatwerk Websites", desc: "Snel, veilig en precies zoals jij het wilt." },
-      { title: "UX & Webdesign", desc: "Een ontwerp dat je bezoekers begrijpen." }
+      { title: "Maatwerk Websites", desc: "Snel, veilig en precies zoals jij het wilt.", href: "/diensten/websites" },
+      { title: "UX & Webdesign", desc: "Een ontwerp dat je bezoekers begrijpen.", href: "/diensten/websites" }
     ]
   },
   {
@@ -15,8 +15,8 @@ const segments = [
     label: "meer klanten en online groei",
     subtitle: "Je wilt beter gevonden worden en meer aanvragen krijgen. Met slimme advertenties en strakke campagnes zorgen we dat jouw ideale klant je direct weet te vinden.",
     solutions: [
-      { title: "Online Campagnes (SEA)", desc: "Direct zichtbaar voor mensen die zoeken." },
-      { title: "Strategie & Branding", desc: "Je bedrijf ijzersterk in de markt positioneren." }
+      { title: "Online Campagnes (SEA)", desc: "Direct zichtbaar voor mensen die zoeken.", href: "/diensten/marketing" },
+      { title: "Strategie & Branding", desc: "Je bedrijf ijzersterk in de markt positioneren.", href: "/diensten/marketing" }
     ]
   },
   {
@@ -24,8 +24,8 @@ const segments = [
     label: "tijd besparen met software",
     subtitle: "Zonde van de tijd om alles nog handmatig in te kloppen. Wij ontwerpen heldere bedrijfsapplicaties en AI-tools die je wekelijks uren aan saaie taken besparen.",
     solutions: [
-      { title: "Maatwerk Software", desc: "Pakketten die zich aanpassen aan jouw manier van werken." },
-      { title: "AI & Automatisering", desc: "Laat techniek data scannen en het zware werk doen." }
+      { title: "Maatwerk Software", desc: "Pakketten die zich aanpassen aan jouw manier van werken.", href: "/diensten/software" },
+      { title: "AI & Automatisering", desc: "Laat techniek data scannen en het zware werk doen.", href: "/diensten/software" }
     ]
   },
   {
@@ -33,8 +33,8 @@ const segments = [
     label: "meer over jullie weten",
     subtitle: "Leuk! Wij zijn Agensea. Een nuchter zeeuws team met passie voor techniek en daadkracht. Geen vage marketingtaal, maar heldere digitale oplossingen die echt iets opleveren.",
     solutions: [
-      { title: "Plan direct een belletje in", desc: "Vrijblijvend sparren over jouw ideeën." },
-      { title: "Bekijk onze portfolio", desc: "Ontdek wat we voor andere ondernemers bereikten." }
+      { title: "Plan direct een belletje in", desc: "Vrijblijvend sparren over jouw ideeën.", href: "/contact" },
+      { title: "Bekijk onze portfolio", desc: "Ontdek wat we voor andere ondernemers bereikten.", href: "/#cases" }
     ]
   }
 ];
@@ -159,7 +159,7 @@ const segments = [
                   </p>
                   <div class="grid gap-2 sm:gap-3">
                     {seg.solutions.map(sol => (
-                      <a href="#contact" class="group flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white/50 border border-warm-grey/30 hover:border-indigo hover:shadow-lg transition-all interactive">
+                      <a href={sol.href} class="group flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white/50 border border-warm-grey/30 hover:border-indigo hover:shadow-lg transition-all interactive">
                         <div>
                           <h4 class="font-display font-bold text-dark text-sm sm:text-base">{sol.title}</h4>
                           <p class="text-[10px] sm:text-xs text-text-secondary mt-0.5">{sol.desc}</p>

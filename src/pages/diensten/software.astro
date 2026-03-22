@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import Cases from '../../components/Cases.astro';
+import CTA from '../../components/CTA.astro';
+---
+
+<Layout title="Software & Automatisering | Agensea">
+  <Navbar />
+  
+  <main class="bg-cream min-h-screen pt-32 md:pt-48 pb-20 overflow-hidden relative">
+    <!-- Background Decor -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="mesh-blob w-[600px] h-[600px] bg-indigo/10 top-[-10%] right-[-10%] blur-[120px]"></div>
+      <div class="mesh-blob w-[500px] h-[500px] bg-violet/10 bottom-[10%] left-[-10%] blur-[100px]"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 mb-24 md:mb-40">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <!-- Content -->
+        <div class="lg:col-span-7">
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 text-xs font-bold text-indigo uppercase tracking-[0.2em] mb-6">
+              <span class="w-8 h-[2px] bg-indigo"></span>
+              Onze diensten
+            </span>
+            <h1 class="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-dark mb-8">
+              Tijd besparen met <span class="text-indigo">slimme software.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-text-secondary leading-relaxed mb-10 max-w-xl">
+              Zonde van de tijd om alles nog handmatig in te kloppen. Wij ontwerpen bedrijfsapplicaties en AI-tools op maat die je wekelijks uren aan saaie taken besparen.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="/contact" class="magnetic-btn px-8 mx-0 py-4 bg-dark text-white rounded-xl font-medium hover:bg-indigo transition-colors duration-300">
+                Laten we sparren
+              </a>
+              <a href="#aanpak" class="px-8 py-4 border border-warm-grey/50 rounded-xl font-medium text-dark hover:border-indigo transition-all duration-300">
+                Ontdek de mogelijkheden
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Right Graphic area -->
+        <div class="lg:col-span-5 reveal" style="transition-delay: 200ms;">
+          <div class="w-full aspect-[4/5] bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-white relative flex items-center justify-center p-8">
+             <div class="w-full space-y-4">
+               <div class="h-4 bg-warm-grey rounded-full w-1/3"></div>
+               <div class="h-16 bg-cream border border-warm-grey/30 rounded-xl flex items-center px-4 gap-4">
+                  <div class="w-8 h-8 rounded bg-indigo/20"></div>
+                  <div class="flex-1 h-2 bg-warm-grey rounded-full"></div>
+               </div>
+               <div class="h-16 bg-cream border border-warm-grey/30 rounded-xl flex items-center px-4 gap-4">
+                  <div class="w-8 h-8 rounded bg-violet/20"></div>
+                  <div class="flex-1 h-2 bg-warm-grey rounded-full"></div>
+               </div>
+               <div class="h-16 bg-cream border border-indigo/50 shadow-md rounded-xl flex items-center px-4 gap-4">
+                  <div class="w-8 h-8 rounded bg-indigo text-white flex items-center justify-center"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+                  <div class="flex-1 h-2 bg-indigo/20 rounded-full"></div>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details Section -->
+    <section id="aanpak" class="py-24 bg-white relative z-10 w-full rounded-[3rem] shadow-sm mb-24 md:mb-40">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <h2 class="font-display text-4xl leading-tight font-bold mb-16 text-center max-w-2xl mx-auto">Van foutgevoelig handwerk naar een <span class="text-indigo">gestroomlijnd proces.</span></h2>
+        
+        <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+          <!-- Feature 1 -->
+          <div class="p-8 rounded-3xl bg-cream border border-warm-grey/30 hover:border-indigo/30 transition-colors">
+            <h3 class="font-bold text-xl mb-4">Maatwerk Applicaties</h3>
+            <p class="text-text-secondary leading-relaxed">Geen logge pakketten vol onnodige knoppen. Wij bouwen software die zich precies aanpast aan de unieke werkwijze van jouw bedrijf.</p>
+          </div>
+          <!-- Feature 2 -->
+          <div class="p-8 rounded-3xl bg-cream border border-warm-grey/30 hover:border-indigo/30 transition-colors">
+            <h3 class="font-bold text-xl mb-4">AI & Automatisering</h3>
+            <p class="text-text-secondary leading-relaxed">Koppel systemen aan elkaar en laat AI data scannen of samenvatten. Laat de techniek het zware, repeterende werk voor je overnemen.</p>
+          </div>
+          <!-- Feature 3 -->
+          <div class="p-8 rounded-3xl bg-cream border border-warm-grey/30 hover:border-indigo/30 transition-colors">
+            <h3 class="font-bold text-xl mb-4">Klantportalen (SaaS)</h3>
+            <p class="text-text-secondary leading-relaxed">Bied jouw klanten een eigen professionele inlogomgeving waar ze zelf gegevens kunnen beheren, bestellingen kunnen plaatsen of projecten in kunnen zien.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Cases />
+    <CTA />
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  const observeElements = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  };
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observeElements);
+  } else {
+    observeElements();
+  }
+</script>
