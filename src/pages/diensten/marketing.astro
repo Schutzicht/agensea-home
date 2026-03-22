@@ -88,109 +88,197 @@ import CTA from '../../components/CTA.astro';
       </div>
     </section>
 
-    <!-- Werkwijze: 4-Stappen Proces -->
-    <section class="py-24 md:py-40 px-6 lg:px-10 relative z-10">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16 md:mb-24 reveal">
-          <span class="inline-flex items-center gap-2 text-xs font-bold text-indigo uppercase tracking-[0.2em] mb-6">
+    <!-- Werkwijze: Immersive Dark Journey -->
+    <section class="bg-dark rounded-[3rem] relative z-10 py-24 md:py-40 px-6 lg:px-10 overflow-hidden">
+      <!-- Background texture -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute w-[800px] h-[800px] bg-indigo/5 rounded-full top-[-20%] right-[-15%] blur-[120px]"></div>
+        <div class="absolute w-[600px] h-[600px] bg-violet/5 rounded-full bottom-[-10%] left-[-10%] blur-[100px]"></div>
+      </div>
+
+      <div class="max-w-6xl mx-auto relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-20 md:mb-28 reveal">
+          <span class="inline-flex items-center gap-2 text-xs font-bold text-indigo uppercase tracking-[0.3em] mb-6">
             <span class="w-8 h-[2px] bg-indigo"></span>
-            Onze werkwijze
+            Werkwijze
             <span class="w-8 h-[2px] bg-indigo"></span>
           </span>
-          <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight max-w-2xl mx-auto">
-            Van kennismaking tot <span class="text-indigo">doorlopend resultaat.</span>
+          <h2 class="font-display text-4xl md:text-6xl font-bold leading-[1.05] text-white max-w-3xl mx-auto">
+            Hoe jouw campagne <span class="bg-gradient-to-r from-indigo to-violet bg-clip-text text-transparent">tot leven komt.</span>
           </h2>
+          <p class="mt-6 text-lg text-white/40 max-w-xl mx-auto">
+            Geen black box, maar een helder traject. In vier fases nemen we je mee van eerste gesprek tot doorlopend resultaat.
+          </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          <!-- Connecting line (desktop) -->
-          <div class="hidden lg:block absolute top-16 left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-emerald-400 via-amber-400 via-60% to-indigo z-0"></div>
+        <!-- Timeline -->
+        <div class="relative">
+          <!-- Vertical connecting line (desktop) -->
+          <div class="hidden md:block absolute left-[60px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-indigo via-violet via-60% to-emerald-400"></div>
 
-          <!-- Step 1 -->
-          <div class="reveal relative" style="transition-delay: 0ms;">
-            <div class="relative z-10 flex flex-col items-center text-center">
-              <div class="w-12 h-12 rounded-2xl bg-emerald-50 border-2 border-emerald-400 flex items-center justify-center mb-6">
-                <svg class="w-5 h-5 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          <!-- Step 1: Kennismaking -->
+          <div class="workflow-step group reveal relative md:pl-32 mb-16 md:mb-24" style="transition-delay: 0ms;">
+            <!-- Step indicator -->
+            <div class="hidden md:flex absolute left-0 top-0 w-[120px] items-start">
+              <div class="relative z-10 w-[120px] flex flex-col items-center">
+                <div class="w-16 h-16 rounded-2xl bg-dark border-2 border-indigo flex items-center justify-center group-hover:bg-indigo group-hover:scale-110 transition-all duration-500">
+                  <span class="font-display text-2xl font-bold text-indigo group-hover:text-white transition-colors">01</span>
+                </div>
               </div>
-              <div class="bg-white rounded-3xl border border-warm-grey/30 p-6 md:p-8 hover:border-emerald-300 transition-colors w-full">
-                <h3 class="font-display font-bold text-lg mb-3">Kennismaking & voorstel</h3>
-                <p class="text-text-secondary text-sm leading-relaxed mb-4">We analyseren de situatie en doen een eerste voorstel.</p>
-                <ul class="text-left text-sm text-text-secondary space-y-2">
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Doelstellingen bepalen</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Analyse product/dienst en doelgroep</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Indicatieve doelgroepselectie</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Voorstel platformkeuze (Google, Meta, LinkedIn, etc.)</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Indicatie advertentiebudget</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Vaststellen maandelijkse beheerkosten</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Vaststellen setup kosten</li>
-                </ul>
+            </div>
+            <!-- Content card -->
+            <div class="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-3xl p-8 md:p-10 hover:bg-white/[0.06] hover:border-indigo/30 transition-all duration-500 cursor-pointer" data-expandable>
+              <div class="flex flex-col md:flex-row md:items-start gap-6">
+                <div class="flex md:hidden items-center gap-4 mb-2">
+                  <div class="w-12 h-12 rounded-xl bg-indigo/10 border border-indigo/30 flex items-center justify-center shrink-0">
+                    <span class="font-display text-lg font-bold text-indigo">01</span>
+                  </div>
+                  <span class="text-xs font-bold text-indigo uppercase tracking-widest">Fase 1</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="font-display font-bold text-2xl md:text-3xl text-white">Kennismaking & voorstel</h3>
+                    <svg class="w-5 h-5 text-white/30 group-hover:text-indigo transition-colors expand-icon shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                  </div>
+                  <p class="text-white/50 text-base leading-relaxed max-w-2xl">
+                    We duiken in je business, ontleden de doelgroep en leveren een transparant voorstel op maat — inclusief platformkeuze, budgetindicatie en een helder kostenplaatje. Geen verrassingen.
+                  </p>
+                </div>
+              </div>
+              <!-- Expandable details -->
+              <div class="expand-content grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-8 pt-8 border-t border-white/[0.06]" style="max-height:0; overflow:hidden; opacity:0; margin-top:0; padding-top:0; transition: all 0.5s cubic-bezier(0.16,1,0.3,1);">
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Doelstellingen bepalen</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Product & doelgroep analyse</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Doelgroepselectie</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Platform advies</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Budget indicatie</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Beheerkosten</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Setup kosten</p></div>
               </div>
             </div>
           </div>
 
-          <!-- Step 2 -->
-          <div class="reveal relative" style="transition-delay: 100ms;">
-            <div class="relative z-10 flex flex-col items-center text-center">
-              <div class="w-12 h-12 rounded-2xl bg-amber-50 border-2 border-amber-400 flex items-center justify-center mb-6">
-                <svg class="w-5 h-5 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <!-- Step 2: Strategische Uitwerking -->
+          <div class="workflow-step group reveal relative md:pl-32 mb-16 md:mb-24" style="transition-delay: 100ms;">
+            <div class="hidden md:flex absolute left-0 top-0 w-[120px] items-start">
+              <div class="relative z-10 w-[120px] flex flex-col items-center">
+                <div class="w-16 h-16 rounded-2xl bg-dark border-2 border-violet flex items-center justify-center group-hover:bg-violet group-hover:scale-110 transition-all duration-500">
+                  <span class="font-display text-2xl font-bold text-violet group-hover:text-white transition-colors">02</span>
+                </div>
               </div>
-              <div class="bg-white rounded-3xl border border-warm-grey/30 p-6 md:p-8 hover:border-amber-300 transition-colors w-full">
-                <h3 class="font-display font-bold text-lg mb-1">Strategische uitwerking</h3>
-                <p class="text-xs text-indigo font-medium mb-3">(na akkoord)</p>
-                <p class="text-text-secondary text-sm leading-relaxed mb-4">Nu gaan we van indicatie + definitief plan.</p>
-                <p class="text-dark text-sm font-bold mb-2">In deze fase doen wij o.a.:</p>
-                <ul class="text-left text-sm text-text-secondary space-y-2">
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-amber-400 mt-2 shrink-0"></span>Exacte doelgroepbepaling en grootte</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-amber-400 mt-2 shrink-0"></span>Verfijning platformstrategie</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-amber-400 mt-2 shrink-0"></span>Definitieve budgetverdeling</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-amber-400 mt-2 shrink-0"></span>Campagnestructuur bepalen</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-amber-400 mt-2 shrink-0"></span>Meetplan en conversietracking</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-amber-400 mt-2 shrink-0"></span>Planning en KPI-afstemming</li>
-                </ul>
+            </div>
+            <div class="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-3xl p-8 md:p-10 hover:bg-white/[0.06] hover:border-violet/30 transition-all duration-500 cursor-pointer" data-expandable>
+              <div class="flex flex-col md:flex-row md:items-start gap-6">
+                <div class="flex md:hidden items-center gap-4 mb-2">
+                  <div class="w-12 h-12 rounded-xl bg-violet/10 border border-violet/30 flex items-center justify-center shrink-0">
+                    <span class="font-display text-lg font-bold text-violet">02</span>
+                  </div>
+                  <span class="text-xs font-bold text-violet uppercase tracking-widest">Fase 2  ·  na akkoord</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-1">
+                    <h3 class="font-display font-bold text-2xl md:text-3xl text-white">Strategische uitwerking</h3>
+                    <span class="hidden md:inline-block text-[10px] font-bold text-violet bg-violet/10 px-3 py-1 rounded-full uppercase tracking-wider">na akkoord</span>
+                    <svg class="w-5 h-5 text-white/30 group-hover:text-violet transition-colors expand-icon shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                  </div>
+                  <p class="text-white/50 text-base leading-relaxed max-w-2xl mt-3">
+                    Van grove schets naar scherp plan. We verfijnen de doelgroep, verdelen het budget over de juiste kanalen en zetten KPI's en meetpunten klaar zodat elke euro meetbaar is.
+                  </p>
+                </div>
+              </div>
+              <div class="expand-content grid grid-cols-2 md:grid-cols-3 gap-3 mt-8 pt-8 border-t border-white/[0.06]" style="max-height:0; overflow:hidden; opacity:0; margin-top:0; padding-top:0; transition: all 0.5s cubic-bezier(0.16,1,0.3,1);">
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Exacte doelgroepbepaling</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Platformstrategie verfijnen</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Definitieve budgetverdeling</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Campagnestructuur</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Conversietracking plan</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">KPI-afstemming & planning</p></div>
               </div>
             </div>
           </div>
 
-          <!-- Step 3 -->
-          <div class="reveal relative" style="transition-delay: 200ms;">
-            <div class="relative z-10 flex flex-col items-center text-center">
-              <div class="w-12 h-12 rounded-2xl bg-indigo/10 border-2 border-indigo/50 flex items-center justify-center mb-6">
-                <svg class="w-5 h-5 text-indigo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <!-- Step 3: Lancering -->
+          <div class="workflow-step group reveal relative md:pl-32 mb-16 md:mb-24" style="transition-delay: 200ms;">
+            <div class="hidden md:flex absolute left-0 top-0 w-[120px] items-start">
+              <div class="relative z-10 w-[120px] flex flex-col items-center">
+                <div class="w-16 h-16 rounded-2xl bg-dark border-2 border-indigo flex items-center justify-center group-hover:bg-indigo group-hover:scale-110 transition-all duration-500">
+                  <span class="font-display text-2xl font-bold text-indigo group-hover:text-white transition-colors">03</span>
+                </div>
               </div>
-              <div class="bg-white rounded-3xl border border-warm-grey/30 p-6 md:p-8 hover:border-indigo/30 transition-colors w-full">
-                <h3 class="font-display font-bold text-lg mb-3">Campagne-setup & lancering</h3>
-                <p class="text-text-secondary text-sm leading-relaxed mb-4">We bouwen en activeren de campagnes.</p>
-                <p class="text-dark text-sm font-bold mb-2">Dit omvat o.a.:</p>
-                <ul class="text-left text-sm text-text-secondary space-y-2">
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-indigo mt-2 shrink-0"></span>Advertentieaccounts inrichten of koppelen</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-indigo mt-2 shrink-0"></span>Tracking & conversiemetingen instellen</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-indigo mt-2 shrink-0"></span>Pixels/tags implementeren</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-indigo mt-2 shrink-0"></span>Advertenties en visuals afstemmen</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-indigo mt-2 shrink-0"></span>Doelgroepen instellen</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-indigo mt-2 shrink-0"></span>Campagnes live zetten</li>
-                </ul>
+            </div>
+            <div class="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-3xl p-8 md:p-10 hover:bg-white/[0.06] hover:border-indigo/30 transition-all duration-500 cursor-pointer" data-expandable>
+              <div class="flex flex-col md:flex-row md:items-start gap-6">
+                <div class="flex md:hidden items-center gap-4 mb-2">
+                  <div class="w-12 h-12 rounded-xl bg-indigo/10 border border-indigo/30 flex items-center justify-center shrink-0">
+                    <span class="font-display text-lg font-bold text-indigo">03</span>
+                  </div>
+                  <span class="text-xs font-bold text-indigo uppercase tracking-widest">Fase 3</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="font-display font-bold text-2xl md:text-3xl text-white">Campagne-setup & lancering</h3>
+                    <svg class="w-5 h-5 text-white/30 group-hover:text-indigo transition-colors expand-icon shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                  </div>
+                  <p class="text-white/50 text-base leading-relaxed max-w-2xl">
+                    Accounts gekoppeld, pixels geplaatst, advertenties vormgegeven en doelgroepen ingesteld. Alles staat klaar — dan drukken we op de knop. Jouw campagnes gaan live.
+                  </p>
+                </div>
+              </div>
+              <div class="expand-content grid grid-cols-2 md:grid-cols-3 gap-3 mt-8 pt-8 border-t border-white/[0.06]" style="max-height:0; overflow:hidden; opacity:0; margin-top:0; padding-top:0; transition: all 0.5s cubic-bezier(0.16,1,0.3,1);">
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Ad accounts inrichten</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Tracking & conversiemetingen</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Pixels & tags plaatsen</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Visuals & ad copy afstemmen</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Doelgroepen instellen</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Go live 🚀</p></div>
               </div>
             </div>
           </div>
 
-          <!-- Step 4 -->
-          <div class="reveal relative" style="transition-delay: 300ms;">
-            <div class="relative z-10 flex flex-col items-center text-center">
-              <div class="w-12 h-12 rounded-2xl bg-emerald-50 border-2 border-emerald-400 flex items-center justify-center mb-6">
-                <svg class="w-5 h-5 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          <!-- Step 4: Optimalisatie (ongoing) -->
+          <div class="workflow-step group reveal relative md:pl-32" style="transition-delay: 300ms;">
+            <div class="hidden md:flex absolute left-0 top-0 w-[120px] items-start">
+              <div class="relative z-10 w-[120px] flex flex-col items-center">
+                <div class="w-16 h-16 rounded-2xl bg-dark border-2 border-emerald-400 flex items-center justify-center group-hover:bg-emerald-400 group-hover:scale-110 transition-all duration-500">
+                  <span class="font-display text-2xl font-bold text-emerald-400 group-hover:text-dark transition-colors">04</span>
+                </div>
+                <span class="mt-3 text-[9px] font-bold text-emerald-400/50 uppercase tracking-widest">Doorlopend</span>
               </div>
-              <div class="bg-white rounded-3xl border border-warm-grey/30 p-6 md:p-8 hover:border-emerald-300 transition-colors w-full">
-                <h3 class="font-display font-bold text-lg mb-3">Optimalisatie & rapportage</h3>
-                <p class="text-text-secondary text-sm leading-relaxed mb-4">Doorlopend verbeteren voor maximaal resultaat.</p>
-                <p class="text-dark text-sm font-bold mb-2">Dit omvat o.a.:</p>
-                <ul class="text-left text-sm text-text-secondary space-y-2">
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Monitoren prestaties</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Optimaliseren doelgroepen en advertenties</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Budget bijsturen indien nodig</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Nieuwe varianten testen</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Periodieke rapportage en evaluatie</li>
-                  <li class="flex items-start gap-2"><span class="w-1 h-1 rounded-full bg-emerald-400 mt-2 shrink-0"></span>Strategische bijsturing</li>
-                </ul>
+            </div>
+            <div class="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-3xl p-8 md:p-10 hover:bg-white/[0.06] hover:border-emerald-400/30 transition-all duration-500 cursor-pointer relative" data-expandable>
+              <!-- Ongoing pulse indicator -->
+              <div class="absolute top-6 right-6 flex items-center gap-2">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+                </span>
+                <span class="text-[10px] font-bold text-emerald-400/60 uppercase tracking-widest">Doorlopend</span>
+              </div>
+              <div class="flex flex-col md:flex-row md:items-start gap-6">
+                <div class="flex md:hidden items-center gap-4 mb-2">
+                  <div class="w-12 h-12 rounded-xl bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center shrink-0">
+                    <span class="font-display text-lg font-bold text-emerald-400">04</span>
+                  </div>
+                  <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Fase 4</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="font-display font-bold text-2xl md:text-3xl text-white">Optimalisatie & rapportage</h3>
+                    <svg class="w-5 h-5 text-white/30 group-hover:text-emerald-400 transition-colors expand-icon shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                  </div>
+                  <p class="text-white/50 text-base leading-relaxed max-w-2xl">
+                    Hier stopt het niet. We monitoren, testen nieuwe varianten, sturen budgetten bij en rapporteren transparant. Zo halen we wéér meer uit elke euro die je investeert.
+                  </p>
+                </div>
+              </div>
+              <div class="expand-content grid grid-cols-2 md:grid-cols-3 gap-3 mt-8 pt-8 border-t border-white/[0.06]" style="max-height:0; overflow:hidden; opacity:0; margin-top:0; padding-top:0; transition: all 0.5s cubic-bezier(0.16,1,0.3,1);">
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Prestaties monitoren</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Doelgroepen & ads optimaliseren</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Budgetten bijsturen</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">A/B varianten testen</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Periodieke rapportage</p></div>
+                <div class="bg-white/[0.04] rounded-xl p-4"><p class="text-white/70 text-xs leading-relaxed">Strategische bijsturing</p></div>
               </div>
             </div>
           </div>
@@ -206,6 +294,7 @@ import CTA from '../../components/CTA.astro';
 </Layout>
 
 <script>
+  // Reveal Observer
   const observeElements = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -214,13 +303,41 @@ import CTA from '../../components/CTA.astro';
         }
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   };
-  
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', observeElements);
   } else {
     observeElements();
   }
+
+  // Expandable workflow cards
+  document.querySelectorAll('[data-expandable]').forEach(card => {
+    const content = card.querySelector('.expand-content');
+    const icon = card.querySelector('.expand-icon');
+    let isOpen = false;
+
+    card.addEventListener('click', () => {
+      isOpen = !isOpen;
+      if (content) {
+        if (isOpen) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.opacity = '1';
+          content.style.marginTop = '2rem';
+          content.style.paddingTop = '2rem';
+        } else {
+          content.style.maxHeight = '0';
+          content.style.opacity = '0';
+          content.style.marginTop = '0';
+          content.style.paddingTop = '0';
+        }
+      }
+      if (icon) {
+        icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+        icon.style.transition = 'transform 0.4s cubic-bezier(0.16,1,0.3,1)';
+      }
+    });
+  });
 </script>
+
