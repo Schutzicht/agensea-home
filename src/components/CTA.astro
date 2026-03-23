@@ -11,12 +11,12 @@
       </span>
 
       <!-- High-End Blur Reveal Headline -->
-      <h2 class="font-display text-4xl md:text-6xl font-bold leading-[1.1] mb-8 blur-reveal-container flex flex-wrap justify-center gap-x-2 md:gap-x-3 w-full">
+      <h2 class="font-display text-4xl md:text-6xl font-bold leading-[1.1] mb-8 blur-reveal-container flex flex-wrap justify-center gap-x-2 md:gap-x-3 w-full items-baseline">
         <span class="blur-word">Klaar</span>
         <span class="blur-word">voor</span>
         <span class="blur-word">de</span>
         <span class="blur-word text-indigo">volgende</span>
-        <span class="blur-word text-indigo">stap?</span>
+        <span class="literal-step text-indigo">stap?</span>
       </h2>
 
       <p class="text-lg text-text-secondary leading-relaxed mb-12 max-w-xl mx-auto">
@@ -51,6 +51,35 @@
     filter: blur(0);
     transform: translateY(0) scale(1);
   }
+
+  /* Physical step animation for the final word */
+  .literal-step {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(30px) translateX(-20px) rotate(-10deg);
+  }
+  .literal-step.active {
+    animation: stepForward 1.2s cubic-bezier(0.34, 1.56, 0.4, 1) forwards;
+  }
+  
+  @keyframes stepForward {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) translateX(-30px) rotate(-15deg);
+      filter: blur(8px);
+    }
+    40% {
+      opacity: 1;
+      transform: translateY(-20px) translateX(5px) rotate(5deg) scale(1.1);
+      filter: blur(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+      filter: blur(0);
+    }
+  }
 </style>
 
 <script>
@@ -60,7 +89,7 @@
         if (entry.isIntersecting && !entry.target.classList.contains('revealed')) {
           entry.target.classList.add('revealed');
           
-          const words = entry.target.querySelectorAll('.blur-word');
+          const words = entry.target.querySelectorAll('.blur-word, .literal-step');
           words.forEach((word, index) => {
             setTimeout(() => {
               word.classList.add('active');
