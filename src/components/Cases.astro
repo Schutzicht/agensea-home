@@ -1,4 +1,10 @@
 ---
+interface Props {
+  categoryFilter?: string;
+}
+
+const { categoryFilter } = Astro.props;
+
 const cases = [
   {
     id: "arieke",
@@ -36,6 +42,10 @@ const categories = [
   { id: 'marketing', label: 'Marketing' },
   { id: 'software', label: 'Software' },
 ];
+
+const displayCases = categoryFilter 
+  ? cases.filter(c => c.category === categoryFilter)
+  : cases;
 ---
 
 <section id="cases" class="pt-12 pb-16 md:pt-24 md:pb-24 px-6 lg:px-10 overflow-hidden">
@@ -52,24 +62,27 @@ const categories = [
         </h2>
       </div>
 
-      <!-- Filters -->
-      <div class="flex flex-wrap gap-2 md:gap-4 p-1 bg-dark-lighter/30 rounded-full border border-white/5 w-fit">
-        {categories.map((cat) => (
-          <button
-            class={`filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 interactive ${cat.id === 'all' ? 'active bg-white text-dark shadow-lg' : 'text-text-secondary hover:bg-white hover:text-dark'}`}
-            data-filter={cat.id}
-          >
-            {cat.label}
-          </button>
-        ))}
-      </div>
+      <!-- Filters (Only show if no strict categoryFilter is applied) -->
+      {!categoryFilter && (
+        <div class="flex flex-wrap gap-2 md:gap-4 p-1 bg-dark-lighter/30 rounded-full border border-white/5 w-fit">
+          {categories.map((cat) => (
+            <button
+              class={`filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 interactive ${cat.id === 'all' ? 'active bg-white text-dark shadow-lg' : 'text-text-secondary hover:bg-white hover:text-dark'}`}
+              data-filter={cat.id}
+              aria-label={`Filter by ${cat.label}`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   </div>
 
   <!-- Horizontal Scroll Gallery -->
   <div class="relative">
     <div id="cases-grid" class="flex gap-6 md:gap-8 px-6 lg:px-10 overflow-x-auto pb-8 scrollbar-hide scroll-smooth">
-      {cases.map((item, i) => (
+      {displayCases.map((item, i) => (
         <div 
           class="reveal case-card group block w-[280px] md:w-[380px] shrink-0 interactive" 
           data-category={item.category}
