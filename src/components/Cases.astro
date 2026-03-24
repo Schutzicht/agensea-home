@@ -1,52 +1,32 @@
 ---
 const cases = [
   {
+    id: "arieke",
     title: "Arieke van Liere",
     tag: "LinkedIn Campagne",
     category: "marketing",
     image: "/portfolio/arieke-van-liere.png",
-    description: "LinkedIn campagne gericht op engagement om haar showreel te promoten onder de relevante doelgroep. Van strategie en doelgroepanalyse tot uitvoering en contentplanning — volledig door ons verzorgd.",
-    review: {
-      text: "Review binnenkort beschikbaar.",
-      author: "Arieke van Liere",
-      placeholder: true
-    }
   },
   {
+    id: "adrz",
     title: "Adrz",
     tag: "Imago Campagne",
     category: "marketing",
     image: "/portfolio/adrz.png",
-    description: "Imagocampagne voor het Adrz om hun content breed te verspreiden in Zeeland. We hebben campagnes opgebouwd verdeeld over YouTube en Meta, met sterke resultaten op bereik en merkherkenning.",
-    review: {
-      text: "Review binnenkort beschikbaar.",
-      author: "Adrz",
-      placeholder: true
-    }
   },
   {
+    id: "rd",
     title: "Bouwgroep R&D",
     tag: "Website",
     category: "website",
     image: "/portfolio/bouwgroep-rd.png",
-    description: "Bouwgroep R&D was toe aan een upgrade. We bouwden een gebruiksvriendelijke website die helder communiceert wat zij als diensten aanbieden, én die vertrouwen wekt bij potentiële klanten.",
-    review: {
-      text: "Ik ben heel erg blij met het eindresultaat. Het hele traject verliep soepel en professioneel — van het eerste gesprek tot de oplevering. De website sluit nu perfect aan bij wie we zijn als bedrijf.",
-      author: "Mischa, Bouwgroep R&D",
-      placeholder: false
-    }
   },
   {
+    id: "bb",
     title: "B&B Voorste Eng",
     tag: "Website",
     category: "website",
     image: "/portfolio/bb-voorste-eng.png",
-    description: "B&B Voorste Eng wilde niet langer volledig afhankelijk zijn van externe boekingsplatformen. Wij bouwden een eigen website waarmee gasten direct kunnen ontdekken en boeken.",
-    review: {
-      text: "Review binnenkort beschikbaar.",
-      author: "B&B Voorste Eng",
-      placeholder: true
-    }
   },
 ];
 
@@ -93,6 +73,7 @@ const categories = [
         <div 
           class="reveal case-card group block w-[280px] md:w-[380px] shrink-0 interactive" 
           data-category={item.category}
+          data-id={item.id}
           style={`animation-delay: ${i * 0.1}s;`}
         >
           <!-- Image Card -->
@@ -109,7 +90,7 @@ const categories = [
             </span>
             <!-- Expand hint -->
             <div class="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <svg class="w-3.5 h-3.5 text-white expand-icon transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              <svg class="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
             </div>
           </div>
           
@@ -118,28 +99,6 @@ const categories = [
             {item.title}
             <svg class="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </h3>
-
-          <!-- Expandable Detail Panel -->
-          <div class="case-detail overflow-hidden transition-all duration-500 ease-out" style="max-height: 0; opacity: 0;">
-            <div class="pt-4 pb-2 space-y-4">
-              <p class="text-sm text-text-secondary leading-relaxed">{item.description}</p>
-              
-              <!-- Review -->
-              <div class={`p-4 rounded-xl border ${item.review.placeholder ? 'bg-warm-grey/30 border-warm-grey/50' : 'bg-indigo/5 border-indigo/10'}`}>
-                <div class="flex items-start gap-3">
-                  <svg class="w-4 h-4 mt-0.5 shrink-0 text-indigo/40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/></svg>
-                  <div>
-                    <p class={`text-sm leading-relaxed ${item.review.placeholder ? 'text-text-secondary/50 italic' : 'text-dark'}`}>
-                      {item.review.text}
-                    </p>
-                    <span class="block mt-2 text-[10px] font-bold uppercase tracking-widest text-text-secondary/60">
-                      — {item.review.author}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       ))}
     </div>
@@ -162,7 +121,6 @@ const categories = [
   .case-card {
     transition: opacity 0.4s ease, transform 0.4s ease, max-width 0.4s ease, padding 0.4s ease, margin 0.4s ease;
     max-width: 380px;
-    overflow: visible;
   }
 
   .case-card.filtered-out {
@@ -213,13 +171,6 @@ const categories = [
           card.classList.remove('filtered-out');
         } else {
           card.classList.add('filtered-out');
-          // Also collapse if expanded
-          card.classList.remove('expanded');
-          const detail = card.querySelector('.case-detail') as HTMLElement;
-          if (detail) {
-            detail.style.maxHeight = '0';
-            detail.style.opacity = '0';
-          }
         }
       });
       
@@ -227,26 +178,16 @@ const categories = [
     });
   });
 
-  // Expand/collapse logic
+  // Open Modal logic
   document.querySelectorAll('.case-trigger').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
       const card = (trigger as HTMLElement).closest('.case-card');
       if (!card) return;
 
-      const detail = card.querySelector('.case-detail') as HTMLElement;
-      if (!detail) return;
-
-      const isExpanded = card.classList.contains('expanded');
-
-      if (isExpanded) {
-        card.classList.remove('expanded');
-        detail.style.maxHeight = '0';
-        detail.style.opacity = '0';
-      } else {
-        card.classList.add('expanded');
-        detail.style.maxHeight = detail.scrollHeight + 'px';
-        detail.style.opacity = '1';
+      const caseId = card.getAttribute('data-id');
+      if (caseId) {
+        window.dispatchEvent(new CustomEvent('open-case', { detail: { id: caseId } }));
       }
     });
   });
