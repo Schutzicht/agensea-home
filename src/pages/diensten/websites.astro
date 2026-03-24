@@ -3,11 +3,13 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import Cases from '../../components/Cases.astro';
+import CasePopup from '../../components/CasePopup.astro';
 import CTA from '../../components/CTA.astro';
 ---
 
 <Layout title="Maatwerk Websites | Agensea">
   <Navbar />
+  <CasePopup />
   
   <main class="bg-cream min-h-screen pt-28 md:pt-36 pb-20 overflow-hidden relative">
     <!-- Background Decor -->
@@ -270,6 +272,7 @@ import CTA from '../../components/CTA.astro';
   </main>
   
   <Footer />
+  <CasePopup />
 </Layout>
 
 <style>
