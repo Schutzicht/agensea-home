@@ -33,8 +33,12 @@
         <h2 id="case-title" class="font-display text-3xl md:text-5xl font-bold leading-tight mb-6"></h2>
         <div id="case-description" class="text-text-secondary text-lg leading-relaxed space-y-4"></div>
         
-      </div>
-    </div>
+        <div id="case-link-container" class="mt-10 hidden">
+          <a id="case-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 group text-white bg-dark px-6 py-3 rounded-full font-bold hover:bg-indigo transition-colors interactive">
+            Bekijk live website
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
   </div>
 </div>
 
@@ -112,6 +116,56 @@
       `,
       image: "/portfolio/bouwgroep-rd.png",
     },
+    boogaard: {
+      category: "Website",
+      title: "Minicamping Boogaard",
+      link: "https://www.minicamping-boogaard.nl/nl",
+      description: `
+        <h4 class="font-bold text-dark mb-2">Vraagstuk</h4>
+        <p class="mb-6">Minicamping Boogaard had een verouderde website en was voor boekingen grotendeels afhankelijk van externe platforms. Dit betekende hoge commissies en weinig controle. Ze wilden onafhankelijkheid, meer directe inkomsten en een uitstraling die de prachtige locatie weerspiegelt.</p>
+        
+        <h4 class="font-bold text-dark mb-2">Wat Agensea heeft gedaan</h4>
+        <p class="mb-6">Door strategische inzet van dronebeelden en een conversiegerichte, sfeervolle website lieten we de camping echt spreken. Het nieuwe platform geeft gasten direct het vakantiegevoel en maakt soepel online boeken zonder tussenkomst van dure bemiddelaars mogelijk.</p>
+        
+        <h4 class="font-bold text-dark mb-6">Resultaat</h4>
+
+        <div class="p-4 rounded-xl border bg-indigo/5 border-indigo/10">
+          <div class="flex items-start gap-3">
+            <svg class="w-4 h-4 mt-0.5 shrink-0 text-indigo/40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/></svg>
+            <div>
+              <p class="text-sm leading-relaxed text-dark">De drone beelden maken echt het verschil. Gasten zien meteen wat voor prachtige plek we hebben. En we worden nu veel beter gevonden in Google!</p>
+              <span class="block mt-2 text-[10px] font-bold uppercase tracking-widest text-text-secondary/60">Minicamping Boogaard</span>
+            </div>
+          </div>
+        </div>
+      `,
+      image: "/portfolio/minicamping-boogaard.webp",
+    },
+    assieraden: {
+      category: "Website",
+      title: "Assieraden Specialist",
+      link: "https://www.assieradenspecialist.nl/",
+      description: `
+        <h4 class="font-bold text-dark mb-2">Vraagstuk</h4>
+        <p class="mb-6">Het ontwerpen en ontwikkelen van een platform voor een zeer emotioneel product waarbij vertrouwen, ingetogenheid, respect en personalisatie centraal staan in de online klantervaring.</p>
+        
+        <h4 class="font-bold text-dark mb-2">Wat Agensea heeft gedaan</h4>
+        <p class="mb-6">We kozen bewust voor een 'soft commerce' benadering: verfijnde begeleiding en puur advies, zonder harde sales-triggers. Dit vertaalde zich in een strak, rustgevend design dat tegelijkertijd e-commerce functioneel is.</p>
+        
+        <h4 class="font-bold text-dark mb-6">Resultaat</h4>
+
+        <div class="p-4 rounded-xl border bg-indigo/5 border-indigo/10">
+          <div class="flex items-start gap-3">
+            <svg class="w-4 h-4 mt-0.5 shrink-0 text-indigo/40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/></svg>
+            <div>
+              <p class="text-sm leading-relaxed text-dark">Onze klanten waarderen de rustige uitstraling en het gemak waarmee ze een persoonlijk sieraad kunnen samenstellen. De site straalt precies uit wat we willen: zorg en kwaliteit.</p>
+              <span class="block mt-2 text-[10px] font-bold uppercase tracking-widest text-text-secondary/60">Assieraden Specialist</span>
+            </div>
+          </div>
+        </div>
+      `,
+      image: "/portfolio/assieraden-specialist.webp",
+    },
     bb: {
       category: "Website",
       title: "B&B Voorste Eng",
@@ -153,6 +207,16 @@
     document.getElementById('case-category').textContent = caseData.category;
     document.getElementById('case-description').innerHTML = caseData.description;
     document.getElementById('case-image').src = caseData.image;
+
+    // Handle optional external link
+    const linkContainer = document.getElementById('case-link-container');
+    const linkBtn = document.getElementById('case-link');
+    if (caseData.link) {
+      linkContainer.classList.remove('hidden');
+      linkBtn.setAttribute('href', caseData.link);
+    } else {
+      linkContainer.classList.add('hidden');
+    }
 
     // Show modal
     modal.classList.remove('opacity-0', 'pointer-events-none');
