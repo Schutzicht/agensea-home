@@ -1,0 +1,144 @@
+---
+---
+
+<div 
+  id="team-modal" 
+  class="fixed inset-0 z-[1001] flex items-center justify-center p-6 md:p-12 opacity-0 pointer-events-none transition-all duration-500"
+>
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-dark/40 backdrop-blur-xl" id="team-modal-close"></div>
+  
+  <!-- Modal Container -->
+  <div class="relative bg-white rounded-[2.5rem] w-full max-w-4xl max-h-[85vh] overflow-hidden shadow-2xl translate-y-8 transition-all duration-500 flex flex-col md:flex-row border border-white/20">
+    
+    <!-- Left: Image -->
+    <div class="w-full md:w-1/2 h-64 md:h-auto bg-warm-grey relative overflow-hidden group">
+      <img id="member-image" src="" alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent"></div>
+      
+      <!-- Subtle Brand Accent -->
+      <div class="absolute bottom-6 left-6 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </div>
+        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/90">Agensea Team</span>
+      </div>
+    </div>
+    
+    <!-- Right: Content -->
+    <div class="w-full md:w-1/2 p-8 md:p-14 overflow-y-auto bg-white flex flex-col justify-center relative">
+      <button 
+        id="team-modal-close-btn"
+        class="absolute top-6 right-6 w-12 h-12 rounded-full bg-cream hover:bg-warm-grey flex items-center justify-center transition-all duration-300 interactive group active:scale-95"
+      >
+        <svg class="w-6 h-6 text-dark transition-transform group-hover:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="reveal-content opacity-0 translate-y-4 transition-all duration-700 delay-300">
+        <span id="member-role" class="inline-block text-[10px] font-bold uppercase tracking-[0.3em] text-indigo mb-4 px-3 py-1 bg-indigo/5 rounded-full"></span>
+        <h2 id="member-name" class="font-display text-4xl md:text-6xl font-bold leading-tight text-dark mb-8 tracking-tight"></h2>
+        
+        <div id="member-bio" class="text-text-secondary text-lg md:text-xl leading-relaxed font-light space-y-6">
+          <!-- Bio content will be injected here -->
+        </div>
+
+        <!-- Social / Contact Placeholder -->
+        <div class="mt-12 flex items-center gap-6">
+          <div class="w-12 h-[1px] bg-dark/10"></div>
+          <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary/40">Ready for impact</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const team = {
+    jorik: {
+      name: "Jorik Schut",
+      role: "Founder & Creative Director",
+      bio: `
+        <p>Als oprichter van Agensea geloof ik in de kracht van eenvoud en effectiviteit. Mijn passie ligt bij het snijvlak van creativiteit en diepgaande techniek.</p>
+        <p>Ik werk nauw samen met onze klanten om hun visie te vertalen naar digitale producten die niet alleen mooi zijn, maar ook écht resultaat leveren. Geen vage marketingtaal, maar strategische keuzes die je bedrijf verder helpen.</p>
+      `,
+      image: "/team/jorik.webp"
+    },
+    jorian: {
+      name: "Jorian",
+      role: "Marketing Specialist",
+      bio: `
+        <p>Data-gedreven en doelgericht. Ik zorg ervoor dat de oplossingen die wij bouwen ook daadwerkelijk de juiste doelgroep bereiken en overtuigen.</p>
+        <p>Mijn focus ligt op SEA en conversie-optimalisatie. Ik geloof dat elke beslissing in een campagne onderbouwd moet zijn door data. Zo halen we het maximale rendement uit elke euro die onze klanten investeren.</p>
+      `,
+      image: "/team/jorian.webp"
+    },
+    ruben: {
+      name: "Ruben",
+      role: "Lead Software Engineer",
+      bio: `
+        <p>Techniek is de motor van elk digitaal product. Ik focus me op het bouwen van robuuste, schaalbare en razendsnelle systemen.</p>
+        <p>Of het nu gaat om complexe API-integraties of maatwerk software voor bedrijfsprocessen: ik zorg dat de code schoon is en de oplossing naadloos aansluit op de behoefte van de gebruiker. Performance is bij mij een absolute must.</p>
+      `,
+      image: "/team/ruben.webp"
+    }
+  };
+
+  const modal = document.getElementById('team-modal');
+  const closeTriggers = [
+    document.getElementById('team-modal-close'),
+    document.getElementById('team-modal-close-btn')
+  ];
+
+  function openMember(id) {
+    const data = team[id];
+    if (!data || !modal) return;
+
+    // Update content
+    const nameEl = document.getElementById('member-name');
+    const roleEl = document.getElementById('member-role');
+    const bioEl = document.getElementById('member-bio');
+    const imgEl = document.getElementById('member-image') as HTMLImageElement;
+    const contentWrapper = modal.querySelector('.reveal-content');
+
+    if (nameEl) nameEl.textContent = data.name;
+    if (roleEl) roleEl.textContent = data.role;
+    if (bioEl) bioEl.innerHTML = data.bio;
+    if (imgEl) imgEl.src = data.image;
+
+    // Show modal
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.querySelector('.relative')?.classList.remove('translate-y-8');
+    
+    // Animate content
+    setTimeout(() => {
+      contentWrapper?.classList.remove('opacity-0', 'translate-y-4');
+    }, 100);
+
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMember() {
+    if (!modal) return;
+    const contentWrapper = modal.querySelector('.reveal-content');
+    
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.querySelector('.relative')?.classList.add('translate-y-8');
+    contentWrapper?.classList.add('opacity-0', 'translate-y-4');
+    
+    document.body.style.overflow = '';
+  }
+
+  // Event Listeners
+  window.addEventListener('open-team-member', (e: any) => openMember(e.detail.id));
+  closeTriggers.forEach(t => t?.addEventListener('click', closeMember));
+
+  // Close on Escape
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMember();
+  });
+</script>

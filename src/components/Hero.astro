@@ -1,4 +1,5 @@
 ---
+import TeamPopup from './TeamPopup.astro';
 // The Hero segment data aligned with BMC & UVP
 const segments = [
   {
@@ -91,14 +92,23 @@ const segments = [
           <!-- Team Badge (Hidden on mobile) -->
           <div class="hidden sm:flex items-center gap-4 group">
             <div class="flex -space-x-4">
-              <div class="w-12 h-12 rounded-full border-2 border-indigo p-0.5 overflow-hidden bg-white transition-transform duration-500 hover:z-10 hover:scale-110">
-                <div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('/team/ruben.webp');"></div>
+              <div 
+                class="w-12 h-12 rounded-full border-2 border-indigo p-0.5 overflow-hidden bg-white transition-transform duration-500 hover:z-10 hover:scale-110 cursor-pointer team-trigger group/team"
+                data-member="ruben"
+              >
+                <div class="w-full h-full rounded-full bg-cover bg-center transition-transform duration-500 group-hover/team:scale-110" style="background-image: url('/team/ruben.webp');"></div>
               </div>
-              <div class="w-12 h-12 rounded-full border-2 border-indigo p-0.5 overflow-hidden bg-white transition-transform duration-500 hover:z-10 hover:scale-110">
-                <div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('/team/jorian.webp');"></div>
+              <div 
+                class="w-12 h-12 rounded-full border-2 border-indigo p-0.5 overflow-hidden bg-white transition-transform duration-500 hover:z-10 hover:scale-110 cursor-pointer team-trigger group/team"
+                data-member="jorian"
+              >
+                <div class="w-full h-full rounded-full bg-cover bg-center transition-transform duration-500 group-hover/team:scale-110" style="background-image: url('/team/jorian.webp');"></div>
               </div>
-              <div class="w-12 h-12 rounded-full border-2 border-indigo p-0.5 overflow-hidden bg-white transition-transform duration-500 hover:z-10 hover:scale-110">
-                <div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('/team/jorik.webp');"></div>
+              <div 
+                class="w-12 h-12 rounded-full border-2 border-indigo p-0.5 overflow-hidden bg-white transition-transform duration-500 hover:z-10 hover:scale-110 cursor-pointer team-trigger group/team"
+                data-member="jorik"
+              >
+                <div class="w-full h-full rounded-full bg-cover bg-center transition-transform duration-500 group-hover/team:scale-110" style="background-image: url('/team/jorik.webp');"></div>
               </div>
             </div>
             <div class="flex flex-col justify-center">
@@ -182,6 +192,8 @@ const segments = [
     </div>
   </div>
 </section>
+
+<TeamPopup />
 
 <style>
   .ease-out-expo {
@@ -279,6 +291,14 @@ const segments = [
     el.addEventListener('click', () => {
       const id = el.getAttribute('data-case');
       window.dispatchEvent(new CustomEvent('open-case', { detail: { id } }));
+    });
+  });
+
+  // Handle Team Member Clicks
+  document.querySelectorAll('.team-trigger').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = el.getAttribute('data-member');
+      window.dispatchEvent(new CustomEvent('open-team-member', { detail: { id } }));
     });
   });
 </script>
