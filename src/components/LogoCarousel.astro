@@ -86,22 +86,28 @@ const display2 = [...row2, ...row2, ...row2];
   }
 
   @keyframes scrollLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-33.333%); }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-33.333%, 0, 0); }
   }
   @keyframes scrollRight {
-    0% { transform: translateX(-33.333%); }
-    100% { transform: translateX(0); }
+    0% { transform: translate3d(-33.333%, 0, 0); }
+    100% { transform: translate3d(0, 0, 0); }
   }
 
   .marquee-left {
     display: flex;
     width: max-content;
     animation: scrollLeft 35s linear infinite;
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
   .marquee-right {
     display: flex;
     width: max-content;
     animation: scrollRight 45s linear infinite;
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 </style>

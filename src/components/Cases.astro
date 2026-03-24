@@ -118,21 +118,27 @@ const categories = [
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
-  .filter-btn.active {
-    /* Styles are mostly in Tailwind classes but here for clarity if needed */
+
+  .case-card {
+    transition: opacity 0.4s ease, transform 0.4s ease, max-width 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+    max-width: 380px;
+    overflow: hidden;
   }
 
   .case-card.filtered-out {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
+    max-width: 0;
+    padding: 0;
+    margin: 0;
     pointer-events: none;
-    width: 0;
-    margin-right: 0;
+    overflow: hidden;
   }
-  
-  #cases-grid {
-    transition: all 0.5s ease;
+
+  @media (max-width: 767px) {
+    .case-card {
+      max-width: 280px;
+    }
   }
 </style>
 
@@ -153,22 +159,13 @@ const categories = [
       btn.classList.add('active', 'bg-white', 'text-dark', 'shadow-lg');
       btn.classList.remove('text-text-secondary');
 
-      // Filter cards
+      // Filter cards with pure CSS class toggling
       caseCards.forEach((card: any) => {
         const category = card.getAttribute('data-category');
-        
         if (filter === 'all' || category === filter) {
           card.classList.remove('filtered-out');
-          setTimeout(() => {
-            card.style.display = 'block';
-            card.style.width = window.innerWidth < 768 ? '280px' : '380px';
-            card.style.marginRight = window.innerWidth < 768 ? '1.5rem' : '2rem';
-          }, 0);
         } else {
           card.classList.add('filtered-out');
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 400); // Wait for transition
         }
       });
       
