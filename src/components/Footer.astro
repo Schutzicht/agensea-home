@@ -48,7 +48,7 @@ const year = new Date().getFullYear();
         <div>
           <p class="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-6">Navigatie</p>
           <ul class="space-y-4">
-            <li><a href="/#over-ons" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Over ons</a></li>
+            <li><a href="/over-ons" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Over ons</a></li>
             <li><a href="/#cases" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Cases</a></li>
             <li><a href="/contact" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Contact</a></li>
           </ul>
@@ -58,7 +58,6 @@ const year = new Date().getFullYear();
           <p class="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-6">Socials</p>
           <ul class="space-y-4">
             <li><a href="https://linkedin.com/company/zee-zicht" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">LinkedIn</a></li>
-            <li><a href="https://www.instagram.com/zeezichtmedia" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-white/60 hover:text-white transition-colors interactive">Instagram</a></li>
           </ul>
         </div>
       </div>
@@ -66,9 +65,9 @@ const year = new Date().getFullYear();
 
     <!-- Bottom Bar -->
     <div class="mt-32 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-        <span class="text-[10px] font-bold text-white/20 uppercase tracking-widest">Always Online</span>
+      <div class="flex items-center gap-2" id="online-status">
+        <span id="status-dot" class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+        <span id="status-text" class="text-[10px] font-bold text-white/20 uppercase tracking-widest">Always Online</span>
       </div>
       
       <div class="flex items-center gap-8 text-[10px] font-bold text-white/20 uppercase tracking-widest">
@@ -81,3 +80,27 @@ const year = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<script>
+  function updateOnlineStatus() {
+    const now = new Date();
+    const hour = now.getHours();
+    const day = now.getDay(); // 0=Sun, 6=Sat
+    const isWorkday = day >= 1 && day <= 5;
+    const isOnline = isWorkday && hour >= 8 && hour < 19;
+
+    const dot = document.getElementById('status-dot');
+    const text = document.getElementById('status-text');
+    if (dot && text) {
+      if (isOnline) {
+        dot.className = 'w-1.5 h-1.5 rounded-full bg-green-500';
+        text.textContent = 'Nu bereikbaar';
+      } else {
+        dot.className = 'w-1.5 h-1.5 rounded-full bg-red-400';
+        text.textContent = 'Momenteel offline';
+      }
+    }
+  }
+  updateOnlineStatus();
+  setInterval(updateOnlineStatus, 60000);
+</script>

@@ -90,6 +90,19 @@
   </div>
 </div>
 
+<!-- Sticky Floating Button -->
+<button 
+  id="ai-floating-trigger"
+  class="fixed bottom-6 right-6 z-[1900] w-14 h-14 rounded-full bg-indigo text-white shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group interactive"
+  aria-label="Open AI Assistent"
+>
+  <svg class="w-6 h-6 group-hover:rotate-12 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+  </svg>
+  <!-- Notification dot -->
+  <span class="absolute top-0 right-0 w-3 h-3 bg-red-500 border-2 border-white rounded-full"></span>
+</button>
+
 <script>
   const modal = document.getElementById('ai-search-modal');
   const input = (document.getElementById('ai-search-input') as HTMLInputElement);
@@ -98,6 +111,7 @@
   const closeBtn = document.getElementById('close-ai-search');
   const backdrop = document.getElementById('ai-modal-backdrop');
   const suggestionBtns = document.querySelectorAll('.suggestion-btn');
+  const floatingTrigger = document.getElementById('ai-floating-trigger');
 
   function openModal() {
     modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -187,6 +201,7 @@
   window.addEventListener('open-ai-search', openModal);
   closeBtn?.addEventListener('click', closeModal);
   backdrop?.addEventListener('click', closeModal);
+  floatingTrigger?.addEventListener('click', openModal);
   
   sendBtn?.addEventListener('click', handleSend);
   input?.addEventListener('keypress', (e) => {

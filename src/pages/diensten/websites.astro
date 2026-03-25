@@ -242,6 +242,151 @@ import CTA from '../../components/CTA.astro';
       </div>
     </section>
 
+    <!-- Ads Goal Selector: "Ik wil..." -->
+    <section id="doelstellingen" class="relative z-10 py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        
+        <!-- Section Header -->
+        <div class="reveal mb-12 md:mb-16">
+          <span class="inline-flex items-center gap-2 text-xs font-bold text-indigo uppercase tracking-[0.2em] mb-6">
+            <span class="w-8 h-[2px] bg-indigo"></span>
+            Jouw behoefte
+          </span>
+          <h2 class="font-display text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.05] text-dark max-w-3xl">
+            Ik wil <span class="text-indigo" id="goal-heading-accent">...</span>
+          </h2>
+          <p class="mt-4 text-base md:text-lg text-text-secondary max-w-2xl leading-relaxed">
+            Selecteer je behoefte en ontdek hoe we jouw digitale aanwezigheid versterken.
+          </p>
+        </div>
+
+        <!-- Goal Chips -->
+        <div class="reveal flex flex-wrap gap-3 mb-10 md:mb-14" id="goal-chips">
+          <button class="goal-chip flex items-center gap-2 px-5 py-3 rounded-full text-sm md:text-base font-medium border border-warm-grey/40 bg-white text-dark hover:border-indigo hover:text-indigo transition-all duration-300 cursor-pointer group" data-goal="nieuwe-website">
+            <svg class="w-4 h-4 text-indigo/70 group-hover:text-indigo group-[.active]:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            Nieuwe website
+          </button>
+          <button class="goal-chip flex items-center gap-2 px-5 py-3 rounded-full text-sm md:text-base font-medium border border-warm-grey/40 bg-white text-dark hover:border-indigo hover:text-indigo transition-all duration-300 cursor-pointer group" data-goal="webshop">
+            <svg class="w-4 h-4 text-indigo/70 group-hover:text-indigo group-[.active]:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+            Een webshop
+          </button>
+          <button class="goal-chip flex items-center gap-2 px-5 py-3 rounded-full text-sm md:text-base font-medium border border-warm-grey/40 bg-white text-dark hover:border-indigo hover:text-indigo transition-all duration-300 cursor-pointer group" data-goal="rebranding">
+            <svg class="w-4 h-4 text-indigo/70 group-hover:text-indigo group-[.active]:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12A10 10 0 0 0 15 21.54A10 10 0 0 1 15 2.46A10 10 0 0 0 2 12Z"/></svg>
+            Website vernieuwen
+          </button>
+          <button class="goal-chip flex items-center gap-2 px-5 py-3 rounded-full text-sm md:text-base font-medium border border-warm-grey/40 bg-white text-dark hover:border-indigo hover:text-indigo transition-all duration-300 cursor-pointer group" data-goal="snelheid">
+            <svg class="w-4 h-4 text-indigo/70 group-hover:text-indigo group-[.active]:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            Snellere website
+          </button>
+          <button class="goal-chip flex items-center gap-2 px-5 py-3 rounded-full text-sm md:text-base font-medium border border-warm-grey/40 bg-white text-dark hover:border-indigo hover:text-indigo transition-all duration-300 cursor-pointer group" data-goal="maatwerk">
+            <svg class="w-4 h-4 text-indigo/70 group-hover:text-indigo group-[.active]:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Maatwerk platform
+          </button>
+        </div>
+
+        <!-- Content Panels -->
+        <div class="relative transition-[height] duration-500 ease-out" id="goal-content-wrapper" style="height: 0px; overflow: hidden;">
+          
+          <!-- Nieuwe Website -->
+          <div class="goal-panel absolute inset-x-0 top-0 opacity-0 translate-y-6 pointer-events-none transition-all duration-500" data-goal-panel="nieuwe-website">
+            <div class="bg-white/60 backdrop-blur-2xl border border-white/80 rounded-3xl p-6 md:p-10 shadow-xl">
+              <div class="grid md:grid-cols-12 gap-6 md:gap-10">
+                <div class="md:col-span-7">
+                  <span class="inline-block text-xs font-bold text-indigo uppercase tracking-widest mb-3">Zakelijke Website</span>
+                  <h3 class="font-display text-2xl md:text-3xl font-bold text-dark mb-4">Een ijzersterke digitale eerste indruk</h3>
+                  <p class="text-text-secondary text-base leading-relaxed mb-6">
+                    De fundering van jouw online succes. We bouwen krachtige, razendsnelle websites die jouw merkverhaal overbrengen en bezoekers omzetten in klanten. Van corporate bedrijfsites tot overtuigende landingspagina's.
+                  </p>
+                  <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-dark text-white rounded-xl font-medium hover:bg-indigo transition-colors duration-300 text-sm">
+                    Bekijk de mogelijkheden
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+                <!-- ... -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Webshop -->
+          <div class="goal-panel absolute inset-x-0 top-0 opacity-0 translate-y-6 pointer-events-none transition-all duration-500" data-goal-panel="webshop">
+            <div class="bg-white/60 backdrop-blur-2xl border border-white/80 rounded-3xl p-6 md:p-10 shadow-xl">
+              <div class="grid md:grid-cols-12 gap-6 md:gap-10">
+                <div class="md:col-span-7">
+                  <span class="inline-block text-xs font-bold text-indigo uppercase tracking-widest mb-3">E-Commerce App</span>
+                  <h3 class="font-display text-2xl md:text-3xl font-bold text-dark mb-4">Meer verkopen uit een geoptimaliseerde shop</h3>
+                  <p class="text-text-secondary text-base leading-relaxed mb-6">
+                    We ontwerpen webshops met focus op conversie. Minimale afleiding, een logisch bestelproces en razendsnelle laadtijden. Volledig op maat of gekoppeld aan de bekende back-end systemen. Laat je omzet exponentieel groeien.
+                  </p>
+                  <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-dark text-white rounded-xl font-medium hover:bg-indigo transition-colors duration-300 text-sm">
+                    Start jouw webshop
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rebranding -->
+          <div class="goal-panel absolute inset-x-0 top-0 opacity-0 translate-y-6 pointer-events-none transition-all duration-500" data-goal-panel="rebranding">
+            <div class="bg-white/60 backdrop-blur-2xl border border-white/80 rounded-3xl p-6 md:p-10 shadow-xl">
+              <div class="grid md:grid-cols-12 gap-6 md:gap-10">
+                <div class="md:col-span-7">
+                  <span class="inline-block text-xs font-bold text-indigo uppercase tracking-widest mb-3">Redesign Strategie</span>
+                  <h3 class="font-display text-2xl md:text-3xl font-bold text-dark mb-4">Blaas nieuw leven in jouw online huis</h3>
+                  <p class="text-text-secondary text-base leading-relaxed mb-6">
+                    Laat je website niet achterlopen. Een doordachte redesign zorgt voor een modern design, betere techniek en gebruiksvriendelijke structuur. We brengen de look-en-feel weer helemaal in lijn met jullie visie.
+                  </p>
+                  <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-dark text-white rounded-xl font-medium hover:bg-indigo transition-colors duration-300 text-sm">
+                    Plan een redesign sprint
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Snelheid -->
+          <div class="goal-panel absolute inset-x-0 top-0 opacity-0 translate-y-6 pointer-events-none transition-all duration-500" data-goal-panel="snelheid">
+            <div class="bg-white/60 backdrop-blur-2xl border border-white/80 rounded-3xl p-6 md:p-10 shadow-xl">
+              <div class="grid md:grid-cols-12 gap-6 md:gap-10">
+                <div class="md:col-span-7">
+                  <span class="inline-block text-xs font-bold text-indigo uppercase tracking-widest mb-3">Performance & SEO</span>
+                  <h3 class="font-display text-2xl md:text-3xl font-bold text-dark mb-4">Snelle laadtijden, hogere Google posities</h3>
+                  <p class="text-text-secondary text-base leading-relaxed mb-6">
+                     Bezoekers haken af als je site langzaam laadt, en ook Google straft trage pagina's genadeloos af. We bouwen een moderne, lichtgewicht architectuur waarmee je website pijlsnel aanvoelt op alle apparaten. 
+                  </p>
+                  <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-dark text-white rounded-xl font-medium hover:bg-indigo transition-colors duration-300 text-sm">
+                    Optimaliseer jouw techniek
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Maatwerk -->
+          <div class="goal-panel absolute inset-x-0 top-0 opacity-0 translate-y-6 pointer-events-none transition-all duration-500" data-goal-panel="maatwerk">
+            <div class="bg-white/60 backdrop-blur-2xl border border-white/80 rounded-3xl p-6 md:p-10 shadow-xl">
+              <div class="grid md:grid-cols-12 gap-6 md:gap-10">
+                <div class="md:col-span-7">
+                  <span class="inline-block text-xs font-bold text-indigo uppercase tracking-widest mb-3">Custom Development</span>
+                  <h3 class="font-display text-2xl md:text-3xl font-bold text-dark mb-4">Meer dan een standaard template</h3>
+                  <p class="text-text-secondary text-base leading-relaxed mb-6">
+                     Heb je specifieke wensen of complexe functionaliteiten nodig? Van portalen voor klanten tot calculatoren en API-koppelingen. Wij leveren een 100% kloppende, maatwerk oplossing die met jullie meegroeit.
+                  </p>
+                  <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-dark text-white rounded-xl font-medium hover:bg-indigo transition-colors duration-300 text-sm">
+                    Bespreek jouw concept
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Details Section -->
     <section id="aanpak" class="py-24 bg-white relative z-10 w-full rounded-[3rem] shadow-sm mb-24 md:mb-40">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
@@ -411,4 +556,95 @@ import CTA from '../../components/CTA.astro';
   // Start cycling
   showLayout(0);
   setInterval(cycle, DISPLAY_TIME + FADE_TIME);
+</script>
+
+<script>
+  // Goal Selector Logic for Websites
+  const goalChips = document.querySelectorAll('.goal-chip');
+  const goalPanels = document.querySelectorAll('.goal-panel');
+  const goalWrapper = document.getElementById('goal-content-wrapper');
+  const goalHeadingAccent = document.getElementById('goal-heading-accent');
+
+  const goalLabels: Record<string, string> = {
+    'nieuwe-website': 'een nieuwe website.',
+    'webshop': 'een webshop starten.',
+    'rebranding': 'mijn website vernieuwen.',
+    'snelheid': 'een snellere website.',
+    'maatwerk': 'een maatwerk platform.'
+  };
+
+  let activeGoal: string | null = null;
+
+  goalChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const goalId = (chip as HTMLElement).dataset.goal;
+      if (!goalId) return;
+
+      // Toggle: clicking same chip again closes it
+      if (activeGoal === goalId) {
+        // Deactivate
+        chip.classList.remove('bg-indigo', 'text-white', 'border-indigo', 'active');
+        chip.classList.add('bg-white', 'text-dark', 'border-warm-grey/40');
+        
+        goalPanels.forEach(p => {
+          p.classList.add('opacity-0', 'translate-y-6', 'pointer-events-none');
+          p.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        });
+        
+        if (goalWrapper) goalWrapper.style.height = '0px';
+        if (goalHeadingAccent) {
+          goalHeadingAccent.style.opacity = '0';
+          setTimeout(() => {
+            goalHeadingAccent!.textContent = '...';
+            goalHeadingAccent!.style.opacity = '1';
+          }, 200);
+        }
+        activeGoal = null;
+        return;
+      }
+
+      // Update chips
+      goalChips.forEach(c => {
+        c.classList.remove('bg-indigo', 'text-white', 'border-indigo', 'active');
+        c.classList.add('bg-white', 'text-dark', 'border-warm-grey/40');
+      });
+      chip.classList.add('bg-indigo', 'text-white', 'border-indigo', 'active');
+      chip.classList.remove('bg-white', 'text-dark', 'border-warm-grey/40');
+
+      // Update heading
+      if (goalHeadingAccent) {
+        goalHeadingAccent.style.opacity = '0';
+        setTimeout(() => {
+          goalHeadingAccent!.textContent = goalLabels[goalId] || '...';
+          goalHeadingAccent!.style.opacity = '1';
+        }, 200);
+      }
+
+      // Show correct panel
+      goalPanels.forEach(panel => {
+        const panelId = (panel as HTMLElement).dataset.goalPanel;
+        if (panelId === goalId) {
+          panel.classList.remove('opacity-0', 'translate-y-6', 'pointer-events-none');
+          panel.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          
+          // Animate height
+          if (goalWrapper) {
+            requestAnimationFrame(() => {
+              goalWrapper!.style.height = panel.scrollHeight + 'px';
+            });
+          }
+        } else {
+          panel.classList.add('opacity-0', 'translate-y-6', 'pointer-events-none');
+          panel.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        }
+      });
+
+      activeGoal = goalId;
+    });
+  });
+
+  // Smooth transition for heading accent
+  if (goalHeadingAccent) {
+    goalHeadingAccent.style.transition = 'opacity 0.2s ease-out';
+  }
 </script>

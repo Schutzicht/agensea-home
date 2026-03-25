@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import About from '../components/About.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout title="Over Ons | Agensea">
+  <Navbar />
+  
+  <main class="bg-cream min-h-screen pt-20 overflow-hidden relative">
+    <!-- The About component itself has a dark background and top padding 
+         so we can just drop it directly here below the navbar. -->
+    <About />
+
+    <!-- A simple CTA at the bottom of the over-ons page -->
+    <div class="bg-cream">
+      <CTA />
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

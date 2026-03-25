@@ -101,8 +101,15 @@ const displayCases = categoryFilter
   </div>
 
   <!-- Horizontal Scroll Gallery -->
-  <div class="relative">
-    <div id="cases-grid" class="flex gap-6 md:gap-8 px-6 lg:px-10 overflow-x-auto pb-8 scrollbar-hide scroll-smooth">
+  <div class="relative group/gallery">
+    <!-- Nav Arrows -->
+    <button id="cases-prev" class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-warm-grey/30 items-center justify-center hover:bg-indigo hover:text-white hover:border-indigo transition-all duration-300 opacity-0 group-hover/gallery:opacity-100 cursor-pointer" aria-label="Vorige">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <button id="cases-next" class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-warm-grey/30 items-center justify-center hover:bg-indigo hover:text-white hover:border-indigo transition-all duration-300 opacity-0 group-hover/gallery:opacity-100 cursor-pointer" aria-label="Volgende">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <div id="cases-grid" class="flex gap-6 md:gap-8 px-6 lg:px-10 overflow-x-auto pb-8 scrollbar-hide scroll-smooth select-none">
       {displayCases.map((item, i) => (
         <div 
           class="reveal case-card group block w-[280px] md:w-[380px] shrink-0 interactive" 
@@ -153,18 +160,20 @@ const displayCases = categoryFilter
   }
 
   .case-card {
-    transition: opacity 0.4s ease, transform 0.4s ease, max-width 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
     max-width: 380px;
   }
 
   .case-card.filtered-out {
     opacity: 0;
-    transform: scale(0.9);
-    max-width: 0;
-    padding: 0;
-    margin: 0;
+    transform: scale(0.95);
     pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
   }
 
   @media (max-width: 767px) {
@@ -219,23 +228,26 @@ const displayCases = categoryFilter
   let isDragging = false;
 
   if (grid) {
+    grid.style.cursor = 'grab';
+
     grid.addEventListener('mousedown', (e) => {
       isDown = true;
       isDragging = false;
-      grid.classList.add('cursor-grab');
       grid.style.cursor = 'grabbing';
       startX = e.pageX - grid.offsetLeft;
       scrollLeft = grid.scrollLeft;
+      // Prevent text selection while dragging
+      e.preventDefault();
     });
     
     grid.addEventListener('mouseleave', () => {
       isDown = false;
-      grid.style.cursor = '';
+      grid.style.cursor = 'grab';
     });
     
     grid.addEventListener('mouseup', () => {
       isDown = false;
-      grid.style.cursor = '';
+      grid.style.cursor = 'grab';
     });
     
     grid.addEventListener('mousemove', (e) => {
@@ -244,13 +256,23 @@ const displayCases = categoryFilter
       const x = e.pageX - grid.offsetLeft;
       const walk = (x - startX) * 2;
       
-      // If dragged more than 5 pixels, consider it a drag so we don't trigger click
       if (Math.abs(walk) > 5) {
         isDragging = true;
       }
       grid.scrollLeft = scrollLeft - walk;
     });
   }
+
+  // Arrow navigation
+  const prevBtn = document.getElementById('cases-prev');
+  const nextBtn = document.getElementById('cases-next');
+  const scrollAmount = 400;
+  prevBtn?.addEventListener('click', () => {
+    grid?.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+  nextBtn?.addEventListener('click', () => {
+    grid?.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
 
   // Open Modal logic
   document.querySelectorAll('.case-trigger').forEach(trigger => {
