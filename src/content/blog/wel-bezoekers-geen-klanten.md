@@ -102,4 +102,4 @@ Heb je het gevoel dat je omzet laat liggen? Grote kans dat jouw website lijdt aa
 Bij Agensea bouwen we websites met maar één doel: resultaat. Geen trage thema's, geen onduidelijke structuren, maar een geoliede machine die van bezoekers klanten maakt.
 
 **Wil jij weten waar jouw lek zit?**
-Wij kijken graag met je mee. Vraag een [vrijblijvende demo](/demo-ontvangen) aan, dan laten we zien hoeveel sneller en effectiever jouw site kan zijn.
+Wij kijken graag met je mee. Vraag een [vrijblijvende demo](/contact) aan, dan laten we zien hoeveel sneller en effectiever jouw site kan zijn.

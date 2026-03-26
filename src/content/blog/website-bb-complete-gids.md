@@ -574,7 +574,7 @@ Wij maken professionele B&B websites in Zeeland:
 
 **Vraag een gratis adviesgesprek aan** en ontdek wat we voor jouw B&B kunnen betekenen!
 
-[Bekijk voorbeelden →](/portfolio/) | [Neem contact op →](/contact/)
+[Bekijk voorbeelden →](/#cases) | [Neem contact op →](/contact)
 
 ---
 

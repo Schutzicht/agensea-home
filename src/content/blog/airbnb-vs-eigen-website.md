@@ -465,7 +465,7 @@ Wij helpen vakantiewoning eigenaren in Zeeland met:
 
 **Vraag een gratis adviesgesprek aan** en ontdek welke strategie het beste bij jou past!
 
-[Neem contact op →](/contact/)
+[Neem contact op →](/contact)
 
 ---
 

@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
+import BlogCard from "../../components/blog/BlogCard.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
@@ -62,75 +63,7 @@ const categories = [
                 class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
                 id="posts-grid"
             >
-                {
-                    sortedPosts.map((post) => (
-                        <a
-                            href={`/blog/${post.id}`}
-                            class="blog-card group relative bg-white/50 backdrop-blur-sm border border-white rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 hover:shadow-xl hover:shadow-indigo/5 flex flex-col h-full"
-                            data-category={post.data.category || ""}
-                        >
-                            <div class="absolute -inset-px bg-gradient-to-br from-indigo/20 to-transparent opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-500 pointer-events-none" />
-
-                            <div class="flex items-center gap-3 mb-4">
-                                <time
-                                    datetime={post.data.pubDate.toISOString()}
-                                    class="text-xs font-bold text-indigo uppercase tracking-widest"
-                                >
-                                    {post.data.pubDate.toLocaleDateString(
-                                        "nl-NL",
-                                        {
-                                            year: "numeric",
-                                            month: "short",
-                                            day: "numeric",
-                                        },
-                                    )}
-                                </time>
-                                {post.data.category && (
-                                    <>
-                                        <span class="w-1 h-1 rounded-full bg-dark/20" />
-                                        <span class="text-[10px] font-bold text-dark/40 uppercase tracking-widest">
-                                            {post.data.category}
-                                        </span>
-                                    </>
-                                )}
-                            </div>
-
-                            <h2 class="text-2xl font-display font-bold text-dark mb-4 group-hover:text-indigo transition-colors duration-300">
-                                {post.data.title}
-                            </h2>
-
-                            <p class="text-dark/70 font-sans line-clamp-3 mb-8 text-sm leading-relaxed">
-                                {post.data.excerpt || post.data.description}
-                            </p>
-
-                            {post.data.tags && post.data.tags.length > 0 && (
-                                <div class="flex flex-wrap gap-1.5 mb-6">
-                                    {post.data.tags.slice(0, 3).map((tag) => (
-                                        <span class="text-[10px] font-medium text-dark/40 bg-dark/[0.03] px-2 py-0.5 rounded-full">
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            )}
-
-                            <div class="mt-auto flex items-center gap-2 text-sm font-bold text-dark group-hover:text-indigo transition-colors uppercase tracking-widest">
-                                Lees verder
-                                <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="3"
-                                    class="group-hover:translate-x-1 transition-transform"
-                                >
-                                    <path d="M5 12h14" />
-                                    <path d="m12 5 7 7-7 7" />
-                                </svg>
-                            </div>
-                        </a>
-                    ))
-                }
+                {sortedPosts.map((post) => <BlogCard post={post} />)}
             </div>
         </div>
     </main>

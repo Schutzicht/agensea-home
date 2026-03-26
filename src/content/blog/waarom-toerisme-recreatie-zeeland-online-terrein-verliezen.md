@@ -60,7 +60,7 @@ Die platforms zijn handig. Ze brengen zichtbaarheid. Maar ze pakken ook 15 tot 2
 
 Een goed gebouwde website met een geïntegreerd boekingssysteem lost dat probleem op. Gasten die jou via Google vinden, kunnen dan direct bij jou boeken — zonder tussenpersoon, zonder commissie.
 
-We bouwden dit voor [Minicamping Boogaard in Zoutelande](/portfolio/): een moderne website met volledige SEO-optimalisatie, zodat ze beter vindbaar zijn in Google, en met professionele drone video en fotografie die het unieke karakter van de camping direct overbrengt. Het resultaat is een digitale aanwezigheid die gasten overtuigt — en die de camping zelf in de hand houdt.
+We bouwden dit voor [Minicamping Boogaard in Zoutelande](/#cases): een moderne website met volledige SEO-optimalisatie, zodat ze beter vindbaar zijn in Google, en met professionele drone video en fotografie die het unieke karakter van de camping direct overbrengt. Het resultaat is een digitale aanwezigheid die gasten overtuigt — en die de camping zelf in de hand houdt.
 
 Hetzelfde deden we voor B&B 't Bloemenveld in Ritthem: na een complete website redesign met boekingssysteem en SEO-optimalisatie kwamen er significant meer **directe boekingen** binnen.
 

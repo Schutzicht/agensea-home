@@ -97,6 +97,6 @@ Bij Zee-zicht Media zijn we gespecialiseerd in het bouwen van websites voor de Z
 
 ### Wil jij weten of jouw website klaar is voor de Duitse gast?
 
-[Vraag hier een vrijblijvende Website Scan aan](/contact/)
+[Vraag hier een vrijblijvende Website Scan aan](/contact)
 
 Of bel ons direct op **06 81 38 36 01** voor een bakje koffie in Middelburg.

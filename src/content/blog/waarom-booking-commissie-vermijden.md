@@ -267,7 +267,7 @@ Booking.com commissies kunnen **€15.000+ per jaar** kosten voor een gemiddelde
 
 Wil je weten hoeveel je kunt besparen met een eigen boekingssysteem? 
 
-**[Neem contact op](/contact/)** voor een vrijblijvend adviesgesprek over een commissievrij boekingssysteem.
+**[Neem contact op](/contact)** voor een vrijblijvend adviesgesprek over een commissievrij boekingssysteem.
 
 ---
 

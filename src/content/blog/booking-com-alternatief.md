@@ -169,7 +169,7 @@ Bij Agensea helpen we B&B's, campings en vakantieparken in Zeeland om de stap te
 
 We begrijpen dat de overstap spannend kan zijn. Daarom bieden we een **gratis adviesgesprek** aan waarin we samen kijken naar jouw specifieke situatie en berekenen hoeveel je precies kunt besparen. Geen verplichtingen, gewoon een eerlijk gesprek over de mogelijkheden.
 
-[Neem contact op →](/contact/)
+[Neem contact op →](/contact)
 
 ---
 

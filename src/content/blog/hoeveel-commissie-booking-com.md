@@ -320,7 +320,7 @@ Wij helpen accommodaties in Zeeland met:
 
 **Bereken jouw besparing** en vraag een gratis adviesgesprek aan.
 
-[Neem contact op →](/contact/)
+[Neem contact op →](/contact)
 
 ---
 

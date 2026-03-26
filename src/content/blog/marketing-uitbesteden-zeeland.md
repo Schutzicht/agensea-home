@@ -111,7 +111,7 @@ Kijk wat het oplevert. Bevalt het? Dan kun je stap voor stap meer overdragen.
 **Klaar om te stoppen met prutsen en te starten met groeien?**
 Bij Agensea helpen we nuchtere Zeeuwse ondernemers naar de top van Google. Zonder blabla, met resultaat.
 
-[Vraag een vrijblijvend adviesgesprek aan →](/contact/)
+[Vraag een vrijblijvend adviesgesprek aan →](/contact)
 
 ---
 

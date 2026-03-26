@@ -65,7 +65,7 @@ Daarnaast biedt een eigen website complete controle over de klantervaring. Met e
 **Break-even:** 4-6 maanden
 **ROI:** 300-500% per jaar
 
-[Bekijk website voorbeelden →](/portfolio/)
+[Bekijk website voorbeelden →](/#cases)
 
 ---
 
@@ -361,7 +361,7 @@ Wij helpen B&B's, campings en vakantieparken in Zeeland met:
 
 **Vraag een gratis adviesgesprek aan** en ontdek hoeveel je kunt besparen!
 
-[Neem contact op →](/contact/)
+[Neem contact op →](/contact)
 
 ---
 

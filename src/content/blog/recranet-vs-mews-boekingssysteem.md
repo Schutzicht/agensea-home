@@ -147,7 +147,7 @@ Dan heeft u een Digital Infrastructure nodig die sneller en slimmer is dan Booki
 
 Draait uw park meer dan €1M omzet en overweegt u een migratie? Wij kijken mee naar uw technische architectuur en berekenen hoeveel % directe boekingen u laat liggen met uw huidige setup.
 
-[Plan een Strategische Audit →](/contact/)
+[Plan een Strategische Audit →](/contact)
 
 ---
 

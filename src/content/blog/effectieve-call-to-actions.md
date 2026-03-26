@@ -113,4 +113,4 @@ Wij kijken verder dan alleen "een mooie plaatje". Wij bouwen websites die ontwor
 
 Twijfel je of je huidige website het maximale eruit haalt? Laten we stoppen met gissen.
 
-[**Bekijk hier hoe jouw nieuwe homepage eruit kan zien**](/demo-ontvangen) en ontdek het verschil tussen een website die geld kost en een website die geld oplevert.
+[**Bekijk hier hoe jouw nieuwe homepage eruit kan zien**](/contact) en ontdek het verschil tussen een website die geld kost en een website die geld oplevert.

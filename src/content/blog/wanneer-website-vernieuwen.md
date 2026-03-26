@@ -84,4 +84,4 @@ Daarom maken we het makkelijk.
 > **Ontdek het verschil zonder risico.**
 > Wij bieden een **gratis demo/one-pager** aan. We bouwen een conceptversie van jouw nieuwe homepage, zodat je de snelheid en kwaliteit zelf kunt ervaren, nog voordat je ergens aan vast zit.
 
-Ben je klaar om je online groei serieus te nemen? Stop met pleisters plakken. [Vraag hier je gratis demo aan](/demo-ontvangen) en zie direct wat een nieuwe start voor jouw bedrijf kan betekenen.
+Ben je klaar om je online groei serieus te nemen? Stop met pleisters plakken. [Vraag hier je gratis demo aan](/contact) en zie direct wat een nieuwe start voor jouw bedrijf kan betekenen.

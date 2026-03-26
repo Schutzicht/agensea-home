@@ -1,0 +1,63 @@
+---
+interface Props {
+    name: string;
+    bio?: string;
+    avatar?: string;
+    credentials?: string[];
+}
+
+const { name, bio, avatar, credentials } = Astro.props;
+---
+
+<div
+    class="max-w-3xl mt-12 p-8 bg-white/50 backdrop-blur-sm rounded-3xl border border-white"
+>
+    <div class="flex items-start gap-5">
+        {
+            avatar && (
+                <img
+                    src={avatar}
+                    alt={name}
+                    class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm flex-shrink-0"
+                    loading="lazy"
+                />
+            )
+        }
+        <div class="min-w-0">
+            <p
+                class="text-[10px] font-bold text-dark/40 uppercase tracking-[0.3em] mb-1"
+            >
+                Geschreven door
+            </p>
+            <p class="text-lg font-display font-bold text-dark">{name}</p>
+            {
+                bio && (
+                    <p class="text-sm text-dark/60 mt-1 leading-relaxed">
+                        {bio}
+                    </p>
+                )
+            }
+            {
+                credentials && credentials.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        {credentials.map((cred) => (
+                            <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-indigo/5 text-indigo text-[11px] font-bold rounded-full">
+                                <svg
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="3"
+                                >
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                {cred}
+                            </span>
+                        ))}
+                    </div>
+                )
+            }
+        </div>
+    </div>
+</div>

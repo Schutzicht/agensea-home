@@ -94,7 +94,7 @@ Een website die €3.000 kost maar €30.000 aan nieuwe klanten oplevert, is "go
 **Klaar om te investeren in groei?**
 Of je nu wilt kopen of huren, wij maken graag een vrijblijvende berekening voor jouw project.
 
-[Vraag een offerte aan](/contact/) of bekijk onze [webdesign diensten](/diensten/webdesign-zeeland/).
+[Vraag een offerte aan](/contact) of bekijk onze [webdesign diensten](/diensten/webdesign-zeeland/).
 
 ---
 

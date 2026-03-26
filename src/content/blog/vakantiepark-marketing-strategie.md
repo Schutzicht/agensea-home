@@ -123,7 +123,7 @@ Maar de ROI is onbetwistbaar. Niet alleen bespaart u tonnen aan commissie, u bou
 **Bent u klaar voor de volgende stap?**
 Bij Agensea helpen we parkdirecties met deze technische en strategische transitie. Wij bouwen de infrastructuur die nodig is om te winnen van de platforms.
 
-[Plan een Directie-Overleg →](/contact/)
+[Plan een Directie-Overleg →](/contact)
 
 ---
 
