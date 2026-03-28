@@ -31,10 +31,10 @@ export const POST: APIRoute = async ({ request }) => {
     const history = data.history || [];
     
     // Check if we have an API key in the environment
-    const apiKey = import.meta.env.GEMINI_API_KEY || "AIzaSyD7nhCbk3bH7kN996w63_mBT0wiKAH2KVQ"; // Fallback to current key (which is leaked, so we need a new one)
+    const apiKey = import.meta.env.GEMINI_API_KEY;
     
     if (!apiKey) {
-      return new Response(JSON.stringify({ error: "API Key missing in environment." }), { status: 500 });
+      return new Response(JSON.stringify({ error: "Configuratie fout: API Key ontbreekt in Vercel." }), { status: 500 });
     }
 
     // Format payload for Gemini REST API
