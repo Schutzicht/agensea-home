@@ -1,6 +1,8 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import type { APIRoute } from 'astro';
 
+export const prerender = false;
+
 const SYSTEM_PROMPT = `
 Je heet "Agensea AI" en je bent de vriendelijke, zakelijke AI-assistent van Agensea.
 Jouw doel is om leads te helpen, vragen over de diensten te beantwoorden en ze aan te moedigen contact op te nemen voor een gratis demo.

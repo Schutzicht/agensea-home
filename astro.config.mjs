@@ -7,7 +7,7 @@ import vercel from '@astrojs/vercel';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://agensea.nl',
-  output: 'server',
+  output: 'static',
   adapter: vercel(),
   integrations: [sitemap()],
   vite: {
