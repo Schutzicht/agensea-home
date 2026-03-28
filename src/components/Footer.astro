@@ -173,22 +173,65 @@ const year = new Date().getFullYear();
   function updateOnlineStatus() {
     const now = new Date();
     const hour = now.getHours();
-    const day = now.getDay(); // 0=Sun, 6=Sat
+    const min = now.getMinutes();
+    const day = now.getDay();
+    
+    // Werktijden: ma t/m vr, van 08:00 tot 19:00
     const isWorkday = day >= 1 && day <= 5;
     const isOnline = isWorkday && hour >= 8 && hour < 19;
 
     const dot = document.getElementById("status-dot");
     const text = document.getElementById("status-text");
-    if (dot && text) {
-      if (isOnline) {
-        dot.className = "w-1.5 h-1.5 rounded-full bg-green-500";
-        text.textContent = "Nu bereikbaar";
+    if (!dot || !text) return;
+
+    if (isOnline) {
+      dot.className = "w-1.5 h-1.5 rounded-full bg-green-500 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]";
+      
+      const remainingMinutes = ((19 * 60) - (hour * 60 + min));
+      const hoursLeft = Math.floor(remainingMinutes / 60);
+      const minsLeft = remainingMinutes % 60;
+      
+      if (hoursLeft > 1) {
+        text.textContent = `Nog ${hoursLeft} uur telefonisch bereikbaar`;
+      } else if (hoursLeft === 1) {
+        text.textContent = `Nog 1 uur en ${minsLeft} min bereikbaar`;
       } else {
-        dot.className = "w-1.5 h-1.5 rounded-full bg-red-400";
-        text.textContent = "Momenteel offline";
+        text.textContent = `Nog ${minsLeft} minuten bereikbaar`;
+      }
+    } else {
+      dot.className = "w-1.5 h-1.5 rounded-full bg-red-400";
+      
+      // Zoek het volgende geluksmomentje (08:00)
+      let nextOpening = new Date(now);
+      nextOpening.setHours(8, 0, 0, 0);
+      
+      // Als we al voorbij 8 uur 's ochtends zijn, dan is het op zijn vroegst morgen 08:00.
+      if (hour >= 8) {
+        nextOpening.setDate(nextOpening.getDate() + 1);
+      }
+      
+      // Als het op zaterdag valt, verplaats naar maandag (+2 dagen).
+      if (nextOpening.getDay() === 6) {
+        nextOpening.setDate(nextOpening.getDate() + 2);
+      } else if (nextOpening.getDay() === 0) {
+        // Zondag? Verplaats naar maandag (+1 dag).
+        nextOpening.setDate(nextOpening.getDate() + 1);
+      }
+      
+      const diffMs = nextOpening.getTime() - now.getTime();
+      const diffHrs = Math.floor(diffMs / (1000 * 60 * 60));
+      
+      if (diffHrs === 0) {
+        const diffMins = Math.ceil(diffMs / (1000 * 60));
+        text.textContent = `Binnen ${diffMins} minuten weer bereikbaar`;
+      } else if (diffHrs < 24) {
+        text.textContent = `Over ongeveer ${diffHrs} uur weer bereikbaar`;
+      } else {
+        text.textContent = 'Maandag om 08:00 weer bereikbaar';
       }
     }
   }
+
   updateOnlineStatus();
   setInterval(updateOnlineStatus, 60000);
 </script>
