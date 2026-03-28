@@ -130,11 +130,6 @@
   const suggestionBtns = document.querySelectorAll('.suggestion-btn');
   const aiFab = document.getElementById('ai-fab');
 
-  const GEMINI_KEY = "AIzaSyD7nhCbk3bH7kN996w63_mBT0wiKAH2KVQ";
-  const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + GEMINI_KEY;
-
-  const SYSTEM_PROMPT = "Je heet \"Agensea AI\" en je bent de vriendelijke, zakelijke AI-assistent van Agensea. Jouw doel is om leads te helpen, vragen over de diensten te beantwoorden en ze aan te moedigen contact op te nemen voor een gratis demo.\n\nREGELS:\n1. Je antwoordt ALTIJD in het Nederlands.\n2. Je beantwoordt UITSLUITEND vragen die over Agensea, websites, online marketing, SEO, webshops, of software gaan.\n3. Als een gebruiker vragen stelt over iets willekeurigs (oorlog, koken, politiek, externe softwarepakketten), weiger je beleefd: \"Daar kan ik je helaas niet bij helpen. Ik ben er speciaal om vragen over Agensea te beantwoorden.\"\n4. Je houdt je antwoorden extreem beknopt. Hooguit 2 of 3 korte, to-the-point zinnen.\n5. Je bent vriendelijk en gedreven, niet koud of robotisch.\n\nDE FEITEN VAN AGENSEA:\n- Wij bieden drie hoofddiensten: Maatwerk Websites, Online Marketing en Groei, en Software en Automatisering.\n- Team Agensea kern: Jorik Schut (Online marketing specialist), Jorian Wientjens (Developer / Technical specialist) en Ruben Boogaard (Account Manager).\n- Tech-Stack en CMS: Wij gebruiken en raden het liefst Strapi aan (als Headless CMS), maar we werken ook met WordPress en andere CMS systemen.\n- Advertentie Platforms: Meta Ads (Facebook/Instagram), LinkedIn Ads en Google Ads.\n- Openingstijden: maandag t/m vrijdag van 08:00 tot 19:00.\n- Eerdere cases: Innovatiepunt KAAP, ADRZ, HZ University, Bouwgroep R&D, B&B Voorste Eng, Assieraden Specialist, Arieke van Liere, Minicamping Boogaard.\n- Gratis Website Demo aanvragen kan via agensea.nl/demo.\n\nWanneer een lead heel geinteresseerd klinkt, stuur hem/haar naar agensea.nl/demo of het contactformulier.";
-
   function openModal() {
     modal.classList.remove('hidden');
     // Small delay so the transition can play after display changes
@@ -202,37 +197,19 @@
     chatHistory.scrollTop = chatHistory.scrollHeight;
 
     try {
-      // Build Gemini REST API payload
-      const contents = [];
-      for (let i = 0; i < internalHistory.length; i++) {
-        const msg = internalHistory[i];
-        contents.push({
-          role: msg.role === 'assistant' ? 'model' : 'user',
-          parts: [{ text: msg.content }]
-        });
-      }
-      contents.push({ role: 'user', parts: [{ text: query }] });
-
-      const payload = {
-        system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        contents: contents
-      };
-
-      const res = await fetch(GEMINI_URL, {
+      const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ message: query, history: internalHistory })
       });
       
+      const data = await res.json();
+
       if (!res.ok) {
-        throw new Error("Gemini API returned " + res.status);
+        throw new Error(data.error || "Server Error");
       }
 
-      const data = await res.json();
-      let responseText = "Ik kon even geen antwoord formuleren.";
-      if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
-        responseText = data.candidates[0].content.parts[0].text;
-      }
+      const responseText = data.response;
       
       thinking.remove();
       addMessage(responseText, false);
