@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Gratis Website Demo Aanvragen" description="Vraag nu een gratis, werkende interface demo aan voor je nieuwe website of applicatie. Zonder verplichtingen, maar mét resultaat.">
+  
+  <!-- Minimal Header (No Navigation for conversion maximation) -->
+  <header class="absolute top-0 left-0 right-0 z-50 p-6 md:p-10">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="/" class="font-display text-2xl font-bold tracking-tight text-dark transition-colors interactive">
+        agensea<span class="text-indigo">.</span>
+      </a>
+      <a href="/" class="text-xs font-bold uppercase tracking-widest text-dark/40 hover:text-indigo transition-colors flex items-center gap-2">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Terug naar site
+      </a>
+    </div>
+  </header>
+
+  <main class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-cream">
+    <!-- Abstract Background -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute w-[800px] h-[800px] bg-indigo/10 blur-[120px] rounded-full top-[-10%] right-[-10%] animate-pulse" style="animation-duration: 10s;"></div>
+      <div class="absolute w-[600px] h-[600px] bg-violet/10 blur-[100px] rounded-full bottom-[-10%] left-[-10%] animate-pulse" style="animation-duration: 15s; animation-delay: -5s;"></div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        
+        <!-- Left: Value Proposition -->
+        <div class="lg:col-span-6 reveal">
+          <span class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-indigo mb-6">
+            <span class="w-8 h-[2px] bg-indigo"></span>
+            No strings attached
+          </span>
+          <h1 class="font-display font-bold text-5xl md:text-[4rem] lg:text-[4.5rem] leading-[1.05] tracking-tight text-dark mb-8">
+            Laat ons bewijzen<br />wat we <span class="text-indigo">kunnen.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-text-secondary leading-relaxed mb-12">
+            Geen eindeloze verkooppraatjes of vage beloftes. Vul hieronder in wat je doelen zijn, en wij (Jorian & Jorik) bouwen een gratis, interactief concept voor je nieuwe website of applicatie. Jij oordeelt pas achteraf.
+          </p>
+
+          <!-- 3 Steps -->
+          <ul class="space-y-8 mb-16 relative before:absolute before:inset-y-0 before:left-6 before:w-[2px] before:bg-indigo/10">
+            <li class="relative flex gap-6 items-start">
+              <div class="w-12 h-12 rounded-full bg-white border-2 border-indigo flex items-center justify-center shrink-0 shadow-lg relative z-10 text-indigo font-bold font-display text-lg">1</div>
+              <div class="pt-2">
+                <h3 class="font-bold text-lg text-dark mb-1">Jij deelt je doelen</h3>
+                <p class="text-text-secondary/80 leading-relaxed text-sm">Vul simpelweg het intakeformulier naast deze tekst in met een korte briefing rond je uitdaging.</p>
+              </div>
+            </li>
+            <li class="relative flex gap-6 items-start">
+              <div class="w-12 h-12 rounded-full bg-white border-2 border-indigo/30 flex items-center justify-center shrink-0 shadow-lg relative z-10 text-indigo/60 font-bold font-display text-lg">2</div>
+              <div class="pt-2">
+                <h3 class="font-bold text-lg text-dark mb-1">Wij ontwerpen een demo</h3>
+                <p class="text-text-secondary/80 leading-relaxed text-sm">We bouwen op eigen kosten een kraakhelder, visueel klikbaar concept gericht op pure conversie.</p>
+              </div>
+            </li>
+            <li class="relative flex gap-6 items-start">
+              <div class="w-12 h-12 rounded-full bg-white border-2 border-indigo/30 flex items-center justify-center shrink-0 shadow-lg relative z-10 text-indigo/60 font-bold font-display text-lg">3</div>
+              <div class="pt-2">
+                <h3 class="font-bold text-lg text-dark mb-1">Eerlijk advies & Overdracht</h3>
+                <p class="text-text-secondary/80 leading-relaxed text-sm">We lopen in 30 minuten digitaal samen door het prototype. Helemaal gratis, geen enkele verplichting.</p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Trust Logos -->
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-widest text-text-secondary/50 mb-4">Reeds gewerkt voor mooie Zeeuwse merken zoals</p>
+            <div class="flex items-center gap-6 grayscale opacity-60">
+              <img src="/logos-hero/Kaap_RGB_Logo_rond_fc.svg" alt="De Kaap" class="h-8 max-w-[120px] object-contain" />
+              <img src="/logos-hero/Logo_Adrz_RGB.png" alt="ADRZ" class="h-8 max-w-[120px] object-contain" />
+              <img src="/logos-hero/hz-logo (1).jpg" alt="HZ University" class="h-8 max-w-[120px] object-contain rounded" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: The Form Card -->
+        <div class="lg:col-span-6 relative reveal" style="transition-delay: 200ms;">
+          <div class="w-full bg-white/60 backdrop-blur-2xl rounded-[2.5rem] p-8 md:p-12 border border-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden">
+            
+            <!-- Internal Glow -->
+            <div class="absolute -top-32 -right-32 w-64 h-64 bg-indigo/10 rounded-full blur-[60px]"></div>
+
+            <div class="relative z-10">
+              <h2 class="font-display text-3xl font-bold text-dark mb-2">Claim je gratis demo</h2>
+              <p class="text-text-secondary text-sm mb-8">Laat je gegevens achter en we plannen direct een moment in.</p>
+
+              <form action="#" method="POST" class="space-y-5" onsubmit="event.preventDefault(); alert('Demo aanvragen formulier wordt later gekoppeld aan de database.');">
+                
+                <div class="grid md:grid-cols-2 gap-5">
+                  <div class="space-y-2">
+                    <label for="firstName" class="block text-xs font-bold uppercase tracking-widest text-dark/60">Voornaam</label>
+                    <input type="text" id="firstName" name="firstName" required class="w-full bg-white/80 border border-dark/10 rounded-xl px-4 py-3 text-dark focus:border-indigo focus:ring-1 focus:ring-indigo outline-none transition-all placeholder:text-dark/20 text-sm font-medium" placeholder="Jouw roepnaam">
+                  </div>
+                  <div class="space-y-2">
+                    <label for="company" class="block text-xs font-bold uppercase tracking-widest text-dark/60">Bedrijf / Organisatie</label>
+                    <input type="text" id="company" name="company" required class="w-full bg-white/80 border border-dark/10 rounded-xl px-4 py-3 text-dark focus:border-indigo focus:ring-1 focus:ring-indigo outline-none transition-all placeholder:text-dark/20 text-sm font-medium" placeholder="Bedrijfsnaam">
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <label for="email" class="block text-xs font-bold uppercase tracking-widest text-dark/60">E-mailadres</label>
+                  <input type="email" id="email" name="email" required class="w-full bg-white/80 border border-dark/10 rounded-xl px-4 py-3 text-dark focus:border-indigo focus:ring-1 focus:ring-indigo outline-none transition-all placeholder:text-dark/20 text-sm font-medium" placeholder="hallo@bedrijf.nl">
+                </div>
+
+                <div class="space-y-2">
+                  <label for="website" class="block text-xs font-bold uppercase tracking-widest text-dark/60">Huidige Website (optioneel)</label>
+                  <input type="url" id="website" name="website" class="w-full bg-white/80 border border-dark/10 rounded-xl px-4 py-3 text-dark focus:border-indigo focus:ring-1 focus:ring-indigo outline-none transition-all placeholder:text-dark/20 text-sm font-medium" placeholder="https://www.jouwwebsite.nl">
+                </div>
+
+                <div class="space-y-2">
+                  <label for="goal" class="block text-xs font-bold uppercase tracking-widest text-dark/60">Je grootste frustratie/doel nu</label>
+                  <select id="goal" name="goal" required class="w-full bg-white/80 border border-dark/10 rounded-xl px-4 py-3 text-dark focus:border-indigo focus:ring-1 focus:ring-indigo outline-none transition-all appearance-none cursor-pointer text-sm font-medium">
+                    <option value="" disabled selected>Kies wat het beste past...</option>
+                    <option value="leads">Te weinig concrete aanvragen/leads via de site.</option>
+                    <option value="imago">De site straalt niet de kwaliteit uit die we leveren.</option>
+                    <option value="software">We doen teveel dubbel en handmatig werk (SaaS nodig).</option>
+                    <option value="anders">Anders (licht toe in het bericht)</option>
+                  </select>
+                </div>
+
+                <div class="space-y-2">
+                  <label for="message" class="block text-xs font-bold uppercase tracking-widest text-dark/60">Korte wens/omschrijving</label>
+                  <textarea id="message" name="message" rows="3" required class="w-full bg-white/80 border border-dark/10 rounded-xl px-4 py-3 text-dark focus:border-indigo focus:ring-1 focus:ring-indigo outline-none transition-all placeholder:text-dark/20 resize-none text-sm font-medium" placeholder="Vertel in 2 zinnen wat je zoekt. Bijv. 'We starten in Q3 een nieuwe marketingcampagne en hebben een strakke LP nodig.'"></textarea>
+                </div>
+
+                <button type="submit" class="w-full group relative inline-flex items-center justify-center gap-3 bg-indigo text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm overflow-hidden transition-all hover:scale-[1.02] shadow-[0_10px_30px_-10px_rgba(67,83,255,0.5)] mt-4">
+                  <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  <span class="relative z-10 flex items-center gap-2">
+                    Vraag gratis demo aan
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </button>
+                <p class="text-center text-[10px] text-text-secondary/50 font-bold uppercase tracking-widest mt-4">Wij beschermen je privacy strikt en spammen niet.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Simple intersection observer to animate the steps drawing line (if needed)
+  // For now, it relies on global .reveal class behavior from layout.
+</script>
