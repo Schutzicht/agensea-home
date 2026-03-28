@@ -221,14 +221,8 @@ const year = new Date().getFullYear();
       }
       
       const diffMs = nextOpening.getTime() - now.getTime();
-      
-      // In het weekend tonen we de tijden niet aftellend per seconde als het heel lang duurt, 
-      // behalve als hij expliciet dat aftellen vet vindt. We doen hem altijd live.
-      if (diffMs > 24 * 60 * 60 * 1000) {
-        text.textContent = 'Maandag om 08:00 weer bereikbaar';
-      } else {
-        text.textContent = `Weer bereikbaar over ${formatTime(diffMs)}`;
-      }
+      // Laat de klok altijd onafgebroken live aftellen, ook doordeweeks en in het weekend.
+      text.textContent = `Weer bereikbaar over ${formatTime(diffMs)}`;
     }
   }
 
