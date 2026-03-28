@@ -8,9 +8,7 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://agensea.nl',
   output: 'server',
-  adapter: vercel({
-    webAnalytics: { enabled: true }
-  }),
+  adapter: vercel(),
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]

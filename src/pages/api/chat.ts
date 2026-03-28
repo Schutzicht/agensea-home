@@ -36,7 +36,7 @@ export const POST: APIRoute = async ({ request }) => {
     const genAI = new GoogleGenerativeAI(apiKey);
     
     // Using flash (fast, responsive)
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     // Format history for Gemini SDK
     // SDK expects: [{ role: "user" | "model", parts: [{ text: "..." }] }]
