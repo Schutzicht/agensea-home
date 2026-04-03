@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import AISearch from "../components/AISearch.astro";
 import CookieBanner from "../components/CookieBanner.astro";
@@ -38,17 +39,128 @@ const finalDescription = seoDescription || description;
     {ogImage && <meta property="og:image" content={ogImage} />}
     <slot name="head" />
 
+    <!-- Lenis smooth scroll CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
   </head>
   <body class="grain bg-cream min-h-screen overflow-x-hidden">
     <slot />
     <AISearch />
     <CookieBanner />
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-circle" aria-hidden="true">
+      <span id="cursor-text"></span>
+    </div>
+
+    <style is:global>
+      /* ── Custom Cursor ─────────────────────── */
+      @media (hover: hover) and (pointer: fine) {
+        * {
+          cursor: none !important;
+        }
+
+        #cursor-dot {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 8px;
+          height: 8px;
+          background: #2D3FE0;
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 99999;
+          transform: translate(-50%, -50%);
+          transition: opacity 0.3s ease, transform 0.15s ease;
+        }
+
+        #cursor-circle {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 40px;
+          height: 40px;
+          border: 1px solid #1a1a2e;
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 99998;
+          transform: translate(-50%, -50%);
+          transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                      height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                      border-color 0.3s ease,
+                      background-color 0.3s ease,
+                      opacity 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        #cursor-text {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: 10px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: #FAF8F4;
+          opacity: 0;
+          transition: opacity 0.25s ease;
+          white-space: nowrap;
+        }
+
+        /* Hover state for links / buttons / interactive */
+        #cursor-circle.is-hover {
+          width: 60px;
+          height: 60px;
+          border-color: rgba(45, 63, 224, 0.3);
+          background: rgba(45, 63, 224, 0.06);
+        }
+
+        #cursor-dot.is-hover {
+          transform: translate(-50%, -50%) scale(0.5);
+          opacity: 0.6;
+        }
+
+        /* Text label state (case cards, scroll container) */
+        #cursor-circle.has-text {
+          width: 80px;
+          height: 80px;
+          background: rgba(45, 63, 224, 0.9);
+          border-color: transparent;
+        }
+
+        #cursor-circle.has-text #cursor-text {
+          opacity: 1;
+        }
+
+        #cursor-dot.has-text {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0);
+        }
+
+        /* Hidden until mouse moves */
+        #cursor-dot.is-hidden,
+        #cursor-circle.is-hidden {
+          opacity: 0;
+        }
+      }
+
+      /* Hide custom cursor on touch / no-hover devices */
+      @media (hover: none), (pointer: coarse) {
+        #cursor-dot,
+        #cursor-circle {
+          display: none !important;
+        }
+      }
+    </style>
+
     <script>
       // ── Console Easter Egg ───────────────────
       console.log(
@@ -189,6 +301,170 @@ const finalDescription = seoDescription || description;
 
         requestAnimationFrame(draw);
       })();
+
+      // ── Custom Cursor ─────────────────────────
+      (function () {
+        // Only run on hover-capable devices
+        const hasHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+        if (!hasHover) return;
+
+        const dot = document.getElementById("cursor-dot");
+        const circle = document.getElementById("cursor-circle");
+        const cursorText = document.getElementById("cursor-text");
+        if (!dot || !circle || !cursorText) return;
+
+        let mouseX = -100;
+        let mouseY = -100;
+        let circleX = -100;
+        let circleY = -100;
+        let visible = false;
+
+        // Start hidden
+        dot.classList.add("is-hidden");
+        circle.classList.add("is-hidden");
+
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          // Show cursor on first move
+          if (!visible) {
+            visible = true;
+            dot.classList.remove("is-hidden");
+            circle.classList.remove("is-hidden");
+          }
+
+          // Dot follows exactly (no lag)
+          dot.style.left = mouseX + "px";
+          dot.style.top = mouseY + "px";
+        });
+
+        // Hide when mouse leaves viewport
+        document.addEventListener("mouseleave", () => {
+          dot.classList.add("is-hidden");
+          circle.classList.add("is-hidden");
+          visible = false;
+        });
+
+        document.addEventListener("mouseenter", () => {
+          if (mouseX > 0) {
+            dot.classList.remove("is-hidden");
+            circle.classList.remove("is-hidden");
+            visible = true;
+          }
+        });
+
+        // Circle follows with lerp easing
+        function animateCircle() {
+          const ease = 0.15;
+          circleX += (mouseX - circleX) * ease;
+          circleY += (mouseY - circleY) * ease;
+          circle.style.left = circleX + "px";
+          circle.style.top = circleY + "px";
+          requestAnimationFrame(animateCircle);
+        }
+        requestAnimationFrame(animateCircle);
+
+        // ── Hover detection ──────────────────────
+        function addHoverState() {
+          dot.classList.add("is-hover");
+          circle.classList.add("is-hover");
+        }
+        function removeHoverState() {
+          dot.classList.remove("is-hover");
+          circle.classList.remove("is-hover");
+        }
+        function addTextState(text: string) {
+          cursorText.textContent = text;
+          dot.classList.add("has-text");
+          circle.classList.add("has-text");
+        }
+        function removeTextState() {
+          dot.classList.remove("has-text");
+          circle.classList.remove("has-text");
+          cursorText.textContent = "";
+        }
+
+        // Delegate hover detection via mouseover/mouseout on document
+        document.addEventListener("mouseover", (e) => {
+          const target = e.target as HTMLElement;
+          if (!target) return;
+
+          // Case cards — show "Bekijk"
+          const caseCard = target.closest(".case-card");
+          if (caseCard) {
+            removeHoverState();
+            addTextState("Bekijk");
+            return;
+          }
+
+          // Cases scroll container — show "Sleep"
+          const casesGrid = target.closest("#cases-grid");
+          if (casesGrid) {
+            removeHoverState();
+            addTextState("Sleep");
+            return;
+          }
+
+          // Links, buttons, interactive elements
+          const interactive = target.closest("a, button, .interactive, input, textarea, select, [role='button']");
+          if (interactive) {
+            removeTextState();
+            addHoverState();
+            return;
+          }
+        });
+
+        document.addEventListener("mouseout", (e) => {
+          const target = e.target as HTMLElement;
+          if (!target) return;
+
+          const caseCard = target.closest(".case-card");
+          const casesGrid = target.closest("#cases-grid");
+          const interactive = target.closest("a, button, .interactive, input, textarea, select, [role='button']");
+
+          if (caseCard || casesGrid) {
+            removeTextState();
+            // Check if we're still inside #cases-grid but left a case-card
+            const related = (e as MouseEvent).relatedTarget as HTMLElement;
+            if (related) {
+              if (caseCard && related.closest("#cases-grid") && !related.closest(".case-card")) {
+                addTextState("Sleep");
+                return;
+              }
+              if (related.closest(".case-card")) {
+                addTextState("Bekijk");
+                return;
+              }
+            }
+          }
+
+          if (interactive) {
+            removeHoverState();
+          }
+        });
+
+        // Mousedown/up effect for a satisfying press feel
+        document.addEventListener("mousedown", () => {
+          dot.style.transform = "translate(-50%, -50%) scale(0.6)";
+        });
+        document.addEventListener("mouseup", () => {
+          dot.style.transform = "";
+        });
+      })();
+    </script>
+
+    <!-- Lenis smooth scroll -->
+    <script is:inline src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
+    <script is:inline>
+      const lenis = new Lenis();
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
     </script>
   </body>
 </html>
