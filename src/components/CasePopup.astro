@@ -3,22 +3,22 @@
 
 <div 
   id="case-modal" 
-  class="fixed inset-0 z-[1000] flex items-center justify-center p-6 md:p-12 opacity-0 pointer-events-none transition-all duration-500"
+  class="fixed inset-0 z-[1000] flex items-center justify-center p-6 md:p-12 opacity-0 pointer-events-none transition-all duration-500 overscroll-none"
 >
   <!-- Backdrop -->
   <div class="absolute inset-0 bg-dark/20 backdrop-blur-md" id="case-modal-close"></div>
   
   <!-- Modal Container -->
-  <div class="relative bg-white rounded-3xl w-full max-w-5xl max-h-[85vh] overflow-hidden shadow-2xl translate-y-8 transition-all duration-500 flex flex-col md:flex-row">
-    
+  <div class="relative bg-white rounded-3xl w-full max-w-5xl max-h-[85vh] shadow-2xl translate-y-8 transition-all duration-500 flex flex-col md:flex-row overflow-hidden">
+
     <!-- Left: Image/Visual -->
-    <div class="w-full md:w-1/2 h-48 sm:h-64 md:h-auto bg-warm-grey relative overflow-hidden">
+    <div class="w-full md:w-1/2 h-48 sm:h-64 md:h-auto bg-warm-grey relative overflow-hidden shrink-0">
       <img id="case-image" src="" alt="" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent md:bg-gradient-to-r"></div>
     </div>
-    
+
     <!-- Right: Content -->
-    <div id="case-content-scroll" class="w-full md:w-1/2 p-6 md:p-12 overflow-y-auto relative">
+    <div id="case-content-scroll" class="w-full md:w-1/2 p-6 md:p-12 relative overflow-y-auto overscroll-contain" style="-webkit-overflow-scrolling: touch;">
       <button 
         id="case-modal-close-btn"
         class="absolute top-6 right-6 w-10 h-10 rounded-full bg-cream hover:bg-warm-grey flex items-center justify-center transition-colors interactive"
@@ -258,6 +258,7 @@
     modal.classList.remove('opacity-0', 'pointer-events-none');
     modal.querySelector('.relative').classList.remove('translate-y-8');
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     // Stop Lenis smooth scroll
     if (window.lenis) window.lenis.stop();
 
@@ -285,6 +286,7 @@
     modal.classList.add('opacity-0', 'pointer-events-none');
     modal.querySelector('.relative').classList.add('translate-y-8');
     document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
     if (window.lenis) window.lenis.start();
   }
 
