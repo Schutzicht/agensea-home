@@ -270,6 +270,7 @@ const finalDescription = seoDescription || description;
     <script is:inline src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
     <script is:inline>
       const lenis = new Lenis();
+      window.lenis = lenis;
 
       function raf(time) {
         lenis.raf(time);

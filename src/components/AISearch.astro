@@ -136,6 +136,7 @@
       modal.querySelector('.relative > div').classList.remove('translate-y-20');
     });
     document.body.style.overflow = 'hidden';
+    if (window.lenis) window.lenis.stop();
     setTimeout(() => input.focus(), 500);
   }
 
@@ -143,6 +144,7 @@
     modal.classList.add('opacity-0', 'pointer-events-none');
     modal.querySelector('.relative > div').classList.add('translate-y-20');
     document.body.style.overflow = '';
+    if (window.lenis) window.lenis.start();
     // Wait for transition to finish, then hide completely
     setTimeout(() => modal.classList.add('hidden'), 500);
   }

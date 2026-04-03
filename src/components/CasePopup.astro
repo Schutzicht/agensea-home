@@ -258,6 +258,8 @@
     modal.classList.remove('opacity-0', 'pointer-events-none');
     modal.querySelector('.relative').classList.remove('translate-y-8');
     document.body.style.overflow = 'hidden';
+    // Stop Lenis smooth scroll
+    if (window.lenis) window.lenis.stop();
 
     // Reset scroll position to top
     const scrollArea = document.getElementById('case-content-scroll');
@@ -283,6 +285,7 @@
     modal.classList.add('opacity-0', 'pointer-events-none');
     modal.querySelector('.relative').classList.add('translate-y-8');
     document.body.style.overflow = '';
+    if (window.lenis) window.lenis.start();
   }
 
   // Event Listeners

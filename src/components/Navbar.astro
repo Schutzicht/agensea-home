@@ -251,6 +251,7 @@
 
       if (menuText) menuText.textContent = "Dicht";
       document.body.style.overflow = "hidden";
+      if (window.lenis) window.lenis.stop();
     } else {
       megaMenu?.classList.add("opacity-0", "pointer-events-none", "scale-110");
       megaMenu?.classList.remove(
@@ -264,6 +265,7 @@
 
       if (menuText) menuText.textContent = "Menu";
       document.body.style.overflow = "";
+      if (window.lenis) window.lenis.start();
     }
   }
 

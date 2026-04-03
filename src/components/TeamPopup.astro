@@ -151,17 +151,19 @@
     }, 100);
 
     document.body.style.overflow = 'hidden';
+    if (window.lenis) window.lenis.stop();
   }
 
   function closeMember() {
     if (!modal) return;
     const contentWrapper = modal.querySelector('.reveal-content');
-    
+
     modal.classList.add('opacity-0', 'pointer-events-none');
     modal.querySelector('.relative')?.classList.add('translate-y-8');
     contentWrapper?.classList.add('opacity-0', 'translate-y-4');
-    
+
     document.body.style.overflow = '';
+    if (window.lenis) window.lenis.start();
   }
 
   // Event Listeners
