@@ -18,7 +18,7 @@
     </div>
 
     <!-- Right: Content -->
-    <div id="case-content-scroll" class="w-full md:w-1/2 p-6 md:p-12 relative overflow-y-auto overscroll-contain" style="-webkit-overflow-scrolling: touch;">
+    <div id="case-content-scroll" class="w-full md:w-1/2 p-6 md:p-12 relative overflow-y-auto overscroll-contain" style="-webkit-overflow-scrolling: touch; touch-action: pan-y;">
       <button 
         id="case-modal-close-btn"
         class="absolute top-6 right-6 w-10 h-10 rounded-full bg-cream hover:bg-warm-grey flex items-center justify-center transition-colors interactive"
@@ -313,13 +313,9 @@
     // Show modal
     modal.classList.remove('opacity-0', 'pointer-events-none');
     modal.querySelector('.relative').classList.remove('translate-y-8');
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.width = '100%';
-    document.body.style.top = `-${window.scrollY}px`;
-    // Stop Lenis smooth scroll
+    // Stop Lenis smooth scroll and prevent body scroll
     if (window.lenis) window.lenis.stop();
+    document.body.classList.add('modal-open');
 
     // Reset scroll position to top
     const scrollArea = document.getElementById('case-content-scroll');
@@ -342,15 +338,9 @@
   }
 
   function closeCase() {
-    const scrollY = Math.abs(parseInt(document.body.style.top || '0'));
     modal.classList.add('opacity-0', 'pointer-events-none');
     modal.querySelector('.relative').classList.add('translate-y-8');
-    document.body.style.overflow = '';
-    document.documentElement.style.overflow = '';
-    document.body.style.position = '';
-    document.body.style.width = '';
-    document.body.style.top = '';
-    window.scrollTo(0, scrollY);
+    document.body.classList.remove('modal-open');
     if (window.lenis) window.lenis.start();
   }
 

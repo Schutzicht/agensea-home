@@ -33,6 +33,16 @@
         color: #FAF9F6;
     }
 
+    body.modal-open {
+        overflow: hidden;
+        touch-action: none;
+    }
+
+    body.modal-open #case-modal,
+    body.modal-open #case-modal * {
+        touch-action: auto;
+    }
+
     h1,
     h2,
     h3,
