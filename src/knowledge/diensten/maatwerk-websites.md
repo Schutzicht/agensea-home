@@ -1,4 +1,4 @@
-# Maatwerk Websites
+# Websites op maat
 
 ## Wat we doen
 Een professionele website die klanten oplevert. We bouwen razendsnelle, betrouwbare websites en webshops die perfect aansluiten bij jouw bedrijf. Websites die vertrouwen wekken, klanten overtuigen en klaar zijn voor groei.

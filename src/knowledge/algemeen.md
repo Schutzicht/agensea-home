@@ -13,9 +13,9 @@ Agensea is een digitaal bureau uit Zeeland. Wij zijn de strategische partner voo
 Digitale groei vraagt om meer dan alleen een mooie website. Het vraagt om een doordachte strategie waarbij technologie en marketing elkaar versterken. Dat is de langetermijnvisie van Agensea.
 
 ## Drie Hoofddiensten
-1. **Maatwerk Websites** - Websites die vertrouwen wekken, klanten overtuigen en klaar zijn voor groei
+1. **Websites op maat** - Websites die vertrouwen wekken, klanten overtuigen en klaar zijn voor groei
 2. **Online Marketing & Groei** - Strategische campagnes op de juiste kanalen, voor de juiste doelgroep. Datagedreven en altijd transparant
-3. **Maatwerk Software & Automatisering** - Praktische applicaties en AI-gedreven tools die je wekelijks uren aan tijd besparen
+3. **Software op maat & Automatisering** - Praktische applicaties en AI-gedreven tools die je wekelijks uren aan tijd besparen
 
 ## Contact & Bereikbaarheid
 - **Openingstijden**: Maandag t/m vrijdag, 08:00 - 19:00

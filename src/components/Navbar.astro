@@ -11,11 +11,9 @@
     <!-- Logo -->
     <a
       href="/"
-      class="font-display text-2xl font-bold tracking-tight text-dark transition-colors duration-300 interactive pointer-events-auto"
+      class="font-display text-2xl font-bold tracking-tight interactive pointer-events-auto"
       id="logo-main"
-    >
-      agensea<span class="text-indigo">.</span>
-    </a>
+    ><span class="logo-char text-dark transition-colors duration-300">a</span><span class="logo-char text-dark transition-colors duration-300">g</span><span class="logo-char text-dark transition-colors duration-300">e</span><span class="logo-char text-dark transition-colors duration-300">n</span><span class="logo-char text-dark transition-colors duration-300">s</span><span class="logo-char text-dark transition-colors duration-300">e</span><span class="logo-char text-dark transition-colors duration-300">a</span><span class="logo-char text-indigo transition-colors duration-300">.</span></a>
 
     <!-- Navigation Pill (v9.1: Right Aligned & Scaled Up) -->
     <div class="pointer-events-none" id="nav-wrapper">
@@ -286,27 +284,62 @@
     const logo = document.getElementById("logo-main");
     const darkSections = document.querySelectorAll(".bg-dark, .bg-indigo");
 
-    // 1. Dynamic Logo Color
+    // 1. Dynamic Logo Color — per-character sampling
     if (logo) {
-      const logoRect = logo.getBoundingClientRect();
-      const logoCenter = logoRect.top + logoRect.height / 2;
-      let isOverDark = false;
+      const chars = logo.querySelectorAll('.logo-char');
 
-      darkSections.forEach((sec) => {
-        const rect = sec.getBoundingClientRect();
-        // Check if the vertical center of the logo falls within a dark section
-        if (logoCenter >= rect.top && logoCenter <= rect.bottom) {
-          isOverDark = true;
+      // Hide logo to sample what's behind each character
+      logo.style.visibility = 'hidden';
+
+      const results: { char: Element; isDark: boolean }[] = [];
+
+      chars.forEach((char) => {
+        const rect = char.getBoundingClientRect();
+        const cx = Math.round(rect.left + rect.width / 2);
+        const cy = Math.round(rect.top + rect.height / 2);
+        const el = document.elementFromPoint(cx, cy);
+
+        let isDark = false;
+        if (el) {
+          // Walk up to find the nearest element with a non-transparent bg
+          let target: Element | null = el;
+          while (target && target !== document.documentElement) {
+            const bg = getComputedStyle(target).backgroundColor;
+            const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+            if (match) {
+              const [, r, g, b] = match.map(Number);
+              const alphaMatch = bg.match(/rgba\(\d+,\s*\d+,\s*\d+,\s*([\d.]+)/);
+              const alpha = alphaMatch ? parseFloat(alphaMatch[1]) : 1;
+              if (alpha > 0.1) {
+                const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+                isDark = lum < 128;
+                break;
+              }
+            }
+            target = target.parentElement;
+          }
         }
+        results.push({ char, isDark });
       });
 
-      if (isOverDark) {
-        logo.classList.remove("text-dark");
-        logo.classList.add("text-white");
-      } else {
-        logo.classList.add("text-dark");
-        logo.classList.remove("text-white");
-      }
+      logo.style.visibility = '';
+
+      results.forEach(({ char, isDark }) => {
+        const isDot = char.textContent === '.';
+        if (isDark) {
+          char.classList.remove('text-dark', 'text-indigo');
+          char.classList.add('text-white');
+        } else {
+          char.classList.remove('text-white');
+          if (isDot) {
+            char.classList.add('text-indigo');
+            char.classList.remove('text-dark');
+          } else {
+            char.classList.add('text-dark');
+            char.classList.remove('text-indigo');
+          }
+        }
+      });
     }
 
     // 2. Shrink/Aesthetic Change on Scroll

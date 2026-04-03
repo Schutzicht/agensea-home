@@ -7,7 +7,7 @@ import CasePopup from '../../components/CasePopup.astro';
 import CTA from '../../components/CTA.astro';
 ---
 
-<Layout title="Maatwerk Websites | Agensea">
+<Layout title="Websites op maat | Agensea">
   <Navbar />
   <CasePopup />
   
@@ -309,7 +309,7 @@ import CTA from '../../components/CTA.astro';
             </div>
             <div>
               <p class="font-semibold text-sm md:text-base text-dark leading-tight">Iets specifieks nodig?</p>
-              <p class="text-xs text-text-secondary mt-1 leading-tight group-hover:text-indigo transition-colors">Bekijk onze maatwerk software dienst</p>
+              <p class="text-xs text-text-secondary mt-1 leading-tight group-hover:text-indigo transition-colors">Bekijk onze software op maat dienst</p>
             </div>
           </a>
 
@@ -400,6 +400,143 @@ import CTA from '../../components/CTA.astro';
       </div>
     </section>
 
+
+    <!-- Website Scan Tool -->
+    <section class="relative z-10 py-8 md:py-12">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="reveal max-w-3xl mx-auto text-center mb-10 md:mb-14">
+          <span class="inline-flex items-center gap-2 text-xs font-bold text-indigo uppercase tracking-[0.2em] mb-4">
+            <span class="w-8 h-[2px] bg-indigo"></span>
+            Gratis tool
+            <span class="w-8 h-[2px] bg-indigo"></span>
+          </span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight text-dark mb-4">
+            Hoe scoort jouw website?
+          </h2>
+          <p class="text-text-secondary text-base md:text-lg leading-relaxed">
+            Vul je URL in en ontdek in seconden hoe je website presteert op snelheid, SEO en gebruiksvriendelijkheid.
+          </p>
+        </div>
+
+        <!-- Input -->
+        <div class="reveal max-w-2xl mx-auto mb-10" style="transition-delay:100ms">
+          <div class="flex gap-3 p-2 bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white">
+            <input
+              id="scan-input"
+              type="url"
+              placeholder="https://jouwwebsite.nl"
+              class="flex-1 px-4 py-3 text-sm md:text-base text-dark placeholder:text-muted bg-transparent outline-none"
+            />
+            <button
+              id="scan-btn"
+              class="px-6 py-3 bg-indigo text-white text-sm font-bold rounded-xl hover:bg-indigo-light transition-colors duration-200 whitespace-nowrap"
+            >
+              Scan nu
+            </button>
+          </div>
+          <p id="scan-error" class="text-sm text-red-500 mt-2 px-2 hidden"></p>
+        </div>
+
+        <!-- Loading -->
+        <div id="scan-loading" class="hidden max-w-2xl mx-auto py-12">
+          <div class="flex flex-col items-center gap-6">
+            <div class="w-full max-w-sm">
+              <div class="h-1.5 bg-warm-grey/30 rounded-full overflow-hidden">
+                <div id="scan-progress" class="h-full bg-indigo rounded-full transition-all duration-700 ease-out" style="width:0%"></div>
+              </div>
+            </div>
+            <p id="scan-step" class="text-sm font-medium text-text-secondary"></p>
+            <p class="text-xs text-muted">Dit duurt gemiddeld 15-30 seconden</p>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div id="scan-results" class="hidden max-w-3xl mx-auto">
+          <div class="bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.08)] border border-white overflow-hidden">
+            <div class="px-8 py-6 border-b border-warm-grey/30 flex items-center justify-between gap-4 flex-wrap">
+              <div>
+                <p class="text-[10px] font-bold text-text-secondary uppercase tracking-[0.25em] mb-1">Scanresultaat voor</p>
+                <p id="scan-url-label" class="text-sm font-bold text-dark truncate max-w-xs"></p>
+              </div>
+              <span class="text-[10px] font-bold text-indigo uppercase tracking-[0.2em] bg-indigo/8 px-3 py-1.5 rounded-full">Mobiel</span>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-warm-grey/20">
+              <div class="score-card bg-white px-6 py-8 text-center">
+                <div class="relative w-16 h-16 mx-auto mb-3">
+                  <svg class="w-16 h-16 -rotate-90" viewBox="0 0 64 64">
+                    <circle cx="32" cy="32" r="26" fill="none" stroke="#f0ede8" stroke-width="5"/>
+                    <circle id="score-perf-ring" cx="32" cy="32" r="26" fill="none" stroke="#2D3FE0" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="163"/>
+                  </svg>
+                  <span id="score-perf" class="absolute inset-0 flex items-center justify-center text-lg font-bold text-dark">—</span>
+                </div>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary">Snelheid</p>
+              </div>
+              <div class="score-card bg-white px-6 py-8 text-center">
+                <div class="relative w-16 h-16 mx-auto mb-3">
+                  <svg class="w-16 h-16 -rotate-90" viewBox="0 0 64 64">
+                    <circle cx="32" cy="32" r="26" fill="none" stroke="#f0ede8" stroke-width="5"/>
+                    <circle id="score-seo-ring" cx="32" cy="32" r="26" fill="none" stroke="#2D3FE0" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="163"/>
+                  </svg>
+                  <span id="score-seo" class="absolute inset-0 flex items-center justify-center text-lg font-bold text-dark">—</span>
+                </div>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary">SEO</p>
+              </div>
+              <div class="score-card bg-white px-6 py-8 text-center">
+                <div class="relative w-16 h-16 mx-auto mb-3">
+                  <svg class="w-16 h-16 -rotate-90" viewBox="0 0 64 64">
+                    <circle cx="32" cy="32" r="26" fill="none" stroke="#f0ede8" stroke-width="5"/>
+                    <circle id="score-acc-ring" cx="32" cy="32" r="26" fill="none" stroke="#2D3FE0" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="163"/>
+                  </svg>
+                  <span id="score-acc" class="absolute inset-0 flex items-center justify-center text-lg font-bold text-dark">—</span>
+                </div>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary">Toegankelijkheid</p>
+              </div>
+              <div class="score-card bg-white px-6 py-8 text-center">
+                <div class="relative w-16 h-16 mx-auto mb-3">
+                  <svg class="w-16 h-16 -rotate-90" viewBox="0 0 64 64">
+                    <circle cx="32" cy="32" r="26" fill="none" stroke="#f0ede8" stroke-width="5"/>
+                    <circle id="score-bp-ring" cx="32" cy="32" r="26" fill="none" stroke="#2D3FE0" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="163"/>
+                  </svg>
+                  <span id="score-bp" class="absolute inset-0 flex items-center justify-center text-lg font-bold text-dark">—</span>
+                </div>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary">Best practices</p>
+              </div>
+            </div>
+
+            <div id="scan-roast" class="px-8 py-6 border-b border-warm-grey/30 hidden">
+              <p class="text-[10px] font-bold text-text-secondary uppercase tracking-[0.25em] mb-4">Onze analyse</p>
+              <ul id="scan-issues" class="space-y-3"></ul>
+            </div>
+
+            <div class="px-8 py-6">
+              <p id="scan-verdict" class="font-bold text-dark text-sm mb-4"></p>
+              <div id="scan-lead-form" class="flex gap-3 p-1.5 bg-cream rounded-xl border border-warm-grey/30">
+                <input
+                  id="scan-email"
+                  type="email"
+                  placeholder="Je e-mailadres"
+                  class="flex-1 px-4 py-2.5 text-sm text-dark placeholder:text-muted bg-transparent outline-none"
+                />
+                <button
+                  id="scan-send-btn"
+                  class="px-5 py-2.5 bg-indigo text-white text-xs font-bold rounded-lg hover:bg-indigo-light transition-colors whitespace-nowrap"
+                >
+                  Ontvang rapport
+                </button>
+              </div>
+              <p class="text-[10px] text-muted mt-2">We sturen je de resultaten en een paar concrete verbeterpunten.</p>
+              <div id="scan-lead-success" class="hidden py-3">
+                <p class="text-sm font-bold text-green-600 flex items-center gap-2">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                  Verstuurd! Check je inbox.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Werkwijze -->
     <section id="werkwijze" class="relative z-10 py-16 md:py-24">
@@ -495,149 +632,6 @@ import CTA from '../../components/CTA.astro';
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- Website Scan Tool -->
-    <section class="relative z-10 py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <div class="reveal max-w-3xl mx-auto text-center mb-10 md:mb-14">
-          <span class="inline-flex items-center gap-2 text-xs font-bold text-indigo uppercase tracking-[0.2em] mb-4">
-            <span class="w-8 h-[2px] bg-indigo"></span>
-            Gratis tool
-            <span class="w-8 h-[2px] bg-indigo"></span>
-          </span>
-          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight text-dark mb-4">
-            Hoe scoort jouw website?
-          </h2>
-          <p class="text-text-secondary text-base md:text-lg leading-relaxed">
-            Vul je URL in en ontdek in seconden hoe je website presteert op snelheid, SEO en gebruiksvriendelijkheid.
-          </p>
-        </div>
-
-        <!-- Input -->
-        <div class="reveal max-w-2xl mx-auto mb-10" style="transition-delay:100ms">
-          <div class="flex gap-3 p-2 bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white">
-            <input
-              id="scan-input"
-              type="url"
-              placeholder="https://jouwwebsite.nl"
-              class="flex-1 px-4 py-3 text-sm md:text-base text-dark placeholder:text-muted bg-transparent outline-none"
-            />
-            <button
-              id="scan-btn"
-              class="px-6 py-3 bg-indigo text-white text-sm font-bold rounded-xl hover:bg-indigo-light transition-colors duration-200 whitespace-nowrap"
-            >
-              Scan nu
-            </button>
-          </div>
-          <p id="scan-error" class="text-sm text-red-500 mt-2 px-2 hidden"></p>
-        </div>
-
-        <!-- Loading -->
-        <div id="scan-loading" class="hidden max-w-2xl mx-auto py-12">
-          <div class="flex flex-col items-center gap-6">
-            <!-- Progress bar -->
-            <div class="w-full max-w-sm">
-              <div class="h-1.5 bg-warm-grey/30 rounded-full overflow-hidden">
-                <div id="scan-progress" class="h-full bg-indigo rounded-full transition-all duration-700 ease-out" style="width:0%"></div>
-              </div>
-            </div>
-            <!-- Step label -->
-            <p id="scan-step" class="text-sm font-medium text-text-secondary"></p>
-            <p class="text-xs text-muted">Dit duurt gemiddeld 15-30 seconden</p>
-          </div>
-        </div>
-
-        <!-- Results -->
-        <div id="scan-results" class="hidden max-w-3xl mx-auto">
-          <div class="bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.08)] border border-white overflow-hidden">
-            <!-- Header -->
-            <div class="px-8 py-6 border-b border-warm-grey/30 flex items-center justify-between gap-4 flex-wrap">
-              <div>
-                <p class="text-[10px] font-bold text-text-secondary uppercase tracking-[0.25em] mb-1">Scanresultaat voor</p>
-                <p id="scan-url-label" class="text-sm font-bold text-dark truncate max-w-xs"></p>
-              </div>
-              <span class="text-[10px] font-bold text-indigo uppercase tracking-[0.2em] bg-indigo/8 px-3 py-1.5 rounded-full">Mobiel</span>
-            </div>
-
-            <!-- Scores -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-warm-grey/20">
-              <div class="score-card bg-white px-6 py-8 text-center">
-                <div class="relative w-16 h-16 mx-auto mb-3">
-                  <svg class="w-16 h-16 -rotate-90" viewBox="0 0 64 64">
-                    <circle cx="32" cy="32" r="26" fill="none" stroke="#f0ede8" stroke-width="5"/>
-                    <circle id="score-perf-ring" cx="32" cy="32" r="26" fill="none" stroke="#2D3FE0" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="163"/>
-                  </svg>
-                  <span id="score-perf" class="absolute inset-0 flex items-center justify-center text-lg font-bold text-dark">—</span>
-                </div>
-                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary">Snelheid</p>
-              </div>
-              <div class="score-card bg-white px-6 py-8 text-center">
-                <div class="relative w-16 h-16 mx-auto mb-3">
-                  <svg class="w-16 h-16 -rotate-90" viewBox="0 0 64 64">
-                    <circle cx="32" cy="32" r="26" fill="none" stroke="#f0ede8" stroke-width="5"/>
-                    <circle id="score-seo-ring" cx="32" cy="32" r="26" fill="none" stroke="#2D3FE0" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="163"/>
-                  </svg>
-                  <span id="score-seo" class="absolute inset-0 flex items-center justify-center text-lg font-bold text-dark">—</span>
-                </div>
-                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary">SEO</p>
-              </div>
-              <div class="score-card bg-white px-6 py-8 text-center">
-                <div class="relative w-16 h-16 mx-auto mb-3">
-                  <svg class="w-16 h-16 -rotate-90" viewBox="0 0 64 64">
-                    <circle cx="32" cy="32" r="26" fill="none" stroke="#f0ede8" stroke-width="5"/>
-                    <circle id="score-acc-ring" cx="32" cy="32" r="26" fill="none" stroke="#2D3FE0" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="163"/>
-                  </svg>
-                  <span id="score-acc" class="absolute inset-0 flex items-center justify-center text-lg font-bold text-dark">—</span>
-                </div>
-                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary">Toegankelijkheid</p>
-              </div>
-              <div class="score-card bg-white px-6 py-8 text-center">
-                <div class="relative w-16 h-16 mx-auto mb-3">
-                  <svg class="w-16 h-16 -rotate-90" viewBox="0 0 64 64">
-                    <circle cx="32" cy="32" r="26" fill="none" stroke="#f0ede8" stroke-width="5"/>
-                    <circle id="score-bp-ring" cx="32" cy="32" r="26" fill="none" stroke="#2D3FE0" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="163"/>
-                  </svg>
-                  <span id="score-bp" class="absolute inset-0 flex items-center justify-center text-lg font-bold text-dark">—</span>
-                </div>
-                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary">Best practices</p>
-              </div>
-            </div>
-
-            <!-- AI Roast -->
-            <div id="scan-roast" class="px-8 py-6 border-b border-warm-grey/30 hidden">
-              <p class="text-[10px] font-bold text-text-secondary uppercase tracking-[0.25em] mb-4">Onze analyse</p>
-              <ul id="scan-issues" class="space-y-3"></ul>
-            </div>
-
-            <!-- Verdict + Lead Capture -->
-            <div class="px-8 py-6">
-              <p id="scan-verdict" class="font-bold text-dark text-sm mb-4"></p>
-              <div id="scan-lead-form" class="flex gap-3 p-1.5 bg-cream rounded-xl border border-warm-grey/30">
-                <input
-                  id="scan-email"
-                  type="email"
-                  placeholder="Je e-mailadres"
-                  class="flex-1 px-4 py-2.5 text-sm text-dark placeholder:text-muted bg-transparent outline-none"
-                />
-                <button
-                  id="scan-send-btn"
-                  class="px-5 py-2.5 bg-indigo text-white text-xs font-bold rounded-lg hover:bg-indigo-light transition-colors whitespace-nowrap"
-                >
-                  Ontvang rapport
-                </button>
-              </div>
-              <p class="text-[10px] text-muted mt-2">We sturen je de resultaten en een paar concrete verbeterpunten.</p>
-              <div id="scan-lead-success" class="hidden py-3">
-                <p class="text-sm font-bold text-green-600 flex items-center gap-2">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                  Verstuurd! Check je inbox.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 

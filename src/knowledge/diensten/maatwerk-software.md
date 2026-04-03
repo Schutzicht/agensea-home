@@ -1,4 +1,4 @@
-# Maatwerk Software & Automatisering
+# Software op maat & Automatisering
 
 ## Wat we doen
 Tijd besparen met slimme software. Wij ontwerpen praktische applicaties en AI-gedreven tools die je wekelijks uren aan tijd besparen. Van foutgevoelig handwerk naar een gestroomlijnd proces.
