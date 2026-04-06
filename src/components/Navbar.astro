@@ -13,7 +13,7 @@
       href="/"
       class="font-display text-2xl font-bold tracking-tight interactive pointer-events-auto"
       id="logo-main"
-    ><span class="logo-char text-dark transition-colors duration-300">a</span><span class="logo-char text-dark transition-colors duration-300">g</span><span class="logo-char text-dark transition-colors duration-300">e</span><span class="logo-char text-dark transition-colors duration-300">n</span><span class="logo-char text-dark transition-colors duration-300">s</span><span class="logo-char text-dark transition-colors duration-300">e</span><span class="logo-char text-dark transition-colors duration-300">a</span><span class="logo-char text-indigo transition-colors duration-300">.</span></a>
+    ><span class="logo-char text-dark transition-colors duration-300">a</span><span class="logo-char text-dark transition-colors duration-300">g</span><span class="logo-char text-dark transition-colors duration-300">e</span><span class="logo-char text-dark transition-colors duration-300">n</span><span class="logo-char logo-flicker text-indigo transition-colors duration-300" style="animation-delay: 0s;">s</span><span class="logo-char logo-flicker text-indigo transition-colors duration-300" style="animation-delay: 0.15s;">e</span><span class="logo-char logo-flicker text-indigo transition-colors duration-300" style="animation-delay: 0.08s;">a</span><span class="logo-char text-indigo transition-colors duration-300">.</span></a>
 
     <!-- Navigation Pill (v9.1: Right Aligned & Scaled Up) -->
     <div class="pointer-events-none" id="nav-wrapper">
@@ -328,12 +328,13 @@
 
       results.forEach(({ char, isDark }) => {
         const isDot = char.textContent === '.';
+        const isFlicker = char.classList.contains('logo-flicker');
         if (isDark) {
           char.classList.remove('text-dark', 'text-indigo');
           char.classList.add('text-white');
         } else {
           char.classList.remove('text-white');
-          if (isDot) {
+          if (isDot || isFlicker) {
             char.classList.add('text-indigo');
             char.classList.remove('text-dark');
           } else {
@@ -362,4 +363,35 @@
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  .logo-flicker {
+    animation: neonFlicker 2s ease-in-out 1 forwards;
+  }
+
+  @keyframes neonFlicker {
+    0%, 100% { opacity: 1; }
+    15% { opacity: 1; }
+    16% { opacity: 0.05; }
+    17% { opacity: 0.7; }
+    17.5% { opacity: 0.08; }
+    19% { opacity: 0.85; }
+    19.5% { opacity: 0.1; }
+    20.5% { opacity: 1; }
+    21% { opacity: 0.3; }
+    22% { opacity: 1; }
+    55% { opacity: 1; }
+    56% { opacity: 0.08; }
+    56.5% { opacity: 0.5; }
+    57% { opacity: 0.05; }
+    58.5% { opacity: 0.75; }
+    59% { opacity: 0.12; }
+    60% { opacity: 0.9; }
+    60.5% { opacity: 0.2; }
+    62% { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-flicker {
+      animation: none;
+    }
+  }
 </style>
