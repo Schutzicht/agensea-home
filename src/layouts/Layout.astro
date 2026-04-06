@@ -38,8 +38,12 @@ const finalDescription = seoDescription || description;
     {ogImage && <meta property="og:image" content={ogImage} />}
     <slot name="head" />
 
-    <!-- Lenis smooth scroll CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css" />
+    <!-- Preconnect to unpkg for Lenis -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+
+    <!-- Lenis smooth scroll CSS (non-render-blocking) -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css" /></noscript>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -269,17 +273,22 @@ const finalDescription = seoDescription || description;
     </script>
 
     <!-- Lenis smooth scroll -->
-    <script is:inline src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
+    <script is:inline src="https://unpkg.com/lenis@1/dist/lenis.min.js" defer></script>
     <script is:inline>
-      const lenis = new Lenis();
-      window.lenis = lenis;
-
-      function raf(time) {
-        lenis.raf(time);
+      function initLenis() {
+        var lenis = new Lenis();
+        window.lenis = lenis;
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
       }
-
-      requestAnimationFrame(raf);
+      if (typeof Lenis !== 'undefined') {
+        initLenis();
+      } else {
+        document.querySelector('script[src*="lenis"]').addEventListener('load', initLenis);
+      }
     </script>
   </body>
 </html>
