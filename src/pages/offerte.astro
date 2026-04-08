@@ -1,0 +1,357 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Offerte aanvragen | Agensea" description="Vraag vrijblijvend een offerte aan voor je website, marketing of software project.">
+  <Navbar />
+
+  <main class="bg-cream min-h-screen pt-32 md:pt-48 pb-20 overflow-hidden relative">
+    <!-- Background -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="mesh-blob w-[600px] h-[600px] bg-indigo/10 top-[-10%] right-[-10%] blur-[120px]"></div>
+      <div class="mesh-blob w-[500px] h-[500px] bg-violet/10 bottom-[10%] left-[-10%] blur-[100px]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-16 lg:gap-24">
+
+        <!-- Left: Info -->
+        <div class="lg:col-span-5 relative">
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 text-xs font-bold text-indigo uppercase tracking-[0.2em] mb-6">
+              <span class="w-8 h-[2px] bg-indigo"></span>
+              Offerte
+            </span>
+            <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-dark mb-6">
+              Vertel ons wat je <span class="text-indigo">nodig hebt.</span>
+            </h1>
+            <p class="text-lg text-text-secondary leading-relaxed mb-10">
+              Vul het formulier in en we sturen je binnen twee werkdagen een vrijblijvende offerte. Hoe meer je deelt, hoe beter we je kunnen helpen.
+            </p>
+
+            <!-- Trust signals -->
+            <div class="space-y-4 mb-10">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-indigo/10 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-indigo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <span class="text-sm text-dark font-medium">Vrijblijvend en gratis</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-indigo/10 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-indigo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <span class="text-sm text-dark font-medium">Reactie binnen 2 werkdagen</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-indigo/10 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-indigo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <span class="text-sm text-dark font-medium">Eerlijk advies, geen verkooppraatje</span>
+              </div>
+            </div>
+
+            <!-- Direct contact -->
+            <div class="p-6 bg-white rounded-2xl border border-warm-grey/30">
+              <p class="text-xs font-bold text-text-secondary uppercase tracking-widest mb-3">Liever even bellen?</p>
+              <a href="tel:+31681383601" class="text-xl font-bold text-dark hover:text-indigo transition-colors">06 81 38 36 01</a>
+              <p class="text-sm text-text-secondary mt-1">Ma t/m vr, 08:00 – 19:00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="lg:col-span-7">
+          <div class="reveal delay-200">
+            <form id="offerte-form" class="bg-white rounded-3xl border border-warm-grey/20 shadow-xl p-8 md:p-10 space-y-6">
+
+              <!-- Stap indicator -->
+              <div class="flex items-center gap-3 mb-2">
+                <div id="step-1-dot" class="w-8 h-8 rounded-full bg-indigo text-white flex items-center justify-center text-xs font-bold">1</div>
+                <div class="flex-1 h-0.5 bg-warm-grey/30 rounded"><div id="progress-bar" class="h-full bg-indigo rounded transition-all duration-500" style="width: 0%"></div></div>
+                <div id="step-2-dot" class="w-8 h-8 rounded-full bg-warm-grey/30 text-text-secondary flex items-center justify-center text-xs font-bold">2</div>
+                <div class="flex-1 h-0.5 bg-warm-grey/30 rounded"><div id="progress-bar-2" class="h-full bg-indigo rounded transition-all duration-500" style="width: 0%"></div></div>
+                <div id="step-3-dot" class="w-8 h-8 rounded-full bg-warm-grey/30 text-text-secondary flex items-center justify-center text-xs font-bold">3</div>
+              </div>
+
+              <!-- Step 1: Wat heb je nodig -->
+              <div id="step-1" class="space-y-5">
+                <div>
+                  <p class="font-display font-bold text-xl text-dark mb-1">Wat heb je nodig?</p>
+                  <p class="text-sm text-text-secondary">Selecteer alles wat van toepassing is.</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3" id="service-options">
+                  <label class="service-option group cursor-pointer">
+                    <input type="checkbox" name="dienst" value="nieuwe-website" class="hidden" />
+                    <div class="p-4 rounded-xl border-2 border-warm-grey/30 bg-cream/50 hover:border-indigo/50 transition-all text-center group-has-[:checked]:border-indigo group-has-[:checked]:bg-indigo/5">
+                      <span class="text-lg mb-1 block">🌐</span>
+                      <span class="text-sm font-bold text-dark">Nieuwe website</span>
+                    </div>
+                  </label>
+                  <label class="service-option group cursor-pointer">
+                    <input type="checkbox" name="dienst" value="webshop" class="hidden" />
+                    <div class="p-4 rounded-xl border-2 border-warm-grey/30 bg-cream/50 hover:border-indigo/50 transition-all text-center group-has-[:checked]:border-indigo group-has-[:checked]:bg-indigo/5">
+                      <span class="text-lg mb-1 block">🛒</span>
+                      <span class="text-sm font-bold text-dark">Webshop</span>
+                    </div>
+                  </label>
+                  <label class="service-option group cursor-pointer">
+                    <input type="checkbox" name="dienst" value="website-vernieuwen" class="hidden" />
+                    <div class="p-4 rounded-xl border-2 border-warm-grey/30 bg-cream/50 hover:border-indigo/50 transition-all text-center group-has-[:checked]:border-indigo group-has-[:checked]:bg-indigo/5">
+                      <span class="text-lg mb-1 block">🔄</span>
+                      <span class="text-sm font-bold text-dark">Website upgrade</span>
+                    </div>
+                  </label>
+                  <label class="service-option group cursor-pointer">
+                    <input type="checkbox" name="dienst" value="online-marketing" class="hidden" />
+                    <div class="p-4 rounded-xl border-2 border-warm-grey/30 bg-cream/50 hover:border-indigo/50 transition-all text-center group-has-[:checked]:border-indigo group-has-[:checked]:bg-indigo/5">
+                      <span class="text-lg mb-1 block">📈</span>
+                      <span class="text-sm font-bold text-dark">Online marketing</span>
+                    </div>
+                  </label>
+                  <label class="service-option group cursor-pointer">
+                    <input type="checkbox" name="dienst" value="software" class="hidden" />
+                    <div class="p-4 rounded-xl border-2 border-warm-grey/30 bg-cream/50 hover:border-indigo/50 transition-all text-center group-has-[:checked]:border-indigo group-has-[:checked]:bg-indigo/5">
+                      <span class="text-lg mb-1 block">⚙️</span>
+                      <span class="text-sm font-bold text-dark">Software op maat</span>
+                    </div>
+                  </label>
+                  <label class="service-option group cursor-pointer">
+                    <input type="checkbox" name="dienst" value="anders" class="hidden" />
+                    <div class="p-4 rounded-xl border-2 border-warm-grey/30 bg-cream/50 hover:border-indigo/50 transition-all text-center group-has-[:checked]:border-indigo group-has-[:checked]:bg-indigo/5">
+                      <span class="text-lg mb-1 block">💡</span>
+                      <span class="text-sm font-bold text-dark">Iets anders</span>
+                    </div>
+                  </label>
+                </div>
+
+                <button type="button" id="to-step-2" class="w-full py-4 bg-dark text-white rounded-xl font-medium hover:bg-indigo transition-colors duration-300 text-sm">
+                  Volgende
+                </button>
+              </div>
+
+              <!-- Step 2: Details -->
+              <div id="step-2" class="space-y-5 hidden">
+                <div>
+                  <p class="font-display font-bold text-xl text-dark mb-1">Vertel ons meer</p>
+                  <p class="text-sm text-text-secondary">Zodat we een goede inschatting kunnen maken.</p>
+                </div>
+
+                <div>
+                  <label class="text-sm font-medium text-dark mb-1.5 block">Wat is je doel? <span class="text-text-secondary font-normal">(optioneel)</span></label>
+                  <select name="doel" class="w-full bg-cream border border-warm-grey/50 rounded-xl px-5 py-3.5 focus:outline-none focus:border-indigo transition-all text-dark">
+                    <option value="">Selecteer een doel</option>
+                    <option value="meer-klanten">Meer klanten binnenhalen</option>
+                    <option value="online-verkopen">Online producten verkopen</option>
+                    <option value="naamsbekendheid">Naamsbekendheid vergroten</option>
+                    <option value="processen-automatiseren">Processen automatiseren</option>
+                    <option value="huidige-site-verbeteren">Huidige website verbeteren</option>
+                    <option value="anders">Iets anders</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="text-sm font-medium text-dark mb-1.5 block">Budget indicatie <span class="text-text-secondary font-normal">(optioneel)</span></label>
+                  <select name="budget" class="w-full bg-cream border border-warm-grey/50 rounded-xl px-5 py-3.5 focus:outline-none focus:border-indigo transition-all text-dark">
+                    <option value="">Nog geen idee</option>
+                    <option value="< 2500">Minder dan €2.500</option>
+                    <option value="2500-5000">€2.500 – €5.000</option>
+                    <option value="5000-10000">€5.000 – €10.000</option>
+                    <option value="10000+">Meer dan €10.000</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="text-sm font-medium text-dark mb-1.5 block">Omschrijving <span class="text-text-secondary font-normal">(optioneel)</span></label>
+                  <textarea name="omschrijving" rows="4" placeholder="Bijv. ik heb een bakkerij en wil online bestellingen aannemen..." class="w-full bg-cream border border-warm-grey/50 rounded-xl px-5 py-3.5 focus:outline-none focus:border-indigo transition-all text-dark placeholder:text-text-secondary/50 resize-y"></textarea>
+                </div>
+
+                <div class="flex gap-3">
+                  <button type="button" id="back-to-1" class="px-6 py-4 border border-warm-grey/50 rounded-xl font-medium text-dark hover:border-indigo transition-all text-sm">
+                    Terug
+                  </button>
+                  <button type="button" id="to-step-3" class="flex-1 py-4 bg-dark text-white rounded-xl font-medium hover:bg-indigo transition-colors duration-300 text-sm">
+                    Volgende
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 3: Gegevens -->
+              <div id="step-3" class="space-y-5 hidden">
+                <div>
+                  <p class="font-display font-bold text-xl text-dark mb-1">Jouw gegevens</p>
+                  <p class="text-sm text-text-secondary">Dan nemen we zo snel mogelijk contact op.</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label class="text-sm font-medium text-dark mb-1.5 block">Naam *</label>
+                    <input type="text" name="naam" required placeholder="Je naam" class="w-full bg-cream border border-warm-grey/50 rounded-xl px-5 py-3.5 focus:outline-none focus:border-indigo transition-all text-dark placeholder:text-text-secondary/50" />
+                  </div>
+                  <div>
+                    <label class="text-sm font-medium text-dark mb-1.5 block">Bedrijf <span class="text-text-secondary font-normal">(optioneel)</span></label>
+                    <input type="text" name="bedrijf" placeholder="Je bedrijfsnaam" class="w-full bg-cream border border-warm-grey/50 rounded-xl px-5 py-3.5 focus:outline-none focus:border-indigo transition-all text-dark placeholder:text-text-secondary/50" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="text-sm font-medium text-dark mb-1.5 block">E-mailadres *</label>
+                  <input type="email" name="email" required placeholder="je@email.nl" class="w-full bg-cream border border-warm-grey/50 rounded-xl px-5 py-3.5 focus:outline-none focus:border-indigo transition-all text-dark placeholder:text-text-secondary/50" />
+                </div>
+
+                <div>
+                  <label class="text-sm font-medium text-dark mb-1.5 block">Telefoonnummer <span class="text-text-secondary font-normal">(optioneel)</span></label>
+                  <input type="tel" name="telefoon" placeholder="06 12 34 56 78" class="w-full bg-cream border border-warm-grey/50 rounded-xl px-5 py-3.5 focus:outline-none focus:border-indigo transition-all text-dark placeholder:text-text-secondary/50" />
+                </div>
+
+                <div>
+                  <label class="text-sm font-medium text-dark mb-1.5 block">Huidige website <span class="text-text-secondary font-normal">(optioneel)</span></label>
+                  <input type="url" name="website" placeholder="https://jouwsite.nl" class="w-full bg-cream border border-warm-grey/50 rounded-xl px-5 py-3.5 focus:outline-none focus:border-indigo transition-all text-dark placeholder:text-text-secondary/50" />
+                </div>
+
+                <div class="flex gap-3">
+                  <button type="button" id="back-to-2" class="px-6 py-4 border border-warm-grey/50 rounded-xl font-medium text-dark hover:border-indigo transition-all text-sm">
+                    Terug
+                  </button>
+                  <button type="submit" class="flex-1 py-4 bg-indigo text-white rounded-xl font-medium hover:bg-dark transition-colors duration-300 text-sm flex items-center justify-center gap-2">
+                    Offerte aanvragen
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Success -->
+              <div id="step-success" class="hidden text-center py-8">
+                <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <h3 class="font-display text-2xl font-bold text-dark mb-2">Ontvangen!</h3>
+                <p class="text-text-secondary">We nemen binnen twee werkdagen contact met je op met een vrijblijvende offerte.</p>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  // ── URL param presets ──
+  const params = new URLSearchParams(window.location.search);
+
+  // Pre-select dienst(en) from URL: /offerte?dienst=webshop or /offerte?dienst=nieuwe-website,online-marketing
+  const presetDienst = params.get('dienst');
+  if (presetDienst) {
+    presetDienst.split(',').forEach(d => {
+      const cb = document.querySelector(`input[name="dienst"][value="${d}"]`) as HTMLInputElement;
+      if (cb) cb.checked = true;
+    });
+  }
+
+  // Pre-select doel from URL: /offerte?doel=meer-klanten
+  const presetDoel = params.get('doel');
+  if (presetDoel) {
+    const select = document.querySelector('select[name="doel"]') as HTMLSelectElement;
+    if (select) select.value = presetDoel;
+  }
+
+  // ── Step navigation ──
+  const step1 = document.getElementById('step-1')!;
+  const step2 = document.getElementById('step-2')!;
+  const step3 = document.getElementById('step-3')!;
+  const stepSuccess = document.getElementById('step-success')!;
+  const progressBar = document.getElementById('progress-bar')!;
+  const progressBar2 = document.getElementById('progress-bar-2')!;
+  const dot1 = document.getElementById('step-1-dot')!;
+  const dot2 = document.getElementById('step-2-dot')!;
+  const dot3 = document.getElementById('step-3-dot')!;
+
+  function showStep(step: number) {
+    step1.classList.toggle('hidden', step !== 1);
+    step2.classList.toggle('hidden', step !== 2);
+    step3.classList.toggle('hidden', step !== 3);
+    stepSuccess.classList.toggle('hidden', step !== 4);
+
+    // Progress
+    progressBar.style.width = step >= 2 ? '100%' : '0%';
+    progressBar2.style.width = step >= 3 ? '100%' : '0%';
+
+    // Dots
+    [dot1, dot2, dot3].forEach((dot, i) => {
+      if (i + 1 <= step) {
+        dot.classList.remove('bg-warm-grey/30', 'text-text-secondary');
+        dot.classList.add('bg-indigo', 'text-white');
+      } else {
+        dot.classList.add('bg-warm-grey/30', 'text-text-secondary');
+        dot.classList.remove('bg-indigo', 'text-white');
+      }
+    });
+
+    // Scroll form into view
+    document.getElementById('offerte-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.getElementById('to-step-2')?.addEventListener('click', () => {
+    // Validate at least one service selected
+    const checked = document.querySelectorAll('input[name="dienst"]:checked');
+    if (checked.length === 0) {
+      // Shake the options briefly
+      document.getElementById('service-options')?.classList.add('animate-shake');
+      setTimeout(() => document.getElementById('service-options')?.classList.remove('animate-shake'), 500);
+      return;
+    }
+    showStep(2);
+  });
+
+  document.getElementById('to-step-3')?.addEventListener('click', () => showStep(3));
+  document.getElementById('back-to-1')?.addEventListener('click', () => showStep(1));
+  document.getElementById('back-to-2')?.addEventListener('click', () => showStep(2));
+
+  // ── Form submit ──
+  document.getElementById('offerte-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+
+    // Collect services
+    const diensten = Array.from(data.getAll('dienst'));
+
+    const payload = {
+      diensten,
+      doel: data.get('doel'),
+      budget: data.get('budget'),
+      omschrijving: data.get('omschrijving'),
+      naam: data.get('naam'),
+      bedrijf: data.get('bedrijf'),
+      email: data.get('email'),
+      telefoon: data.get('telefoon'),
+      website: data.get('website'),
+    };
+
+    // For now just show success (can be connected to API later)
+    console.log('Offerte aanvraag:', payload);
+    showStep(4);
+  });
+</script>
+
+<style>
+  .animate-shake {
+    animation: shake 0.4s ease-in-out;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+  }
+</style>
