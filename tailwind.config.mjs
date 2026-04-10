@@ -20,7 +20,7 @@ export default {
             },
             fontFamily: {
                 'sans': ['Inter', 'system-ui', 'sans-serif'],
-                'display': ['Chakra Petch', 'Inter', 'system-ui', 'sans-serif'],
+                'display': ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
             },
             animation: {
                 'fade-in': 'fadeIn 0.5s ease-out forwards',
